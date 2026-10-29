@@ -1,6 +1,6 @@
 # exportar-ifc-federado
 
-Este é o método do **IFC federado único** das escolas ETIB (contrato QG 24-049 / CONDER), empacotado como skill do Claude Code. É o padrão aprovado na Jandaíra R04 em 29/10/2026.
+Este é o método do **IFC federado único** das escolas ETIB , empacotado como skill do Claude Code. É o padrão aprovado na Jandaíra R04 em 29/10/2026.
 
 O resultado é um só IFC4 da escola com:
 - o terreno recortado no lote;
@@ -11,7 +11,6 @@ O resultado é um só IFC4 da escola com:
 
 Ele passa por conferência automática e sai com prévias e o pacote de envio.
 
-Testado em 29/10/2026: refazendo a Jandaíra só pela configuração `escolas/JDI.json`, o resultado saiu igual à R04 entregue (mesmas 10 edificações e contagens, validação IFC4 sem erros, conferência APROVADA).
 
 ## Instalar (uma vez)
 
