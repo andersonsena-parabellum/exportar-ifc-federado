@@ -1,0 +1,8 @@
+# versões testadas no federado da Jandaíra R04 (Python 3.11)
+ifcopenshell==0.9.0.post1
+ifcpatch==0.9.0
+numpy==2.4.6
+scipy==1.17.1
+shapely==2.2.0
+ezdxf==1.4.5
+matplotlib==3.11.2

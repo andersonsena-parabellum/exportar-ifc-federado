@@ -1,0 +1,89 @@
+{
+  "_comentario": "Exemplo real: Jandaíra R04 (aprovada pelo Daniel em 29/10/2026). Copie para a pasta FEDERADO_UNICO da escola e ajuste. Caminhos relativos à 'raiz'.",
+  "escola": "Jandaíra",
+  "sigla": "JDI",
+  "pasta_envio": "JANDAIRA",
+  "nome_completo": "Colégio Estadual de Tempo Integral Professora Elisabeth Calazans Alves dos Santos — Jandaíra/BA",
+  "contrato": "Contrato 24-049 QG / CONDER",
+  "raiz": ".",
+  "pasta_saidas": ".",
+  "georref": {"epsg": "EPSG:31984", "nome": "SIRGAS 2000 / UTM zona 24S", "datum": "SIRGAS2000", "zona": "24S", "e0": 631578.10, "n0": 8721003.57},
+  "cota": {"min": 140, "max": 165, "piso_max": 149, "pegada_acima_de": 146.5, "tamanho_max": 120, "arq_est_max": 3.0},
+
+  "terreno_asbuilt": "fontes/R03_IFC/JDI_IMP_TERRENO_R03.ifc",
+  "redes": ["fontes/R03_IFC/JDI_IMP_HIDRO_R03.ifc", "fontes/R03_IFC/JDI_IMP_ELETRICA_R03.ifc", "fontes/R03_IFC/JDI_IMP_PCI_R03.ifc"],
+  "nome_implantacao": "Implantação — redes externas (inclusive drenagem e elétrica do campo)",
+  "estrutura": [
+    {"arquivo": "fontes/R03_IFC/JDI_IMP_ESTRUTURA-ASBUILT_R03.ifc", "modulo": "EST", "prefixo": "Módulos",
+     "modulo_por_sistema": {"EST-GUA": "GUA", "EST-SB3": "SB3", "EST-CDG": "CDG", "EST-CDR": "CDR"}, "modulo_outros": "IMP",
+     "excluir_sistemas": ["EST-BP4"]},
+    {"arquivo": "../BP4/envio/ETIB-JANDAIRA-BP4_2026-10-27_R01/03_IFC/JAN-BP4_R01_EST.ifc", "modulo": "BP4", "prefixo": "BP4"}
+  ],
+
+  "modulos": {
+    "BP4": {"nome": "BP4 — Bloco principal (SEC 10 salas)", "arquivo": "fontes/RVT_EXPORT/JDI_BP4_ARQ_RVT.ifc",
+            "posicao": {"giro_graus": -58.9075, "e": 631529.527, "n": 8721120.793, "dz": 147.465},
+            "manter_nomes_com": ["CALHA"],
+            "origem": "RVT de arquitetura do BP4 da construtora (24-XXX-XXX-XXX-ETIB-BP4-PE-ARQ-001-MOD-R00), na posição do vínculo dentro do RVT da implantação; piso na cota as built 147,565"},
+    "GUA": {"nome": "GUA — Guarita", "arquivo": "fontes/ARQ_padrao/25-013-GUA-PE-ARQ-R01.ifc",
+            "posicao": {"giro_graus": 204.11, "x": 34.3242250901732, "y": 20.153780425817054, "dz": 147.49}, "manter_estrutura": false,
+            "origem": "Arquitetura padrão do programa ETIB (25-013-GUA-PE-ARQ-R01), posicionada na implantação da Jandaíra"},
+    "SB3": {"nome": "SB3 — Subestação", "arquivo": "fontes/ARQ_padrao/25-051-FSA-CCL-ETIB-SB1-PE-ARQ-001-IFC-R00.ifc",
+            "posicao": {"giro_graus": 23.69, "x": 55.30780261192774, "y": 32.185503753577144, "dz": 147.40}, "manter_estrutura": false,
+            "origem": "Arquitetura padrão do programa ETIB (SB1), posicionada na implantação da Jandaíra"},
+    "CDG": {"nome": "CDG — Casa de gás", "arquivo": "fontes/ARQ_padrao/25-051-FSA-CCL-ETIB-CDG-PE-ARQ-001-IFC-R00.ifc",
+            "posicao": {"giro_graus": 31.11, "x": -6.431602503148437, "y": 100.62840003476818, "dz": 147.47}, "manter_estrutura": false,
+            "origem": "Arquitetura padrão do programa ETIB, centrada nos pilares as built (orientação adotada)"},
+    "CDR": {"nome": "CDR — Casa de resíduos", "arquivo": "fontes/ARQ_padrao/25-013-CDR-PE-ARQ-R00.ifc",
+            "posicao": {"giro_graus": 31.20, "x": -2.087057275928947, "y": 103.18077079876737, "dz": 147.50}, "manter_estrutura": false,
+            "origem": "Arquitetura padrão do programa ETIB, centrada nos pilares as built (orientação adotada)"},
+    "VST": {"nome": "VST — Vestiário", "arquivo": "fontes/ARQ_padrao/25-051-FSA-CCL-ETIB-VST-PE-ARQ-001-IFC-R00.ifc",
+            "posicao": {"giro_graus": 205.55, "x": 18.967762510581977, "y": 118.77642585645087, "dz": 147.57},
+            "origem": "Arquitetura e estrutura do padrão do programa ETIB, posicionadas na implantação da Jandaíra"},
+    "QDC": {"nome": "QDC — Quadra coberta", "arquivo": "fontes/ARQ_padrao/24-049-APR-CTO-ETIB-QDC-PE-001-MOD-R00.ifc",
+            "posicao": {"giro_graus": 295.35, "x": -7692621.122043817, "y": -3149347.778359686, "dz": -41.4},
+            "origem": "Quadra coberta padrão (Aporá 24-049), com estrutura e cobertura metálica do padrão"},
+    "CPS": {"nome": "CPS — Campo society", "arquivo": "fontes/ARQ_padrao/25-013-CAMPO_SOCITY_25X45-ARQ.ifc",
+            "posicao": {"giro_graus": 25.71, "x": 0.897539528536111, "y": 119.60021464343161, "dz": 147.45},
+            "excluir_classes_extra": ["IfcFlowTerminal"],
+            "origem": "Campo society padrão ETIB, centrado entre as canaletas da drenagem do campo (as built)"}
+  },
+
+  "divisa": {
+    "dxf": "fontes/URB_JDI/JDI_SIT.dxf",
+    "origem": "Situação R03 da Jandaíra (24-049-JDI-CTO-ETIB-IMP-PE-URB-001-SIT-R03)",
+    "muros": [{"a": "177ED3", "a_max_pontos": 5, "b": "177ECF"}, {"a": "177ED5", "b": "177ED1"}],
+    "gradis": [{"a": "177ED6", "b": "177ED0"}],
+    "alturas": {"muro": 2.20, "gradil": 2.00, "mureta": 0.40, "reservatorio": 2.40, "base_reservatorio": 0.15},
+    "reservatorios": {"bloco_prefixo": "TANQUE PB", "raio_min": 1.5, "volume_l": 15000, "descricao": "polietileno 15.000 L"}
+  },
+  "urbanizacao_rvt": {
+    "arquivo": "fontes/RVT_EXPORT/JDI_IMP_RVT.ifc",
+    "posicao": {"dz": 0.565},
+    "distancia_divisa": 1.5,
+    "excluir_areas": [{"nome": "reservatório R00 do RVT", "poligono": [[40, 70], [57, 70], [57, 90], [40, 90]]}],
+    "origem": "RVT da implantação da construtora (24-049-JDI-CTO-ETIB-IMP-R00), cota de projeto + 0,565 m (as built)"
+  },
+  "terreno": {
+    "dxf": "fontes/URB_JDI/JDI_PAV.dxf",
+    "janela_local": [-1000, -1000, 100, 1000],
+    "lote": {"camada": "ARQ_PISO-LINHA"},
+    "gramado": {"camada": "#ARQ_RASCUNHO", "padrao": "AR-SAND"},
+    "excluir": [{"nome": "ETE", "circulo": [51.8, 70.2, 2.7]}, {"nome": "pista do campo", "hachura_maior": "ARQ_HATCH", "folga": 1.2}],
+    "origem": "Malha do terreno da R03 (JDI_IMP_TERRENO_R03), cortada no limite do lote da pavimentação R02",
+    "origem_pisos": "Planta de pavimentação R02 da Jandaíra (lote menos área gramada e edificações), sobre o terreno da R03"
+  },
+  "nome_urbanizacao": "URB — Urbanização: divisa (muro e gradil), reservatórios, platôs, pisos externos e piso tátil",
+
+  "leia_me": {
+    "substitui": "substitui a R01, a R02 e a R03",
+    "mudou": ["BP4 com a arquitetura completa do modelo Revit da construtora (paredes, cobogó, portas, janelas, pisos, forros, cobertura, louças e mobiliário).",
+              "Divisa do lote: muro e gradil da frente no contorno da situação R03.",
+              "Reservatórios: 3 tanques de polietileno de 15.000 L sobre base de concreto.",
+              "Terreno recortado na divisa; urbanização do Revit da implantação (platôs, piso tátil, guarda-corpos) e pisos externos da pavimentação R02."],
+    "adotados": ["Implantação (Revit da construtora): o modelo está na cota de projeto; o as built está 0,565 m acima e o modelo foi elevado 0,565 m.",
+                 "Os platôs desse modelo passavam por baixo dos módulos; a projeção dos pisos dos módulos foi tirada dos platôs (sem piso duplo).",
+                 "Muro 2,20 m, gradil 2,00 m e altura dos reservatórios 2,40 m: adotados (não cotados na situação R03). Pisos externos: 10 cm sobre o terreno."],
+    "nao_entra": ["ETE e o vínculo \"JANDAÍRA IMPLANTAÇÃO.ifc\" do modelo da implantação: estão descarregados no Revit da construtora e não existem na pasta as built."]
+  }
+}
