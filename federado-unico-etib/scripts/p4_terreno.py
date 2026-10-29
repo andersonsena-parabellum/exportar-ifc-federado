@@ -34,8 +34,17 @@ def main(cfg):
     H = [(e.dxf.layer, e.dxf.pattern_name, contornos(e)) for e in d.modelspace().query('HATCH')]
     def maior(camada, padrao=None):
         return [ps for l, pt, ps in H if l == camada and (padrao is None or pt == padrao) and ps]
-    LOTE = Polygon(max((p for ps in maior(C['lote']['camada']) for p in ps), key=lambda p: p.area).exterior)
-    g = C.get('gramado'); GRAMA = par_impar(max(maior(g['camada'], g.get('padrao')), key=lambda ps: max(p.area for p in ps))) if g else Polygon()
+    L = C['lote']
+    if 'polilinha' in L:   # sem hachura do lote: polilinha da divisa (ex.: PERIMETRO da situação), fechada no fim
+        dl = ezdxf.readfile(ef.caminho(cfg, L['dxf'])) if L.get('dxf') else d
+        LOTE = Polygon(np.array([v[:2] for v in dl.entitydb[L['polilinha']].get_points('xy')]) - O).buffer(0)
+    else:
+        LOTE = Polygon(max((p for ps in maior(L['camada']) for p in ps), key=lambda p: p.area).exterior)
+    g = C.get('gramado')
+    if g and g.get('todas'):   # gramado em várias hachuras: junta todas da camada/padrão
+        GRAMA = unary_union([par_impar(ps) for ps in maior(g['camada'], g.get('padrao'))])
+    else:
+        GRAMA = par_impar(max(maior(g['camada'], g.get('padrao')), key=lambda ps: max(p.area for p in ps))) if g else Polygon()
     EXC = []
     for x in C.get('excluir', []):
         if 'circulo' in x: EXC.append(Point(*x['circulo'][:2]).buffer(x['circulo'][2]))

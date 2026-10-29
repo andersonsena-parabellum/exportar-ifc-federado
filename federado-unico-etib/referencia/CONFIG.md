@@ -31,7 +31,7 @@ Um por módulo; a chave é a sigla (BP4, GUA, SB3, VST, QDC, CDG, CDR, CPS...) e
 Conferir a posição: no p6 a distância "arquitetura × estrutura" de cada módulo deve ficar abaixo de ~1,5 m, e nas prévias o módulo cai sobre os pilares.
 
 ## Divisa (`divisa`, DXF da situação em UTM)
-- `muros` / `gradis`: lista de pares `{"a": handle, "b": handle}` = as duas faces do muro (polilinhas). `a_max_pontos` corta a polilinha quando ela continua além do muro. Achar os handles: abrir o DXF no AutoCAD (LIST na polilinha) ou com ezdxf (`for e in msp.query('LWPOLYLINE'): print(e.dxf.handle, e.dxf.layer, len(e))`).
+- `muros` / `gradis`: lista de pares `{"a": handle, "b": handle}` = as duas faces do muro (polilinhas). Face partida em duas polilinhas no DXF: `"a": ["B177", "1068C"]` emenda na ordem (Alagoinhas). `a_max_pontos` corta a polilinha quando ela continua além do muro. Achar os handles: abrir o DXF no AutoCAD (LIST na polilinha) ou com ezdxf (`for e in msp.query('LWPOLYLINE'): print(e.dxf.handle, e.dxf.layer, len(e))`).
 - `alturas`: muro, gradil, mureta, reservatório, base (adotadas quando a situação não cota: citar no LEIA-ME).
 - `reservatorios`: prefixo do nome do bloco do tanque, raio mínimo do círculo, volume e descrição.
 
@@ -39,8 +39,8 @@ Conferir a posição: no p6 a distância "arquitetura × estrutura" de cada mód
 - `arquivo`, `posicao` (normalmente só `dz`, do p0_cota_rvt.py), `distancia_divisa` (1,5 m), `excluir_areas` (polígonos em coordenadas do projeto onde a situação as built manda, ex.: reservatório de projeto que mudou), `origem`.
 
 ## Terreno e pisos (`terreno`, DXF da pavimentação em UTM)
-- `lote.camada`: camada da hachura cujo maior contorno é o lote.
-- `gramado.camada` / `padrao`: hachura da área gramada (maior), fica sem piso.
+- `lote.camada`: camada da hachura cujo maior contorno é o lote. Sem hachura do lote: `{"dxf": <situação>, "polilinha": handle}` (ex.: PERIMETRO da situação; fecha sozinha).
+- `gramado.camada` / `padrao`: hachura da área gramada (maior), fica sem piso. Gramado em várias hachuras: `"todas": true` junta todas da camada/padrão.
 - `excluir`: `{"circulo": [x, y, r]}`, `{"poligono": [...]}` ou `{"hachura_maior": camada, "folga": m}` (ex.: pista do campo, ETE).
 - `janela_local`: [xmin, ymin, xmax, ymax] em coordenadas do projeto, para ignorar cópias da planta deslocadas no mesmo DXF.
 - `piso_topo` (0,03) e `piso_espessura` (0,10).

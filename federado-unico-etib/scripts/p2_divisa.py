@@ -17,7 +17,12 @@ def main(cfg):
     ZT = LinearNDInterpolator(TV[:, :2], TV[:, 2])
     def zt(p): z = ZT(p[0], p[1]); return float(z) if np.isfinite(z) else float(np.median(TV[:, 2]))
     d = ezdxf.readfile(ef.caminho(cfg, D['dxf']))
-    def pl(h, nmax=None): P = np.array([v[:2] for v in d.entitydb[h].get_points('xy')]) - O; return P[:nmax] if nmax else P
+    def pl(h, nmax=None):   # h = handle ou lista de handles emendados em sequência (polilinha partida em duas no DXF)
+        P = None
+        for x in ([h] if isinstance(h, str) else h):
+            Q = np.array([v[:2] for v in d.entitydb[x].get_points('xy')]) - O
+            P = Q if P is None else np.vstack([P, Q[1:] if np.linalg.norm(Q[0] - P[-1]) < 1e-3 else Q])   # emenda sem repetir o ponto comum
+        return P[:nmax] if nmax else P
     par = lambda t: (pl(t['a'], t.get('a_max_pontos')), pl(t['b'], t.get('b_max_pontos')))
     f, body, site = ef.novo_ifc(cfg, f"{cfg['escola']} divisa e reservatórios")
     ORIG = f.createIfcAxis2Placement3D(f.createIfcCartesianPoint((0., 0., 0.)))
