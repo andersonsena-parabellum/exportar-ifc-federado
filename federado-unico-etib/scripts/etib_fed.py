@@ -147,10 +147,15 @@ def pisos_dos_modulos(arquivos, z_max):
 def pegada_construida(arquivos, z_ref):
     """pegada de tudo o que está acima de z_ref (sem fundação, vão e espaço): é o que sai dos pisos externos"""
     tris = []
+    # mobiliário, louças, portas e janelas ficam dentro do prédio: não mudam a pegada e pesam (bloco RF3 de Alagoinhas: 13 milhões de triângulos)
+    fora = ('IfcSpace', 'IfcOpeningElement', 'IfcAnnotation', 'IfcDistributionPort', 'IfcFurniture', 'IfcFurnishingElement', 'IfcSystemFurnitureElement',
+            'IfcDoor', 'IfcWindow', 'IfcFlowTerminal', 'IfcSanitaryTerminal', 'IfcBuildingElementPart', 'IfcCovering')
+    prisma = ('IfcWall', 'IfcColumn', 'IfcBeam', 'IfcMember', 'IfcRailing', 'IfcPlate', 'IfcCurtainWall')   # em planta é o fecho convexo (rápido)
     for fn in arquivos:
         f = ifcopenshell.open(fn)
-        for e, v, t in formas(f):
+        for e, v, t in formas(f, excluir=fora):
             if e.is_a('IfcFooting') or v[:, 2].max() <= z_ref: continue
+            if any(e.is_a(c) for c in prisma): tris.append(MultiPoint(v[:, :2]).convex_hull.buffer(0.05)); continue
             T = [Polygon(x) for x in v[t][:, :, :2] if abs((x[1][0] - x[0][0]) * (x[2][1] - x[0][1]) - (x[1][1] - x[0][1]) * (x[2][0] - x[0][0])) > 1e-6]
             if T: tris.append(uniao(T).buffer(0.05))
     return uniao(tris).buffer(0.3).buffer(-0.3)
@@ -206,16 +211,21 @@ def tirar_pset(f, ps):
         if len(f.get_inverse(pr)) <= 1: f.remove(pr)
     f.remove(ps)
 
-def limpar(f):
-    """limpeza final do federado: relações vazias, psets e usos de material soltos, GUID repetido, aplicativos duplicados"""
+def limpar(f, soltos=True):
+    """limpeza do federado: relações vazias, psets e usos de material soltos, GUID repetido, aplicativos duplicados.
+    soltos=False pula a busca de pset/forma/uso de material soltos (feita antes em cada fonte: no arquivo grande cada remove leva segundos)"""
     import collections
     n = collections.Counter()
+    # em lote (batch): depois de criar entidades no arquivo grande, cada remove avulso refaz o índice inverso inteiro (segundos cada)
+    f.batch()
     for r in list(f.by_type('IfcRelDefinesByProperties')):
         if not r.RelatedObjects:
-            pd = r.RelatingPropertyDefinition; f.remove(r); n['rel_props_vazia'] += 1
+            pd = r.RelatingPropertyDefinition
             for p in (pd if isinstance(pd, tuple) else [pd]):
-                if p and not f.get_inverse(p): tirar_pset(f, p); n['pset_solto'] += 1
-    for r in list(f.by_type('IfcProductDefinitionShape')):
+                if p and len(f.get_inverse(p)) <= 1: tirar_pset(f, p); n['pset_solto'] += 1   # só esta relação usa o pset
+            f.remove(r); n['rel_props_vazia'] += 1
+    f.unbatch()
+    for r in list(f.by_type('IfcProductDefinitionShape')) if soltos else []:
         if not f.get_inverse(r): ue.remove_deep2(f, r); n['forma_solta'] += 1
     for r in list(f.by_type('IfcRelAssignsToGroup')):
         if r.RelatingGroup is None or not r.RelatedObjects: f.remove(r); n['rel_grupo_vazia'] += 1
@@ -223,9 +233,9 @@ def limpar(f):
         a = 'RelatedElements' if cls == 'IfcRelContainedInSpatialStructure' else 'RelatedObjects'
         for r in list(f.by_type(cls)):
             if not getattr(r, a): f.remove(r); n[cls + '_vazia'] += 1
-    for u in list(f.by_type('IfcMaterialProfileSetUsage')) + list(f.by_type('IfcMaterialLayerSetUsage')):
+    for u in (list(f.by_type('IfcMaterialProfileSetUsage')) + list(f.by_type('IfcMaterialLayerSetUsage'))) if soltos else []:
         if not f.get_inverse(u): f.remove(u); n['uso_material_solto'] += 1
-    for ps in f.by_type('IfcPropertySet'):
+    for ps in list(f.by_type('IfcPropertySet')) if soltos else []:
         if not f.get_inverse(ps): tirar_pset(f, ps); n['pset_solto'] += 1
     vistos = set()
     for e in f.by_type('IfcRoot'):

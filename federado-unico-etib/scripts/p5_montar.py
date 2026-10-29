@@ -45,8 +45,9 @@ def main(cfg, REV):
             if pref and g.Name and not g.Name.startswith(pref): g.Name = f'{pref} — {g.Name}'
         for g in list(f.by_type('IfcGroup')):
             if not any(r.RelatedObjects for r in (g.IsGroupedBy or [])): ifcopenshell.api.run('root.remove_product', f, product=g)
+        lp = ef.limpar(f)   # relações vazias e psets soltos saem aqui, no arquivo pequeno (no federado cada remove leva segundos)
         out = os.path.join(tmp, f'{len(prep):02d}_' + os.path.basename(fn)); f.write(out); prep.append(out)
-        print(os.path.basename(fn), 'tirados', n_t, 'props de trabalho', n_p, 'ficam', len(f.by_type('IfcElement')), 'unidade', ef.unidade_comprimento(f), flush=True)
+        print(os.path.basename(fn), 'tirados', n_t, 'props de trabalho', n_p, 'limpeza', lp, 'ficam', len(f.by_type('IfcElement')), 'unidade', ef.unidade_comprimento(f), flush=True)
     # ---------- 2. junção ----------
     CACHE = os.environ.get('FED_CACHE')
     if CACHE and os.path.exists(CACHE): base = ifcopenshell.open(CACHE); print('junção reaproveitada', CACHE)
@@ -105,11 +106,14 @@ def main(cfg, REV):
     for r in list(base.by_type('IfcRelContainedInSpatialStructure')):
         if not r.RelatedElements: base.remove(r)
     ua = proj.UnitsInContext                             # unidades: só a do projeto
+    base.batch()
     for u in list(base.by_type('IfcUnitAssignment')):
         if u != ua: base.remove(u)
+    base.unbatch(); base.batch()
     for u in list(base.by_type('IfcNamedUnit')) + list(base.by_type('IfcDerivedUnit')) + list(base.by_type('IfcMonetaryUnit')):
         if not base.get_inverse(u): base.remove(u)
-    print('limpeza', ef.limpar(base), flush=True)
+    base.unbatch()
+    print('limpeza', ef.limpar(base, soltos=False), flush=True)
     nome = f'{sig}_FEDERADO-UNICO_{REV}.ifc'; base.header.file_name.name = nome
     fn = os.path.join(OUT, nome); base.write(fn)
     print('gravado', fn, round(os.path.getsize(fn) / 1e6, 1), 'MB')

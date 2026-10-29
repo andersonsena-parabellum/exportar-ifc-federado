@@ -59,6 +59,8 @@ Se um passo muda, refaça dele em diante. Para módulos, rode p1, depois p3 (o r
 - **Casas vizinhas.** O RVT da implantação pode ter paredes genéricas fora do lote. O passo 3 tira o que está fora do contorno da divisa.
 - **Muro repetido.** Muro e gradil do RVT ficam a até 1 m da situação. Vale a situação (passo 2), e o do RVT perto da divisa sai.
 - **Cota do RVT.** Na Jandaíra o RVT estava na cota de projeto e o as built 0,565 m acima. Sempre rode o p0.
+- **Remove avulso no arquivo grande.** Depois de criar entidades num arquivo de centenas de MB, cada `f.remove` refaz o índice inverso inteiro (segundos cada; em Alagoinhas a limpeza final passava de 1 hora). Limpe cada fonte antes da junção e remova em lote (`f.batch()` ... `f.unbatch()`), como o p5 já faz.
+- **Bloco muito detalhado.** O RF3 de Alagoinhas (97 MB, revestimentos como paredes com recortes) gera 13 milhões de triângulos: só a geometria dele leva 15 min. A pegada construída ignora mobiliário, portas e janelas e usa o fecho convexo de paredes e pilares.
 - **Arquivo grande (200 MB).** Use `spatial.assign_container` e `remove_deep2` só em arquivo pequeno. No federado eles levam horas, e o p5 já cria as relações direto. Rode os passos longos em segundo plano. Na nuvem o contêiner é reciclado quando a sessão parece parada.
 - **IFC soltos na pasta da construtora.** Confira o código da escola no nome do arquivo e as coordenadas: na pasta da Jandaíra havia IFC da Pojuca.
 - **Propriedades de trabalho.** `fora_do_comercial`, `angulo_real` e `deflexao_junta_graus` nunca vão no entregue. O p5 tira e o p6 confere.
