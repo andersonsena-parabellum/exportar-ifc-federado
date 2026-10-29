@@ -40,6 +40,9 @@ def georef(f, cfg):
     for c in f.by_type('IfcGeometricRepresentationContext'):
         if c.is_a('IfcGeometricRepresentationSubContext'): continue
         c.TrueNorth = f.createIfcDirection((0., 1.))
+        # Revit exportando na origem interna grava o deslocamento do arquivo no WCS do contexto (BA2/RST/TRT de Alagoinhas: -2530,5; 112,7):
+        # a geometria não usa o WCS, mas o MergeProjects lê e desloca o arquivo inteiro (SetFalseOrigin). WCS na origem.
+        c.WorldCoordinateSystem = f.createIfcAxis2Placement3D(f.createIfcCartesianPoint((0., 0., 0.)))
         crs = f.createIfcProjectedCRS(g['epsg'], g.get('nome', g['epsg']), g.get('datum', 'SIRGAS2000'), None, 'UTM', g.get('zona'), None)
         f.createIfcMapConversion(c, crs, float(g['e0']), float(g['n0']), 0., 1., 0., 1.)
 

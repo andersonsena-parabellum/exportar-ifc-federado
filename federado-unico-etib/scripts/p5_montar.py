@@ -22,7 +22,7 @@ def main(cfg, REV):
     falta = [fn for fn, *_ in FONTES if not os.path.exists(fn)]
     if falta: sys.exit('faltam fontes: ' + ', '.join(falta))
     # ---------- 1. cópias filtradas ----------
-    tmp = tempfile.mkdtemp(); prep = []; MOD = {}
+    tmp = tempfile.mkdtemp(); prep = []; MOD = {}; VISTOS = set()
     for fn, mod, pref, est in FONTES:
         f = ifcopenshell.open(fn); n_t = n_p = 0
         if est:   # estrutura: sistemas que vêm de outro arquivo saem; o resto vai para o módulo do sistema
@@ -33,6 +33,9 @@ def main(cfg, REV):
                 ps.HasProperties = fica; n_p += len(hp) - len(fica)
                 for p in hp:
                     if p.Name in ef.TIRAR_PROPS and not f.get_inverse(p): f.remove(p)
+        for e in f.by_type('IfcRoot'):   # GUID já usado por outra fonte (módulos padrão copiados do mesmo modelo): GUID novo, senão o módulo se confunde
+            if e.GlobalId in VISTOS: e.GlobalId = ifcopenshell.guid.new()
+            VISTOS.add(e.GlobalId)
         for e in f.by_type('IfcElement') + f.by_type('IfcSpace'):
             sis = ue.get_psets(e).get('Dados_ETIB', {}).get('sistema')
             MOD[e.GlobalId] = 'SITE' if mod == 'SITE' else (est.get('modulo_por_sistema', {}).get(sis, est.get('modulo_outros', 'IMP')) if mod == 'EST' else mod)
