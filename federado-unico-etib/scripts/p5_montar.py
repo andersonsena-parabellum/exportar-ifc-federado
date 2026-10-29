@@ -15,6 +15,7 @@ def main(cfg, REV):
             **{k: n for k, n in cfg.get('edificacoes_extra', {}).items()}, 'URB': cfg.get('nome_urbanizacao', 'URB — Urbanização: divisa, reservatórios, platôs, pisos externos e piso tátil')}
     FONTES = [(ef.caminho(cfg, x), 'IMP', 'Implantação', None) for x in cfg['redes']]
     FONTES += [(ef.caminho(cfg, x['arquivo']), x.get('modulo', 'EST'), x.get('prefixo', 'Módulos'), x) for x in cfg.get('estrutura', [])]
+    FONTES += [(fn, x['modulo'], x['modulo'], None) for fn, x in ef.estruturas_rvt(cfg)]   # estrutura dos RVT (p1)
     FONTES += [(ef.saida_urb(cfg, 'TERRENO'), 'SITE', '', None)]
     FONTES += [(ef.saida_modulo(cfg, k), k, k, None) for k in cfg['modulos']]
     FONTES += [(ef.saida_urb(cfg, n), 'URB', 'URB', None) for n in ('DIVISA', 'PISOS', 'URB_RVT') if os.path.exists(ef.saida_urb(cfg, n))]

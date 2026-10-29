@@ -40,7 +40,7 @@ def main(cfg):
         k = motivo(e)
         if k: ifcopenshell.api.run('root.remove_product', f, product=e); sai[k] += 1
     # platôs: tira a projeção dos pisos dos módulos e refaz como extrusão (platô é plano)
-    mods = [ef.saida_modulo(cfg, m) for m in cfg['modulos']]
+    mods = [ef.saida_modulo(cfg, m) for m in cfg['modulos']] + [fn for fn, x in ef.estruturas_rvt(cfg)]
     PM = ef.pisos_dos_modulos(mods, U_.get('cota_max_piso_modulo', cfg['cota']['piso_max'])).buffer(0.02)
     ctx = [c for c in f.by_type('IfcGeometricRepresentationSubContext') if c.ContextIdentifier == 'Body'][0]
     def perfil(pg):

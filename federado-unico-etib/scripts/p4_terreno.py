@@ -50,7 +50,7 @@ def main(cfg):
         if 'circulo' in x: EXC.append(Point(*x['circulo'][:2]).buffer(x['circulo'][2]))
         elif 'poligono' in x: EXC.append(Polygon(x['poligono']))
         elif 'hachura_maior' in x: EXC.append(Polygon(max((p for ps in maior(x['hachura_maior']) for p in ps), key=lambda p: p.area).exterior).buffer(x.get('folga', 0.)))
-    construido = [ef.saida_modulo(cfg, m) for m in cfg['modulos']] + [ef.caminho(cfg, e['arquivo']) for e in cfg.get('estrutura', [])]
+    construido = [ef.saida_modulo(cfg, m) for m in cfg['modulos']] + [ef.caminho(cfg, e['arquivo']) for e in cfg.get('estrutura', [])] + [fn for fn, x in ef.estruturas_rvt(cfg)]
     PEG = ef.pegada_construida(construido, cfg['cota']['pegada_acima_de'])
     bases = []
     for fn in (ef.saida_urb(cfg, 'URB_RVT'), ef.saida_urb(cfg, 'DIVISA')):

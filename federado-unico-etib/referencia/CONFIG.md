@@ -18,6 +18,8 @@ Um JSON por escola, na pasta FEDERADO_UNICO dela. Caminhos relativos à `raiz`. 
 - `redes`: IFC das redes externas compatibilizadas (vão todas para "Implantação").
 - `estrutura`: lista de arquivos. Arquivo com vários módulos: `"modulo": "EST"`, `modulo_por_sistema` (sistema do Dados_ETIB → módulo), `modulo_outros`, `excluir_sistemas` (o que vem de outro arquivo). Arquivo de um módulo só: `"modulo": "BP4"`. `prefixo` vai no nome dos grupos.
 
+- `estrutura_rvt`: estrutura exportada dos RVT da construtora (ECC, FUN, EMT), um item por arquivo: `{"arquivo", "modulo", "posicao", "origem"}`. O p1 posiciona cada um pela linha do PRÓPRIO arquivo (ARQ e estrutura do mesmo módulo podem ter origens diferentes) e grava Dados_ETIB (EST, EST-<MÓD>). Exemplo: Alagoinhas.
+
 ## Módulos (`modulos`)
 Um por módulo; a chave é a sigla (BP4, GUA, SB3, VST, QDC, CDG, CDR, CPS...) e precisa bater com a do `modulo_por_sistema`.
 - `nome`: nome da IfcBuilding ("GUA — Guarita").

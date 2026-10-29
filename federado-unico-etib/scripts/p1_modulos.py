@@ -40,5 +40,20 @@ def main(cfg, so=()):
         g = ifcopenshell.open(out)
         print(f'{mod}: {n0} -> {len(g.by_type("IfcProduct"))} produtos (tirados {n_t}, simplificados {n_s}, ângulos convertidos {n_a}, unidade {ef.unidade_comprimento(g)})', flush=True)
 
+def estruturas(cfg, so=()):
+    """estrutura dos RVT da construtora (ECC, FUN, EMT de cada módulo), cada arquivo na posição do próprio vínculo:
+    tira portas de conexão e eixos, posiciona, grava Dados_ETIB (disciplina EST, sistema EST-<MÓD>), georreferência e radiano"""
+    for out, x in ef.estruturas_rvt(cfg):
+        if so and x['modulo'] not in so and 'EST' not in so: continue
+        f = ifcopenshell.open(ef.caminho(cfg, x['arquivo'])); n0 = len(f.by_type('IfcProduct'))
+        n_t = ef.remover(f, lambda e: any(e.is_a(c) for c in ('IfcDistributionPort', 'IfcGrid', 'IfcFlowSegment', 'IfcFlowFitting')))
+        ef.transformar(f, ef.matriz(x['posicao'], cfg))
+        for e in f.by_type('IfcElement'):
+            ef.dados(f, e, {'disciplina': 'EST', 'sistema': f"EST-{x['modulo']}", 'modulo': x['modulo'], 'origem': x.get('origem', x['arquivo'])})
+        ef.georef(f, cfg); n_a = ef.graus_para_rad(f); f.write(out)
+        print(f"EST {x['modulo']} {os.path.basename(x['arquivo'])}: {n0} produtos (tirados {n_t}, ângulos convertidos {n_a}, unidade {ef.unidade_comprimento(f)})", flush=True)
+
 if __name__ == '__main__':
-    main(ef.carregar(sys.argv[1]), set(sys.argv[2:]))
+    c = ef.carregar(sys.argv[1]); so = set(sys.argv[2:])
+    if so != {'EST'}: main(c, so)
+    estruturas(c, so)

@@ -24,6 +24,8 @@ def pasta(cfg, *sub):
     d = os.path.normpath(os.path.join(cfg['_saidas'], *sub)); os.makedirs(d, exist_ok=True); return d
 
 def saida_modulo(cfg, mod): return os.path.join(pasta(cfg, 'trabalho', 'modulos'), f"{cfg['sigla']}_ARQ_{mod}.ifc")
+def saida_estrutura(cfg, i, x): return os.path.join(pasta(cfg, 'trabalho', 'estrutura'), f"{cfg['sigla']}_EST_{x['modulo']}_{i:02d}.ifc")
+def estruturas_rvt(cfg): return [(saida_estrutura(cfg, i, x), x) for i, x in enumerate(cfg.get('estrutura_rvt', []))]
 def saida_urb(cfg, nome): return os.path.join(pasta(cfg, 'trabalho', 'urb'), f"{cfg['sigla']}_{nome}.ifc")
 
 def origem(cfg):
