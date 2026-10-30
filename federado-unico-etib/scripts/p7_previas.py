@@ -16,7 +16,10 @@ def geometria(fn):
     pk = fn + '.geom.pkl'
     if os.path.exists(pk) and os.path.getmtime(pk) > os.path.getmtime(fn): return pickle.load(open(pk, 'rb'))
     f = ifcopenshell.open(fn); G = []
-    for e, v, t in ef.formas(f):
+    # mobiliário e louças não aparecem nas vistas e pesam (Alagoinhas: milhões de triângulos): ficam fora da prévia
+    fora = ('IfcSpace', 'IfcOpeningElement', 'IfcAnnotation', 'IfcDistributionPort', 'IfcFurniture', 'IfcFurnishingElement',
+            'IfcSystemFurnitureElement', 'IfcFlowTerminal', 'IfcSanitaryTerminal', 'IfcBuildingElementPart')
+    for e, v, t in ef.formas(f, excluir=fora):
         ps = ue.get_psets(e).get('Dados_ETIB', {})
         G.append((e.is_a(), e.Name or '', ps.get('modulo', 'SITE'), ps.get('disciplina', 'EST'), v.astype(np.float32), t.astype(np.int32)))
     pickle.dump(G, open(pk, 'wb')); return G
