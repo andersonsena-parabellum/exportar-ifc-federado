@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Página de pendências: vistas do modelo de entrega (IFC) em cada ficha — planta (NN_planta.jpg) e perspectiva (NN_3d.jpg), 800 × 514,
 ponto no círculo vermelho e os elementos citados na ficha mais grossos e com o código escrito. Generalizado de
-satiro/pendencias/sat_vistas.py. Lê os IFC pela leitura da Revisão de qualidade (revisao/ifc_conf.py) e o terreno do modelo (.npz)."""
+exemplo/pendencias/sat_vistas.py. Lê os IFC pela leitura da Revisão de qualidade (revisao/ifc_conf.py) e o terreno do modelo (.npz)."""
 import os, sys, math
 import numpy as np
 sys.path.insert(0, r'D:\Projeto Modelagem\FERRAMENTAS\revisao'); sys.path.insert(0, r'D:\Projeto Modelagem\FERRAMENTAS\preclash')

@@ -54,7 +54,7 @@ class Terreno:
 
 
 def ajustar(entrada, pontos_base, saida, modo='local', raio=12.0, inserir=True, fonte=''):
-    """Terreno ajustado às cotas dos arquivos de base (parâmetro do Anderson, 19/10/2026): quando o terreno do modelo
+    """Terreno ajustado às cotas dos arquivos de base (parâmetro do dono do projeto, 19/10/2026): quando o terreno do modelo
     (IMP as built, IFC) e as cotas de base (CT das caixas de DRE/ESG das pranchas, implantação, TOP, TER) divergem, vale a base.
     pontos_base: (n,3) E, N, cota. modo 'constante': desloca tudo pela mediana dos resíduos; 'local': correção suave
     (núcleo gaussiano de alcance ~raio m, some longe dos pontos) + os próprios pontos entram no TIN (inserir=True).

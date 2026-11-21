@@ -29,7 +29,7 @@ Decisão de 28-29/10/2026:
 
 - Um projeto no Linear com uma issue por escola, na ordem de entrega.
 - **O Linear está sempre atualizado:** a thread dona comenta na issue da escola a cada etapa relevante (início, pedido ao notebook ou a terceiro, bloqueio, conferência, entrega) e mantém o estado em dia (In Progress enquanto houver trabalho, inclusive quando uma escola entregue volta a ter serviço; Done só quando não sobra nada).
-- **Quando precisa do dono:** sub-issue atribuída a ele, etiqueta "Precisa do Anderson" (ou "Esperando terceiro" / "Esperando Daniel"), texto curto e bem explicado, imagem anexada com destaque desenhado no ponto (círculo ou seta). Fecha quando ele responde.
+- **Quando precisa do dono:** sub-issue atribuída a ele, etiqueta "Precisa do dono do projeto" (ou "Esperando terceiro" / "Esperando sócio de modelagem"), texto curto e bem explicado, imagem anexada com destaque desenhado no ponto (círculo ou seta). Fecha quando ele responde.
 - Uma tarefa agendada lê as respostas no Linear de hora em hora (7h às 22h) e repassa à thread dona.
 - O conector escreve como o dono: todo comentário de agente termina com "_— Claude_".
 - O painel do contrato e as páginas de pendências continuam: linkar na issue, não substituir.

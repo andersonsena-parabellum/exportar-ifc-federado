@@ -1,6 +1,6 @@
 # 06. Federado único
 
-Padrão aprovado em 29/10/2026 no piloto da Jandaíra (R04) e aplicado depois a todas as escolas. O método completo, com scripts, está na skill [`federado-unico-etib`](../federado-unico-etib/SKILL.md) deste repositório; aqui fica o resumo e as regras.
+Padrão aprovado em 29/10/2026 no piloto da escola A (R04) e aplicado depois a todas as escolas. O método completo, com scripts, está na skill [`federado-unico-etib`](../federado-unico-etib/SKILL.md) deste repositório; aqui fica o resumo e as regras.
 
 ## O que é
 
@@ -25,8 +25,8 @@ Cada elemento leva `Dados_ETIB` (disciplina, sistema, módulo, origem). Instala�
 
 ## Ajustes que sempre se conferem
 
-- Cota do RVT da implantação contra o terreno as built (na Jandaíra estava 0,565 m abaixo): `p0_cota_rvt.py`.
-- Posição em planta do Revit contra as redes já entregues (em Alagoinhas, 22 cm): tudo segue o sistema das redes.
+- Cota do RVT da implantação contra o terreno as built (na escola A estava 0,565 m abaixo): `p0_cota_rvt.py`.
+- Posição em planta do Revit contra as redes já entregues (na escola B, 22 cm): tudo segue o sistema das redes.
 - Módulo do RVT na posição do vínculo dentro da implantação; cada RVT de módulo exportado sozinho na origem interna e posicionado na nuvem pela linha do próprio arquivo (arquitetura e estrutura podem ter origens diferentes).
 - Tirar dos platôs a projeção dos pisos dos módulos (senão piso duplo); tirar muro e gradil do RVT que repetem a divisa, o que estiver fora do lote e o terreno do RVT.
 - Vínculo ausente (ex.: ETE) não entra e é citado no LEIA-ME.

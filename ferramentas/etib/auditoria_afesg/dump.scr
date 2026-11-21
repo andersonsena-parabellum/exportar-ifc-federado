@@ -1,4 +1,0 @@
-SECURELOAD 0
-(load "D:/Projeto Modelagem/FERRAMENTAS/auditoria_afesg/dump.lsp")
-DUMP
-QUIT Y

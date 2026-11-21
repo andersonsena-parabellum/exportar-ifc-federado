@@ -7,7 +7,7 @@ import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 sys.path.insert(0, r'D:\Projeto Modelagem\FERRAMENTAS\georef')
-from catu_comum import carrega
+from comum import carrega
 
 ARQ = ('zw$7D57', 'zw$44A6', 'zw$D46B', 'ARQ BASE IMP', 'ARQ_IMP')
 

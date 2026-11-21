@@ -2,23 +2,23 @@
 """Conferência das pranchas em PDF (item E do CHECKLIST.md) e da coerência PDF × DWG.
 Lê o texto vetorial do PDF plotado pelo AutoCAD (PyMuPDF), já girado para a folha em paisagem, e compara com a revisão de origem
 (a folha que serviu de base, na pasta _SUPERADAS do CDE ou no PROJETO_ORIGINAL).
-Uso direto: python -X utf8 pdf_conf.py <pdf ou pasta> [--origem PASTA] [--sigla JAN]"""
+Uso direto: python -X utf8 pdf_conf.py <pdf ou pasta> [--origem PASTA] [--sigla EXE]"""
 import os, re, sys, glob, math, collections, datetime
 import numpy as np
 import pymupdf
 from rev_comum import Revisao, folha
 
 MM = 72 / 25.4
-CARIMBO_W, CARIMBO_H = 190, 150                 # mm: faixa do carimbo QG (canto inferior direito)
+CARIMBO_W, CARIMBO_H = 190, 150                 # mm: faixa do carimbo da construtora (canto inferior direito)
 COLUNA_W = 190                                  # mm: coluna de legendas/notas à direita
-# folha desenhada em A1 e plotada ajustada no A0 (AF-002 da Prof. Áurea, 23/10/2026): o carimbo e a coluna crescem junto. A escala
-# sai da distância do rótulo "CONTRATADA" do carimbo QG à borda direita (521 pt numa folha A0 desenhada em A0)
+# folha desenhada em A1 e plotada ajustada no A0 (AF-002 da escola F, 23/10/2026): o carimbo e a coluna crescem junto. A escala
+# sai da distância do rótulo "CONTRATADA" do carimbo da construtora à borda direita (521 pt numa folha A0 desenhada em A0)
 REF_CONTRATADA_PT = 521.0
 _K = 1.0
 RX_COTA = re.compile(r'\b(C[TFSE])\.?\s*:?\s*(\d{2,3}[.,]\d{2})')
 DIS_DISC = {'AF': ('AF',), 'AGF': ('AF',), 'ESG': ('ESG',), 'DRE': ('DRE',), 'EL': ('ELE',), 'IN': ('HID', 'SDAI'), 'INC': ('HID', 'SDAI'), 'IC': ('HID', 'SDAI')}
 RX_PROF = re.compile(r'PROF\.?\s*(\d+[,.]\d+)\s*m\b|A\s+(\d+[,.]\d+)\s*m\s+DE\s+PROFUNDIDADE', re.I)
-# 'XXX' solto é marcador de rascunho; dentro de um código (24-049-STK-XXX-ETIB-…, o código da lista mestra da Sátiro Dias) não é
+# 'XXX' solto é marcador de rascunho; dentro de um código (AA-CTR-MUN-LOC-ETIB-…, o código da lista mestra da escola C) não é
 RX_PROCESSO = re.compile(r'PR[EÉ][- ]?COMPAT|PRECLASH|CLASH|CONFLITO|INTERFER[EÊ]NCIA|MERGULHO|NUVEM|RASCUNHO|SUBSTITU[IÍ]D|CANCELAD|'
                          r'REVIS[AÃ]O INTERNA|N[AÃ]O EMITIR|PRELIMINAR|\bCP-\d{2}\b|VER RELAT[OÓ]RIO|A DEFINIR|A CONFIRMAR|\?\?|(?<![-\w])XXX+(?![-\w])|'
                          r'\bTESTE\b|\bTODO\b|CLAUDE|\bSCRIPT\b|\bTHREAD\b|IFC_R\d|PRECLASH', re.I)
@@ -42,7 +42,7 @@ def spans(pdf, chars=False):
                 else:
                     t = s['text'].strip()
                     if t: out.append((t, pymupdf.Rect(s['bbox']) * M, s['size']))
-    # só a folha com o carimbo QG define a escala; a de origem (carimbo do projetista) é lida com a escala da revisada que a chamou
+    # só a folha com o carimbo da construtora define a escala; a de origem (carimbo do projetista) é lida com a escala da revisada que a chamou
     global _K
     if any('DISCIPL_SETOR' in t for t, *_ in out):
         xs = [r.x0 for t, r, *_ in out if t.startswith('CONTRATADA') and r.x0 > p.rect.width / 2]
@@ -82,7 +82,7 @@ def quadro_revisoes(sp, W, H):
     out = []; yant = yc
     for y in sorted(lin, reverse=True):
         it = sorted(lin[y])
-        # coluna REV. até 30 mm da borda da faixa do carimbo: o carimbo QG da Catu, plotado pela janela A0, tem 170 mm e a coluna
+        # coluna REV. até 30 mm da borda da faixa do carimbo: o carimbo da construtora da escola G, plotado pela janela A0, tem 170 mm e a coluna
         # fica a 22 mm (com 20 mm o quadro "não era encontrado")
         if not (it and re.fullmatch(r'\d{2}', it[0][1]) and it[0][0] < x0 + 30 * MM * _K and len(it) >= 3): continue
         if yant - y * MM > 9 * MM * _K: break
@@ -124,7 +124,7 @@ def cotas(sp, W, H):
 
 
 def conferir_pdf(rv, pdf, prof_max, origem=None, excecoes=(), recortes=None, cotas_decl=()):
-    """excecoes: [dict(disc=(...), ate=m, fonte=texto)] aceitas pelo Anderson (vale para as notas da folha das disciplinas citadas)."""
+    """excecoes: [dict(disc=(...), ate=m, fonte=texto)] aceitas pelo dono do projeto (vale para as notas da folha das disciplinas citadas)."""
     nome = os.path.basename(pdf); f = folha(pdf); curto = f['curto'] + f' R{f["rev"]:02d}' if f else nome
     sp, p, d = spans(pdf, chars=True); W, H = p.rect.width, p.rect.height
     # E1 formato
@@ -134,15 +134,15 @@ def conferir_pdf(rv, pdf, prof_max, origem=None, excecoes=(), recortes=None, cot
         rv.add('E1', 'PENDENCIA', curto, '-', f'folha {wmm:.0f} × {hmm:.0f} mm (esperado A0 1189 × 841)', 'E1 formato A0')
     else:
         rv.ev('E1', f'{curto}: A0 {wmm:.0f} × {hmm:.0f} mm')
-    # E2 carimbo QG
+    # E2 carimbo da construtora
     txt_car = ' '.join(t for t, r, *_ in sp if regiao(r, W, H) == 'carimbo')
     faltam = [k for k in CARIMBO_QG if k not in txt_car]
     imgs = [im for im in p.get_image_info() if regiao(pymupdf.Rect(im['bbox']) * p.rotation_matrix, W, H) == 'carimbo']
     if faltam or len(imgs) < 3:
-        rv.add('E2', 'PENDENCIA', curto, 'carimbo', f'carimbo QG as built incompleto ou ausente (faltam {", ".join(faltam) or "-"}; {len(imgs)} logos)',
-               'E2 carimbo QG as built')
+        rv.add('E2', 'PENDENCIA', curto, 'carimbo', f'carimbo da construtora as built incompleto ou ausente (faltam {", ".join(faltam) or "-"}; {len(imgs)} logos)',
+               'E2 carimbo da construtora as built')
     else:
-        rv.ev('E2', f'{curto}: carimbo QG as built no PDF (campos e {len(imgs)} logos)')
+        rv.ev('E2', f'{curto}: carimbo da construtora as built no PDF (campos e {len(imgs)} logos)')
     # E3 revisão coerente
     esc = escala(sp, W, H)
     if f:
@@ -271,7 +271,7 @@ def conferir_pdf(rv, pdf, prof_max, origem=None, excecoes=(), recortes=None, cot
     return notas
 
 
-# E11 padrão gráfico (PDCA A3, Anderson 22/10/2026). A rede existente/de cadastro sai numa cor bem visível (nada de cinza: "ficou ruim de
+# E11 padrão gráfico (PDCA A3, dono do projeto 22/10/2026). A rede existente/de cadastro sai numa cor bem visível (nada de cinza: "ficou ruim de
 # enxergar") que a legenda da folha não use para outro item, ByLayer, e está na legenda; cor ou elemento novo nosso entra na legenda;
 # texto na altura padrão da folha; anotação nossa (texto que não existia na origem) nunca maior que o texto do projetista.
 # COR_EXISTENTE = nome de uma cor obrigatória em CORES; None = qualquer cor visível que não repita outro item da legenda (regra atual).
@@ -486,7 +486,7 @@ def conferir_tipo_linha(rv, pdf, origem):
         L0 = max(math.hypot(x1 - x0, y1 - y0) for x0, y0, x1, y1 in la)
         if L0 > 15 * MM: continue                                   # cor com linha contínua na origem: não é rede tracejada
         # cor que quase não aparece na origem (setas, pontas: < 10 cm de traço na folha toda) não é rede: a diferença vem da
-        # tabela de plotagem (CTB) do projetista, que troca a cor na plotagem (AGF/DRE de Alagoinhas: 50 pedaços de 0,3 mm)
+        # tabela de plotagem (CTB) do projetista, que troca a cor na plotagem (AGF/DRE de escola B: 50 pedaços de 0,3 mm)
         if sum(math.hypot(x1 - x0, y1 - y0) for x0, y0, x1, y1 in la) < 100 * MM: continue
         longos = [s for s in B.get(c, []) if math.hypot(s[2] - s[0], s[3] - s[1]) > max(2 * L0, 15 * MM)]
         grupos = []
@@ -545,7 +545,7 @@ def conferir_dwg_pdf(rv, pdf, pasta_dwg):
         rv.add('E2', 'PENDENCIA', curto, os.path.basename(dwg), f'DWG gravado {dt / 60:.0f} min depois do PDF (PDF pode estar desatualizado)', 'E2 DWG = PDF')
     logos = glob.glob(os.path.join(pasta_dwg, 'CARIMBO_QG_logo_*.png'))
     if len(logos) < 3:
-        rv.add('E2', 'PENDENCIA', curto, pasta_dwg, f'{len(logos)} logos CARIMBO_QG_logo_*.png ao lado do DWG (esperado 3)', 'E2 carimbo QG no DWG')
+        rv.add('E2', 'PENDENCIA', curto, pasta_dwg, f'{len(logos)} logos CARIMBO_QG_logo_*.png ao lado do DWG (esperado 3)', 'E2 carimbo da construtora no DWG')
     rv.ev('E2', f'{curto}: DWG presente, gravado {"antes" if dt <= 0 else f"{dt:.0f} s depois"} do PDF, {len(logos)} logos ao lado')
 
 

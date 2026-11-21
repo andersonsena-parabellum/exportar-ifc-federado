@@ -54,7 +54,7 @@
   (foreach k keys (if (assoc k d) (setq l (append l (list (assoc k d))))))
   l)
 ;; propriedades do original + "PorLayer" no que ele não declara: o entmake sem o grupo usa CELTYPE/CECOLOR/CELWEIGHT do
-;; desenho (Jandaíra EL-002 R03, 20/10/2026: trecho redesenhado saiu "Continuous" numa rede tracejada pela layer)
+;; desenho (escola A EL-002 R03, 20/10/2026: trecho redesenhado saiu "Continuous" numa rede tracejada pela layer)
 (defun r01:props_bl (d keys / l)
   (setq l (r01:props d keys))
   (if (and (member 6 keys) (not (assoc 6 d))) (setq l (append l '((6 . "ByLayer")))))

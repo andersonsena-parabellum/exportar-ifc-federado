@@ -86,7 +86,7 @@ def _dist_planta_caixa(P, c):
     return np.hypot(qx, qy)
 
 
-PROF_MAX_GERAL = 2.0   # teto do terreno ao topo do tubo; o valor do projeto por escola vem de parametros.py em REGRAS['prof_max_geral'] (JAN 1,5; demais 2,0)
+PROF_MAX_GERAL = 2.0   # teto do terreno ao topo do tubo; o valor do projeto por escola vem de parametros.py em REGRAS['prof_max_geral'] (EXE 1,5; demais 2,0)
 
 
 def opcoes(m, obst, conf, regras, ter, caixa=False):
@@ -220,8 +220,8 @@ def resolver(elementos, caixas, regras, ter, max_passes=20, log=print):
                     if 'já está' in ' '.join(p['problemas']): continue
                     if melhor_inviavel is None or abs(p['dz']) < abs(melhor_inviavel[2]['dz']): melhor_inviavel = (m, o, p)
             if escolha is None and regras.get('profundo', True):
-                # regra de 19/10/2026 (Anderson e Daniel): pode ir mais fundo que o usual para não mudar o traçado em planta
-                # 19/10/2026 (Anderson): "até 1,5 m" — o mergulho mais fundo não passa de 1,5 m do terreno ao topo do tubo
+                # regra de 19/10/2026 (dono do projeto e sócio de modelagem): pode ir mais fundo que o usual para não mudar o traçado em planta
+                # 19/10/2026 (dono do projeto): "até 1,5 m" — o mergulho mais fundo não passa de 1,5 m do terreno ao topo do tubo
                 rp = dict(regras, dz_max={d: max(v, regras.get('dz_max_profundo', regras.get('prof_max_geral', PROF_MAX_GERAL))) for d, v in regras['dz_max'].items()},
                           prof_max_topo={d: regras.get('prof_max_profundo', regras.get('prof_max_geral', PROF_MAX_GERAL)) for d in regras['prof_max_topo']})
                 for m, o, ehcx in lados:

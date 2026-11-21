@@ -1,6 +1,0 @@
-inicio T1
-13:27:53 info lida 31
-13:27:54 apagado e movido
-13:27:54 tubos criados 35
-13:27:54 ligações diretas 29 -> commit...
-13:27:56 commit: Committed

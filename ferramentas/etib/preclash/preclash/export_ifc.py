@@ -3,7 +3,7 @@
 Coordenadas do arquivo = UTM − origem do projeto (a mesma dos RVTs), cota absoluta. Um IfcSystem por disciplina.
 Tubos = IfcSweptDiskSolid sobre o eixo (com os mergulhos verticais); caixas = prismas; terreno = malha triangulada;
 conflitos = esferas vermelhas/laranja (IfcBuildingElementProxy) com o Pset do conflito.
-Classes (Anderson, 20/10/2026: "um dos princípios do BIM é a informação"): perfil 'revit' (padrão) usa a classe que o Revit 2025
+Classes (dono do projeto, 20/10/2026: "um dos princípios do BIM é a informação"): perfil 'revit' (padrão) usa a classe que o Revit 2025
 importa na categoria certa; perfil 'norma' usa a classe pura do IFC4. A classe da norma vai sempre no Pset PRECLASH
 ('classe_ifc_norma'). Teste no Revit 2025 (Abrir IFC, 20/10/2026) — a categoria sai só da classe, PredefinedType e tipo não mudam:
   IfcPipeSegment -> Tubulação · IfcPipeFitting -> Conexões de tubo · IfcCableCarrierSegment -> Bandejas de cabos (!) ·
@@ -61,7 +61,8 @@ PSET_FORA = {'origem_cota', 'grupo_estudo', 'eixo_min_projeto', 'eixo_max_projet
              'guid', 'modelo_origem', 'alterado_R01', 'comentarios', 'equipamento', 'malha'}
 PSET_NOMES = {'recobrimento_estudo': 'recobrimento_m', 'rede': 'sistema', 'trecho': 'identificacao', 'DE_mm': 'diametro_externo_mm',
               'DN_mm': 'diametro_nominal_mm', 'CT': 'cota_tampa', 'fundo': 'cota_fundo', 'folga_m': 'folga_m'}
-PSET_PROIBIDO = ('daniel', 'preclash', 'pré-compat', 'pre-compat', 'estudo', 'premissa', 'ajuste do terreno', 'thread', 'claude', 'obstáculo')
+# nomes da equipe que não podem aparecer no IFC entregue: variável de ambiente ETIB_NOMES_EQUIPE (separados por vírgula)
+PSET_PROIBIDO = tuple(n.strip().lower() for n in __import__('os').environ.get('ETIB_NOMES_EQUIPE', '').split(',') if n.strip()) + ('preclash', 'pré-compat', 'pre-compat', 'estudo', 'premissa', 'ajuste do terreno', 'thread', 'claude', 'obstáculo')
 MATERIAL_CAIXA = {'c': 'Concreto pré-moldado', 'r': 'Alvenaria / concreto', 'q': 'Alvenaria / concreto'}
 
 
@@ -205,7 +206,7 @@ class Ifc:
         return el
 
     def caixa(self, c, grupo):
-        """caixa/PV/caixa de passagem (Anderson, 20/10/2026: "estão muito simples, um cubo"): fundo + paredes ocas + tampa,
+        """caixa/PV/caixa de passagem (dono do projeto, 20/10/2026: "estão muito simples, um cubo"): fundo + paredes ocas + tampa,
         por extrusão (leve). Parede 0,10 m (caixa retangular de alvenaria/concreto; PV circular = anel pré-moldado de 0,08 m),
         fundo 0,10 m, tampa 0,05 m (concreto; grelha nas caixas de drenagem de areia/boca de lobo). Equipamento, estrutura e caixa
         rasa (< 0,30 m) continuam como prisma. Dimensões externas = as do modelo (já com parede)."""

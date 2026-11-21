@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """Entrada da escola (regra do projeto, 22/10/2026; CHECKLIST.md itens 01 e 02), antes de modelar:
   - abre CADA DWG de PROJETO_ORIGINAL (numa cópia, fora da pasta da escola) no accoreconsole com AUDIT e lista os que não abrem,
-    para o Anderson salvar de uma vez no AutoCAD com janela;
+    para o dono do projeto salvar de uma vez no AutoCAD com janela;
   - lista o CTB de cada folha e as fontes (SHX/TTF) e xrefs que o DWG pede, e diz o que falta na máquina.
 Um accoreconsole por vez (espera os das outras threads; mata só o próprio PID no timeout, run_one.ps1).
 Saída: ETIB-<ESCOLA>/RELATORIOS/ENTRADA_<data>/<SIGLA>_entrada_dwg.json e .md (o quadro vai para o INVENTARIO.md à mão).
-Uso: .venv/Scripts/python.exe -X utf8 entrada/entrada.py ETIB-APORA-ITAMIRA [ETIB-CATU ...]"""
+Uso: .venv/Scripts/python.exe -X utf8 entrada/entrada.py ETIB-<ESCOLA> [ETIB-<ESCOLA> ...]"""
 import os, sys, json, glob, shutil, datetime, importlib.util, collections
 sys.stdout.reconfigure(encoding='utf-8')
 RAIZ = r'D:\Projeto Modelagem'

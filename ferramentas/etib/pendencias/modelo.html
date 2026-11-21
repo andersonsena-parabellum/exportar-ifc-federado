@@ -239,7 +239,7 @@ async function salvar(id, extra) {
   if (!extra && ant.decisao === corpo.decisao && (ant.nota || '') === corpo.nota) { marca(id, quando(ant)); return; }
   while (salvando[id]) await salvando[id];
   salvando[id] = db.doc('decisoes/' + id).set(corpo).then(() => { estado[id] = corpo; marca(id, 'Salvo'); mostraImagem(id, corpo.imagem); aplicarFiltro(); })
-    .catch(e => marca(id, e && e.code === 'invalid_argument' ? 'Você está como leitor: peça acesso de edição ao Anderson para anotar.' : 'Não salvou (' + ((e && e.code) || 'erro') + '). Tente de novo.', true))
+    .catch(e => marca(id, e && e.code === 'invalid_argument' ? 'Você está como leitor: peça acesso de edição ao dono do projeto para anotar.' : 'Não salvou (' + ((e && e.code) || 'erro') + '). Tente de novo.', true))
     .finally(() => { delete salvando[id]; });
   await salvando[id];
 }

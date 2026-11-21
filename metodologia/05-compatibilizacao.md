@@ -12,7 +12,7 @@
 
 | Parâmetro | Valor |
 |---|---|
-| Profundidade máxima, do terreno ao topo do tubo, todas as disciplinas | **2,00 m** (Jandaíra 1,50 m, como foi entregue) — `preclash/parametros.py` |
+| Profundidade máxima, do terreno ao topo do tubo, todas as disciplinas | **2,00 m** (outro valor só se combinado com o dono para a escola, em `PROF_MAX_ESCOLA`) — `preclash/parametros.py` |
 | Recobrimento mínimo de referência | 0,30 m; 0,60 m na elétrica e sob área de veículos (vale a nota do projeto) |
 | Colisão crítica | interferência física (< −2 mm) |
 | Atenção | folga abaixo de 0,20 m |
@@ -23,7 +23,7 @@
 
 ## Estudo de cota das pressurizadas
 
-Antes do clash de soluções, cada rede pressurizada ganha a cota de implantação com menos colisões (`preclash/estudo.py`, `REGRAS['estudo']`). O perfil segue o terreno, com o topo até a profundidade máxima. Lições da Jandaíra (133 → 23 colisões):
+Antes do clash de soluções, cada rede pressurizada ganha a cota de implantação com menos colisões (`preclash/estudo.py`, `REGRAS['estudo']`). O perfil segue o terreno, com o topo até a profundidade máxima. Lições da escola A (133 → 23 colisões):
 
 - água rasa impede a elétrica por cima: com a elétrica a 0,60 m, a água precisa de topo a pelo menos 0,90 m (0,60 + diâmetro + 0,20 de folga); dar mínimo por rede;
 - o fundo da caixa de passagem desce até o eletroduto mais fundo que chega nela, e o custo do estudo conta o que essa caixa passa a pegar;
@@ -35,7 +35,7 @@ Barrilete e casa de bombas ficam fora do estudo, na cota do modelo.
 ## Clash
 
 - Rede × rede, rede × caixa, caixa × caixa (de disciplinas diferentes) e rede × estrutura.
-- **Contra a estrutura pela forma real** (decisão de 20/10/2026): a caixa envolvente de uma sapata cônica acusa colisão que não existe (na Jandaíra R03, 3 de 6 críticos passavam livres). A malha real da estrutura as built entra no clash (corte em 5 alturas da seção do tubo, a cada 2 cm do eixo) e vai para o IFC como `IfcTriangulatedFaceSet`.
+- **Contra a estrutura pela forma real** (decisão de 20/10/2026): a caixa envolvente de uma sapata cônica acusa colisão que não existe (na escola A R03, 3 de 6 críticos passavam livres). A malha real da estrutura as built entra no clash (corte em 5 alturas da seção do tubo, a cada 2 cm do eixo) e vai para o IFC como `IfcTriangulatedFaceSet`.
 - Duas redes por gravidade que se encontram na ponta de um trecho são ligação, não conflito, só entre a mesma disciplina ou grupos combinados (ex.: pluvial e drenagem; condensado no pluvial).
 - Reservatório inferior sempre modelado.
 

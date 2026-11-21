@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Verificação automática da continuidade das redes, depois das soluções e antes do IFC (Anderson, 20/10/2026: o incêndio da
-Jandaíra R03 saiu "picotado" na casa de bombas — pedaços curtos, soltos e desalinhados). Roda em todo cenário do rodar.py e grava
+"""Verificação automática da continuidade das redes, depois das soluções e antes do IFC (dono do projeto, 20/10/2026: o incêndio da
+escola A R03 saiu "picotado" na casa de bombas — pedaços curtos, soltos e desalinhados). Roda em todo cenário do rodar.py e grava
 <SIGLA>_preclash_<cen>_verificacao.csv; o resumo vai para o LEIA-ME da rodada. Itens:
   - 'ponta solta': ponta de trecho a 5 cm–1 m de outra ponta da mesma rede (vão), sem encostar, nem fica dentro de caixa/equipamento,
     nem no meio de outro trecho da mesma rede (derivação) — rede interrompida ou peça (válvula, tê, redução) que faltou no modelo;

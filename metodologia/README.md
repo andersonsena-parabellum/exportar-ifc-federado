@@ -1,12 +1,12 @@
 # Metodologia ETIB: modelagem e compatibilização em IFC
 
-Este é o método de trabalho da equipe para modelar, compatibilizar e entregar em IFC as redes externas das escolas ETIB (contrato 24-049 da Construtora QG, aprovação da CONDER). Ele junta num só lugar o que antes estava espalhado entre as instruções do projeto, o `AGENTS.md` do notebook, as lições de modelagem, as skills locais, o checklist de qualidade e os LEIA-ME das ferramentas.
+Este é o método de trabalho da equipe para modelar, compatibilizar e entregar em IFC as redes externas das escolas ETIB (com aprovação da CONDER). Ele junta num só lugar o que antes estava espalhado entre as instruções do projeto, o `AGENTS.md` do notebook, as lições de modelagem, as skills locais, o checklist de qualidade e os LEIA-ME das ferramentas.
 
-O método foi construído em outubro de 2026, nas 8 escolas do contrato, e cada regra tem a data em que foi decidida. Quando uma regra muda, este texto muda junto e a regra antiga é apagada (o histórico fica no git).
+O método foi construído em outubro de 2026, em oito escolas, e cada regra tem a data em que foi decidida. Quando uma regra muda, este texto muda junto e a regra antiga é apagada (o histórico fica no git).
 
 ## Ideia central
 
-1. **Tudo em IFC, sem Revit no meio.** As redes são montadas em Python a partir dos DWG e PDF do projetista e do as built, já georreferenciadas em UTM (SIRGAS 2000), com cota absoluta e diâmetro externo real. O Revit entra só para converter os RVT da construtora (terreno da implantação, estrutura, arquitetura) em IFC.
+1. **Tudo em IFC, sem Revit no meio.** As redes são montadas em Python a partir dos DWG e PDF do projetista e do as built, já georreferenciadas em UTM (SIRGAS 2000), com cota absoluta e diâmetro externo real. O Revit entra só para ler os RVT da construtora (terreno da implantação, estrutura, arquitetura).
 2. **Compatibilizar antes de entregar, mexendo o mínimo.** Primeiro profundidade; planta só quando não há outro jeito. Dentro de limites combinados a solução é aplicada e avisada; fora deles, vira decisão.
 3. **Informação é parte do BIM.** Cada peça sai com classe IFC que o Revit lê certo, sistema, material da legenda, diâmetro, código do projeto e Pset próprio, sem nenhum dado de processo interno.
 4. **A prancha vai para o campo.** As folhas são as built, lidas pelo mestre de obras: sem nuvem, sem nota de processo, no padrão gráfico do projetista.
@@ -43,6 +43,7 @@ Revisão de qualidade (CHECKLIST)  ->  APROVADO  ->  Envio + CDE no mesmo passo 
 | 10 | [Forma de trabalho e comunicação](10-forma-de-trabalho-e-comunicacao.md) | threads, decisões, Linear, página de pendências, regras novas |
 | 11 | [Infraestrutura: nuvem e notebook](11-infraestrutura-nuvem-e-notebook.md) | o que roda onde, versões fixas, pastas, armadilhas do AutoCAD e do Revit |
 | 12 | [Lições aprendidas](12-licoes-aprendidas.md) | erros que já aconteceram e como não repetir |
+| 14 | [Começar uma escola nova](14-escola-nova.md) | o que pedir, a ordem e como adaptar a outro contrato |
 | — | [Glossário](glossario.md) | siglas e termos |
 
 ## Skills deste repositório
@@ -53,7 +54,7 @@ As skills do Claude Code que executam o método ficam na raiz do repositório:
 |---|---|---|
 | `federado-unico-etib` | [`../federado-unico-etib/`](../federado-unico-etib/SKILL.md) | montar o IFC federado único da escola |
 | `revisao-qualidade-etib` | [`../revisao-qualidade-etib/`](../revisao-qualidade-etib/SKILL.md) | revisar uma entrega antes do envio |
-| `modelagem-bim-disciplinas` | [`../modelagem-bim-disciplinas/`](../modelagem-bim-disciplinas/SKILL.md) | método antigo, no Revit via MCP (só Jandaíra) |
+| `modelagem-bim-disciplinas` | [`../modelagem-bim-disciplinas/`](../modelagem-bim-disciplinas/SKILL.md) | método antigo, no Revit via MCP (usado no piloto) |
 | `modelagem-ifc-sem-revit` | ainda não copiada | método atual de modelagem; ver capítulos 03 a 05 |
 
 O código das ferramentas (motor `preclash`, revisão, pranchas, CDE, página de pendências) fica na pasta `FERRAMENTAS` do projeto e na cópia da nuvem; os capítulos dizem qual script faz cada etapa.

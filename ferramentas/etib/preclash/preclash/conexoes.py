@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Conexões (peças) em toda mudança de direção das redes, horizontal ou vertical, inclusive drenagem e esgoto
-(parâmetro do Anderson, 19/10/2026). Cada curva vira uma peça comercial: o ângulo real é arredondado para o ângulo
+(parâmetro do dono do projeto, 19/10/2026). Cada curva vira uma peça comercial: o ângulo real é arredondado para o ângulo
 comercial mais próximo de REGRAS['conexoes']['angulos'] (padrão 45° e 90°, as peças usuais; antes 11,25° e 22,5° também); até 'flexivel' graus
 (padrão 5°) a deflexão fica na junta e não há peça. Peça cujo ângulo real fica a mais de 'tol' (padrão 3°) do
 comercial é marcada 'fora do comercial' (conferir: o desvio da ferramenta usa só 45° e 90°).
@@ -13,7 +13,7 @@ import collections
 import numpy as np
 from . import clash as cl
 
-PADRAO = {'angulos': [45.0, 90.0],     # peças comerciais usuais (Anderson, 21/10/2026: "geralmente 90 e 45; outros eu desconheço")
+PADRAO = {'angulos': [45.0, 90.0],     # peças comerciais usuais (dono do projeto, 21/10/2026: "geralmente 90 e 45; outros eu desconheço")
            'flexivel': 5.0, 'tol': 3.0,     # tol: diferença aceita entre o vértice e a peça (= checklist C6)
           # eletroduto curva na própria peça até 30° (o modelo quebra a curva em pedaços de 7° a 17°: Revisão de qualidade, 20/10/2026)
           # eletroduto FLEXÍVEL (PEAD corrugado) curva na própria peça até 30°; o rígido (PVC roscável) leva curva (Revisão, 20/10/2026)
@@ -140,10 +140,10 @@ def resumo(pecas):
 
 
 def ajustar_vertices(E, caixas, regras, campo='pts_sol', max_desloc=0.15, log=print):
-    """DESLIGADO por padrão (REGRAS['ajustar_vertices']): a regra do Anderson é não mexer no traçado em planta já entregue; use a
+    """DESLIGADO por padrão (REGRAS['ajustar_vertices']): a regra do dono do projeto é não mexer no traçado em planta já entregue; use a
     combinação de duas peças ou a peça mais próxima com a deflexão no Pset. vértice cujo ângulo não casa com peça comercial (nem combinação de duas) a 'tol': o vértice anda em PLANTA, entre os vizinhos
     fixos, até o ângulo comercial mais próximo (arco capaz da corda); a cota não muda. Só vértice interno ou nó entre dois trechos,
-    fora de caixa, com deslocamento até 'max_desloc' (Revisão de qualidade da Jandaíra, 20/10/2026)."""
+    fora de caixa, com deslocamento até 'max_desloc' (Revisão de qualidade da escola A, 20/10/2026)."""
     cfg = dict(PADRAO, **(regras.get('conexoes') or {}))
     pares = sorted(cfg['angulos'])          # o vértice vai para o ângulo de UMA peça comercial
     nos = collections.defaultdict(list)

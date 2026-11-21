@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Leitura dos CSVs padrão das fases 2 (redes extraídas) e 3 (cotas) feitos sem Revit nas threads das escolas.
-Formato (separador ';', UTF-8 com BOM), o mesmo de Sátiro Dias/Catu/Pojuca:
+Formato (separador ';', UTF-8 com BOM), o mesmo de escola C/escola G/escola H:
   *_fase3_pressurizadas_cotas.csv : sistema;trecho;perna;rede;DE_mm;L_m;E_ini;N_ini;E_fim;N_fim;terreno_ini;terreno_fim;eixo_ini;eixo_fim;...;recobrimento_exigido
   *_fase2_<REDE>_trechos.csv (gravidade): trecho;de;para;L_m;DN_mm;material;i_rotulo_pct;CF_montante;CF_jusante;...;classe;E_ini;N_ini;E_fim;N_fim;obs
   *_fase2_<REDE>_caixas.csv : caixa;tipo;E;N;lado_ou_raio_m;CT;CF;...
@@ -141,7 +141,7 @@ def caixas_de_nos(fn, disc, rede, ter, elementos, tipos, prof_sob_eixo=0.15, rai
 def perfil_por_recobrimento(pts2d, de, cob, ter, passo=0.5, desvio=0.20, trecho_min=2.0):
     """Eixo 3D de uma rede pressurizada/eletroduto a partir do traçado 2D: algoritmo da skill (amostra a cada 0,5 m,
     Douglas-Peucker 0,20 m / 2 m sobre o perfil exigido, abaixa os nós até nenhum ponto ficar com recobrimento < cob).
-    Devolve (n,3). Mesmo critério da fase 3 da Sátiro Dias (fase3_sat.py), sem a regra de nó compartilhado."""
+    Devolve (n,3). Mesmo critério da fase 3 da escola C (fase3_sat.py), sem a regra de nó compartilhado."""
     P = [np.asarray(p[:2], float) for p in pts2d]
     S, Q = [0.0], [P[0]]
     for a, b in zip(P[:-1], P[1:]):
@@ -175,5 +175,5 @@ def perfil_por_recobrimento(pts2d, de, cob, ter, passo=0.5, desvio=0.20, trecho_
 
 
 def elemento_3d(id, disc, rede, trecho, tipo, de, pts3d, **info):
-    """atalho para formatos que já trazem o eixo 3D (ex.: CSVs 'revit/' da Prof. Áurea: x0_utm;y0_utm;z0_eixo;x1_utm;...)."""
+    """atalho para formatos que já trazem o eixo 3D (ex.: CSVs 'revit/' da escola F: x0_utm;y0_utm;z0_eixo;x1_utm;...)."""
     return md.elemento(id, disc, rede, trecho, tipo, de, pts3d, **info)

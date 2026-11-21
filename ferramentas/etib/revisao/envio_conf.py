@@ -27,7 +27,7 @@ IFC_ESPERADOS = (('HIDRO', r'HIDRO'), ('ELÉTRICA', r'ELE'), ('PCI', r'PCI'), ('
 
 
 def conferir_envio(rv, envio, pasta_pdf, pasta_dwg, pasta_ifc, cde=None, ifc_ausentes=None):
-    """ifc_ausentes: {disciplina: motivo} de entregas.py, para a escola sem projeto daquela disciplina (ex.: Itamira sem PCI)."""
+    """ifc_ausentes: {disciplina: motivo} de entregas.py, para a escola sem projeto daquela disciplina (ex.: escola E sem PCI)."""
     ifc_ausentes = ifc_ausentes or {}
     if not os.path.isdir(envio):
         rv.add('A1', 'PENDENCIA', envio, '-', 'pasta de envio não encontrada', 'A1 entregável'); return
@@ -45,7 +45,7 @@ def conferir_envio(rv, envio, pasta_pdf, pasta_dwg, pasta_ifc, cde=None, ifc_aus
     for x in pdfs + dwgs:
         f = folha(x)
         if f: por_base[(f['base'], os.path.splitext(x)[1].lower())].append(f['rev'])
-        else: rv.add('A5', 'PENDENCIA', rel(x), '-', 'nome fora do padrão da lista mestra (24-049-<MUN>-CTO-ETIB-<SETOR>-PE-<DIS>-<NNN>-<CONT>-R<NN>)', 'A5 nome padrão')
+        else: rv.add('A5', 'PENDENCIA', rel(x), '-', 'nome fora do padrão da lista mestra (AA-CTR-<MUN>-<LOC>-ETIB-<SETOR>-PE-<DIS>-<NNN>-<CONT>-R<NN>)', 'A5 nome padrão')
     for (b, ext), revs in por_base.items():
         if len(revs) > 1:
             rv.add('A2', 'PENDENCIA', b + ext, '-', f'mais de uma revisão da mesma folha no envio: {sorted(revs)}', 'A2 só a revisão vigente')

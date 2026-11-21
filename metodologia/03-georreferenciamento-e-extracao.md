@@ -48,5 +48,5 @@ O PDF vetorial tem todos os textos com posição (PyMuPDF, `page.get_text('dict'
 ## Terreno
 
 - **Vale a base:** CT das caixas de DRE/ESG, implantação, TOP e TER. Usa-se o terreno do RVT da implantação convertido em IFC, ajustado às cotas da base quando diverge (`preclash/terreno.py: ajustar`, correção local pelos resíduos, platôs pela mediana).
-- O terreno vira um TIN (`escolas/dados/<escola>_terreno.npz`: pontos, triângulos, platôs e linhas da situação). Sem triângulos, faz-se Delaunay dos pontos.
+- O terreno vira um TIN (`preclash/escolas/dados/<escola>_terreno.npz`: pontos, triângulos, platôs e linhas da situação). Sem triângulos, faz-se Delaunay dos pontos.
 - Rebaixo estreito de piso (pátio rebaixado) pode ser preenchido só para o perfil das pressurizadas (`preencher_rebaixo`), senão a rede inteira desce. Conferir depois contra o terreno entregue: a rede não pode ficar acima do terreno real.

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Revisão de qualidade (analista de qualidade do contrato 24-049): peças comuns às conferências.
+"""Revisão de qualidade (analista de qualidade do contrato): peças comuns às conferências.
 Achado = uma linha do relatório: item do checklist, onde (arquivo/prancha + local), o que está errado, regra, nível.
 Níveis: PENDENCIA (corrigir antes do envio), OBSERVACAO (não bloqueia), INFO (evidência/contagem), AGUARDANDO (item suspenso).
 A revisão só LÊ os arquivos das escolas; tudo o que ela grava fica em FERRAMENTAS\\revisao\\relatorios\\<ESCOLA>\\."""
@@ -65,7 +65,7 @@ RX_FOLHA = re.compile(r'^(?P<ano>\d{2})-(?P<ctr>\d{3})-(?P<mun>[A-Z0-9]{3})-(?P<
 
 
 def folha(nome):
-    """'24-049-JDI-CTO-ETIB-IMP-PE-AF-001-HIG-R03(.pdf)' -> dict(setor, dis, num, cont, rev, base, curto) ou None."""
+    """'AA-CTR-MUN-LOC-ETIB-IMP-PE-AF-001-HIG-R03(.pdf)' -> dict(setor, dis, num, cont, rev, base, curto) ou None."""
     st = os.path.splitext(os.path.basename(nome))[0]
     m = RX_FOLHA.match(st)
     if not m: return None

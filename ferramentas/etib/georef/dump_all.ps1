@@ -1,5 +1,5 @@
 # Dump (accoreconsole) de várias cópias de DWG. Modo: INS (dump_deep só inserções/textos/círculos), DEEP (dump_deep completo) ou FLAT (dump_dwg, só nível superior).
-param([string]$W = "D:\Projeto Modelagem\FERRAMENTAS\georef\work\CATU", [string]$Mode = "INS", [string[]]$Filtro = @("*"), [int]$TimeoutSec = 900, [string]$Excl = "")
+param([string]$W = "D:\Projeto Modelagem\FERRAMENTAS\georef\work\<ESCOLA>", [string]$Mode = "INS", [string[]]$Filtro = @("*"), [int]$TimeoutSec = 900, [string]$Excl = "")
 $G = "D:\Projeto Modelagem\FERRAMENTAS\georef"
 $scr = if ($Mode -eq "FLAT") { "$G\dump.scr" } else { "$G\dump_deep.scr" }
 $pref = $Mode.ToLower()

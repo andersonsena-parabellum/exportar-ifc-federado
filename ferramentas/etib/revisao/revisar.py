@@ -45,7 +45,7 @@ ITENS = [
     ('D8', 'Reservatório inferior modelado'),
     ('D9', 'Nada fora do escopo do contrato'),
     ('E1', 'Folha A0, uma por PDF'),
-    ('E2', 'Carimbo QG as built no PDF e no DWG'),
+    ('E2', 'Carimbo da construtora as built no PDF e no DWG'),
     ('E3', 'Revisão coerente (arquivo, carimbo, quadro)'),
     ('E4', 'Uma nota de profundidade por trecho'),
     ('E5', 'Notas dentro da profundidade máxima'),
@@ -61,7 +61,7 @@ SUSPENSOS = ('B2', 'B3', 'B4', 'B5', 'B6', 'B10', 'B11')
 
 def federado(rv, pasta, declaradas=()):
     """B8: federado = soma das disciplinas; só os marcadores das pendências declaradas (nada de "atenção");
-    sem o Pset da ferramenta (PRECLASH) e sem nome de pessoa (ex.: "modelo do Daniel")."""
+    sem o Pset da ferramenta (PRECLASH) e sem nome de pessoa (ex.: "modelo do sócio de modelagem")."""
     import re
     import ifcopenshell.util.element as ue
     fed = [x for x in glob.glob(os.path.join(pasta, '*.ifc')) if 'FEDERADO' in os.path.basename(x).upper()]
@@ -87,9 +87,9 @@ def federado(rv, pasta, declaradas=()):
     psets = {ps.Name for ps in F.by_type('IfcPropertySet')}
     if any(re.search(r'preclash', n or '', re.I) for n in psets):
         rv.add('B8', 'PENDENCIA', nome, 'Pset', 'federado com o Pset "PRECLASH" (nome da ferramenta)', 'B8/B9 federado sem processo interno')
-    pessoas = sum(1 for v in F.by_type('IfcPropertySingleValue') if v.NominalValue and re.search(r'daniel|claude|anderson', str(v.NominalValue.wrappedValue), re.I))
+    pessoas = sum(1 for v in F.by_type('IfcPropertySingleValue') if v.NominalValue and re.search(r'claude' + ''.join('|' + re.escape(n.strip()) for n in os.environ.get('ETIB_NOMES_EQUIPE', '').split(',') if n.strip()), str(v.NominalValue.wrappedValue), re.I))
     if pessoas:
-        rv.add('B8', 'PENDENCIA', nome, f'{pessoas} propriedades', 'federado com nome de pessoa nas propriedades (ex.: "modelo do Daniel")', 'B8/B9 federado sem processo interno')
+        rv.add('B8', 'PENDENCIA', nome, f'{pessoas} propriedades', 'federado com nome de pessoa nas propriedades (ex.: "modelo do sócio de modelagem")', 'B8/B9 federado sem processo interno')
     falta = g - f; sobra = f - g
     if falta:
         rv.add('B8', 'PENDENCIA', nome, '-', 'federado sem elementos das disciplinas: ' + ', '.join(f'{k} {v}' for k, v in falta.items()), 'B8 federado')

@@ -229,7 +229,7 @@ def _secao(T, z):
 
 def folga_malha(P, r, T, passo=0.02):
     """folga do tubo (eixo P, raio r) contra a FORMA REAL da peça (triângulos T (n,3,3), UTM): em cada ponto do eixo e em 5 alturas
-    da seção do tubo, corta a malha nessa altura (fecho convexo) e mede em planta (método da Jandaíra, folga_forma_real.py).
+    da seção do tubo, corta a malha nessa altura (fecho convexo) e mede em planta (método da escola A, folga_forma_real.py).
     A sapata cônica afina para cima: a caixa envolvente acusa colisão que não existe."""
     zlo, zhi = float(T[:, :, 2].min()), float(T[:, :, 2].max())
     Q = amostra(P, passo); lo = T.reshape(-1, 3)[:, :2].min(0) - 1.0 - r; hi = T.reshape(-1, 3)[:, :2].max(0) + 1.0 + r

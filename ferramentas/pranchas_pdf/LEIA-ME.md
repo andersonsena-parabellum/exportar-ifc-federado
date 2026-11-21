@@ -1,4 +1,4 @@
-# PDF de prancha na nuvem (ezdxf), versão de 26/10 (Olindina + Sátiro); adotado nas entregas em 26/10, conferindo a 1ª escola lado a lado com o AutoCAD
+# PDF de prancha na nuvem (ezdxf), versão de 26/10 (escola D + escola C); adotado nas entregas em 26/10, conferindo a 1ª escola lado a lado com o AutoCAD
 
 Rodar de dentro desta pasta (o script procura `fontes/` e `prancha/logos/` a partir dela):
 
@@ -11,7 +11,7 @@ LAY é o nome da folha (padrão "01"); se não existir, usa a única folha do ar
 O CTB do projetista ("FAC - HID.ctb", "FAC - ELE 03_.ctb") não existe nem no notebook; os dois lados plotam com as cores do objeto.
 
 O que o script corrige em relação ao ezdxf puro (tudo medido contra o PDF do AutoCAD):
-- fonte Arial real; logos do carimbo QG; imagem sem moldura;
+- fonte Arial real; logos do carimbo da construtora; imagem sem moldura;
 - entrelinha `\pxsm`; recuo, tabulação e justificado das listas mantidos;
 - marcador de lista da fonte Symbol vira •; `%%216` e ∅ viram Ø;
 - quebra de linha do MTEXT com a folga do AutoCAD (8 %, só em rótulo curto de até 30 caracteres; nota longa fica sem folga);

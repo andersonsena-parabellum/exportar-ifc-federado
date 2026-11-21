@@ -1,8 +1,8 @@
 ﻿# -*- coding: utf-8 -*-
-"""Carimbo padrão QG as built nas pranchas que modificamos (pedido do Anderson, 20/10/2026): DWG e PDF.
+"""Carimbo padrão as built da construtora nas pranchas que modificamos (pedido do dono do projeto, 20/10/2026): DWG e PDF.
 O carimbo vem da família Revit "ARQ_SIMB_CARIMBO_PROJETO EXECUTIVO-QG AS BUILT.rfa" (raiz do projeto), exportada para
 carimbo_qg/fonte/ e montada como bloco com atributos em carimbo_qg/CARIMBO_QG_ASBUILT.dwg (carimbo_qg/montar_bloco.lsp).
-Tem o mesmo tamanho do carimbo QG que as pranchas dos projetistas já trazem (175 mm de largura, quadro de revisões em cima),
+Tem o mesmo tamanho do carimbo da construtora que as pranchas dos projetistas já trazem (175 mm de largura, quadro de revisões em cima),
 então entra no mesmo lugar: o carimbo antigo sai (linhas, textos, logos, linhas de revisão) e o bloco entra com o canto
 inferior direito no canto do antigo. Os campos saem do carimbo antigo da própria prancha:
   PROJETO      1ª linha do título ("ESCOLA DE TEMPO INTEGRAL DA BAHIA")

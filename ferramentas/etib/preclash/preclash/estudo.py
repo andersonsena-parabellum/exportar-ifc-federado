@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Estudo de cota das redes pressurizadas, ANTES do clash de soluções (parâmetros do Anderson, 19/10/2026).
+"""Estudo de cota das redes pressurizadas, ANTES do clash de soluções (parâmetros do dono do projeto, 19/10/2026).
 Em vez de mergulhos pontuais (rede que desce só no cruzamento e volta), cada rede pressurizada ganha UMA cota de
 implantação escolhida para dar o menor número de colisões:
   - água fria e hidrantes ('por_rede'): um recobrimento só para a rede inteira (campo 'rede' do elemento);
@@ -11,11 +11,11 @@ implantação escolhida para dar o menor número de colisões:
 Ordem: primeiro a água (AF, HID), depois a elétrica (ELE, SDAI, CFTV); dentro de cada uma, os grupos maiores primeiro.
 REGRAS['estudo'] = {'por_rede': [...], 'por_trecho': [...], 'cob_min': {disc: m}, 'prof_max': 1.5, 'passo': 0.05, 'acima': [(cima, baixo), ...]}
 O elemento estudado guarda 'pts_projeto' (cota antes do estudo) e 'estudo' = {'cob', 'grupo', 'custo', 'colisoes'}; 'pts' passa a ser a cota estudada.
-Ajustes da Jandaíra (19/10/2026, noite), que valem para todas:
+Ajustes da escola A (19/10/2026, noite), que valem para todas:
   - 'desvio_perfil' 0,05 m (Douglas-Peucker do perfil): com 0,20 a rede afundava até 20 cm no meio do vão e encostava na outra;
-  - 'preencher_rebaixo' (m, desligado por padrão; Jandaíra usa 5): o perfil usa o terreno com os rebaixos estreitos preenchidos
+  - 'preencher_rebaixo' (m, desligado por padrão; escola A usa 5): o perfil usa o terreno com os rebaixos estreitos preenchidos
     (fechamento de ~2r+1 m), para um rebaixo de piso (0,6 m abaixo do entorno) não puxar a rede inteira para baixo; a profundidade
-    máxima continua medida no terreno real. Na Pojuca piorou (104 -> 110 -> 119 críticos), por isso fica por escola;
+    máxima continua medida no terreno real. Na escola H piorou (104 -> 110 -> 119 críticos), por isso fica por escola;
   - 'caixa_acompanha': o fundo da caixa de passagem/registro desce até 10 cm abaixo do tubo mais fundo que chega nela, e o custo da
     elétrica conta o que essa caixa mais funda passa a pegar (equipamento e reservatório não mudam)."""
 import collections
@@ -25,10 +25,10 @@ from .leitura import perfil_por_recobrimento
 
 PADRAO = {'por_rede': ['AF', 'HID'], 'por_trecho': ['ELE', 'SDAI', 'CFTV'],
           'cob_min': {'AF': 0.30, 'HID': 0.60, 'ELE': 0.60, 'SDAI': 0.60, 'CFTV': 0.60},
-          'prof_max': 2.00, 'passo': 0.05,          # prof_max: parâmetro do projeto por escola (parametros.py: JAN 1,5; demais 2,0)
+          'prof_max': 2.00, 'passo': 0.05,          # prof_max: parâmetro do projeto por escola (parametros.py: EXE 1,5; demais 2,0)
           'acima': [('ELE', 'AF'), ('ELE', 'HID'), ('SDAI', 'AF'), ('SDAI', 'HID'), ('CFTV', 'AF'), ('CFTV', 'HID')],
           'desvio_perfil': 0.05, 'preencher_rebaixo': 0, 'caixa_acompanha': True,
-          # tubulação de casa de bombas/abrigo não é rede enterrada: perto de bomba/tanque fica na cota do modelo (Jandaíra R03:
+          # tubulação de casa de bombas/abrigo não é rede enterrada: perto de bomba/tanque fica na cota do modelo (escola A R03:
           # o barrilete das bombas de incêndio foi levado a 1,10 m de recobrimento, 2 m abaixo das bombas, e saiu picotado)
           'fixar_perto_de': ['IfcPump', 'IfcTank'], 'raio_fixo': 3.0,
           # eixo do grupo pelo maior diâmetro (redução sem degrau); False repete o critério antigo (eixo por diâmetro do trecho)
@@ -249,7 +249,7 @@ def custo_caixas(cand, outros, caixas, regras, disc):
 def estudar(E, caixas, regras, ter, log=print):
     global DESVIO_PERFIL
     cfg = dict(PADRAO, **(regras.get('estudo') or {}))
-    legado = globals().get('_jan', False)          # adaptador antigo da Jandaíra já faz os ajustes abaixo por conta própria
+    legado = globals().get('_jan', False)          # adaptador antigo da escola A já faz os ajustes abaixo por conta própria
     DESVIO_PERFIL = cfg['desvio_perfil']
     G = grupos(E, caixas, cfg)
     ter_real = ter
@@ -304,7 +304,7 @@ def estudar(E, caixas, regras, ter, log=print):
         rel.append({'grupo': g['nome'], 'disc': g['disc'], 'n': len(g['els']), 'cob': cob, 'colisoes': nc, 'curtas': nk, 'prof_max_topo': fundo})
         log(f"  estudo {g['nome']}: recobrimento {cob:.2f} m ({len(g['els'])} trechos) -> {nc} colisões, {nk} folgas curtas")
     # nó entre peças do mesmo grupo: o perfil de cada peça abaixa as pontas por conta própria (recobrimento mínimo no meio dela) e
-    # duas peças no mesmo ponto ficavam até 24 cm desencontradas (AF-07 × AF-07.5 em Alagoinhas, 21/10): todas vão para a mais funda
+    # duas peças no mesmo ponto ficavam até 24 cm desencontradas (AF-07 × AF-07.5 em escola B, 21/10): todas vão para a mais funda
     if not legado:
         pontas = [(e, k) for e in E if e.get('estudo') for k in (0, len(e['pts']) - 1)]
         nos = collections.defaultdict(list)
@@ -317,8 +317,8 @@ def estudar(E, caixas, regras, ter, log=print):
                 if abs(e['pts'][k, 2] - z) > 0.005: e['pts'][k, 2] = z; e['pts_sol'] = e['pts'].copy(); e.pop('S', None); n_ += 1
         if n_: log(f'  estudo: {n_} pontas levadas à cota da peça mais funda do mesmo nó')
     # trecho que ficou na cota do modelo (casa de bombas, reservatório) e encosta num trecho estudado: subida/descida vertical na
-    # ponta dele até a cota do estudado (senão a rede fica com um degrau sem peça — Jandaíra R03, 20/10/2026)
-    fix = fixos_internos(E, caixas, cfg) if not legado else set(); est_ = [e for e in E if e.get('estudo')]   # adaptador antigo da Jandaíra liga por conta própria
+    # ponta dele até a cota do estudado (senão a rede fica com um degrau sem peça — escola A R03, 20/10/2026)
+    fix = fixos_internos(E, caixas, cfg) if not legado else set(); est_ = [e for e in E if e.get('estudo')]   # adaptador antigo da escola A liga por conta própria
     for e in E:
         if e['id'] not in fix: continue
         for k in (0, -1):

@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Parâmetros do projeto (contrato 24-049), valem para todas as escolas salvo o que o adaptador fixar.
-Profundidade máxima das redes, do terreno ao topo do tubo, todas as disciplinas:
-  - 19/10/2026 (Anderson): "até 1,5 m" -> Jandaíra entregue assim e fica com 1,50;
-  - 20/10/2026 (Anderson): "para os outros projetos vamos aumentar a profundidade para até 2 m" -> 2,00 nas demais.
+"""Parâmetros do projeto, valem para todas as escolas salvo o que o adaptador fixar.
+Profundidade máxima das redes, do terreno ao topo do tubo, todas as disciplinas: 2,00 m (decisão de 20/10/2026).
+Escola com outro valor combinado (ex.: entregue antes com 1,50 m): PROF_MAX_ESCOLA = {'<SIGLA>': 1.50}.
 rodar.py põe esse valor em REGRAS['prof_max_geral'] (teto dos mergulhos, solver.py) e em REGRAS['estudo']['prof_max']
 (estudo de cota) quando o adaptador não define; o 'prof_max_topo' de cada disciplina no adaptador continua valendo abaixo do teto."""
 
 PROF_MAX_PADRAO = 2.00
-PROF_MAX_ESCOLA = {'JAN': 1.50}
+PROF_MAX_ESCOLA = {}   # ex.: {'EXE': 1.50}
 
 
 def prof_max(sigla):

@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 """Entrada da escola, item 3 (CHECKLIST 03): numa sessão só do Revit, lê os RVT que a escola precisa e grava a malha em UTM/coords
 internas para o preclash (equivale à conversão em IFC; o IFC de entrega do terreno e da estrutura sai do preclash):
-  - IMP as built: terreno, pisos, paredes, vínculos dos blocos e famílias com ponto (olindina/revit/onn_imp_ler.cs com outros caminhos);
+  - IMP as built: terreno, pisos, paredes, vínculos dos blocos e famílias com ponto (entrada/revit/imp_ler.cs com os caminhos da escola);
   - estrutura as built (FUN/ECC/EMT de REFERENCIAS_RVT): triângulos de cada peça pela forma real (entrada/revit/estrutura_tri.cs).
 Um RVT por chamada (revit_rpc, porta 8080); cada arquivo é aberto desanexado e fechado SEM salvar. Pula o que já tem saída.
-Uso: .venv/Scripts/python.exe -X utf8 entrada/revit_conv.py AUREA CATU POJUCA"""
+Uso: .venv/Scripts/python.exe -X utf8 entrada/revit_conv.py EXEMPLO [OUTRA ...]"""
 import os, sys, glob, time
 sys.stdout.reconfigure(encoding='utf-8')
 F = r'D:\Projeto Modelagem\FERRAMENTAS'
 sys.path.insert(0, F)
 import revit_rpc
 
-ESC = {  # pasta da escola, pasta de trabalho, ler o IMP?, ler a estrutura?
-    'AUREA': ('ETIB-APORA-PROF-AUREA', 'AUREA', True, False),
-    'CATU': ('ETIB-CATU', 'CATU', False, True),
-    'POJUCA': ('ETIB-POJUCA', 'POJUCA', False, True),
+ESC = {  # chave: (pasta da escola, pasta de trabalho em georef/work, ler o IMP?, ler a estrutura?) — MODELO
+    'EXEMPLO': ('ETIB-<ESCOLA>', 'EXEMPLO', True, True),
 }
 
 
@@ -28,7 +26,7 @@ def rodar(code, rotulo):
 
 def main(nomes):
     est = open(os.path.join(F, 'entrada', 'revit', 'estrutura_tri.cs'), encoding='utf-8').read()
-    imp = open(os.path.join(F, 'olindina', 'revit', 'onn_imp_ler.cs'), encoding='utf-8').read()
+    imp = open(os.path.join(F, 'entrada', 'revit', 'imp_ler.cs'), encoding='utf-8').read()
     for n in nomes:
         pasta, work, ler_imp, ler_est = ESC[n]
         base = os.path.join(r'D:\Projeto Modelagem', pasta)

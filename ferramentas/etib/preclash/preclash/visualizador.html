@@ -135,7 +135,7 @@ body.sem-paineis #rosa{right:calc(14px + var(--i-r))}
     if (!P) {
       try { const r = await fetch('pranchas.json', {cache: 'no-store'}); if (!r.ok) throw 0; P = await r.json(); }
       catch (_) { q('#prnNota').textContent = 'A lista de pranchas ainda não foi publicada aqui.'; return; }
-      const sel = q('#prnEsc'), atual = (location.hash.slice(1) || 'SAT').toUpperCase();
+      const sel = q('#prnEsc'), atual = (location.hash.slice(1) || 'EXE').toUpperCase();
       for (const e of P.escolas) sel.add(new Option(e.nome, e.sigla, false, e.sigla === atual));
       sel.addEventListener('change', () => mostrar(sel.value));
     }
@@ -200,12 +200,12 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { SMAAPass } from 'three/addons/postprocessing/SMAAPass.js';
 const $ = s => document.querySelector(s);
 // Um arquivo por escola (modo único, com seletor) ou dados embutidos (arquivo local de uma escola).
-const ESCOLAS = [['SAT', 'Sátiro Dias'], ['CAT', 'Catu'], ['PJC', 'Pojuca'], ['ITA', 'Aporá – Itamira'], ['AUR', 'Aporá – Prof. Áurea'], ['JAN', 'Jandaíra'], ['ALH', 'Alagoinhas (BA2)']];
+const ESCOLAS = [['EXE', '<Nome da Escola>']];   // uma linha por escola: [SIGLA, nome]; cada uma lê dados/<SIGLA>.json
 async function carregarDados() {
   const inl = JSON.parse(document.getElementById('dados').textContent);
   if (inl) return inl;
   const sel = $('#escola'); sel.hidden = false;
-  const atual = (location.hash.slice(1) || 'SAT').toUpperCase();
+  const atual = (location.hash.slice(1) || 'EXE').toUpperCase();
   for (const [s, n] of ESCOLAS) sel.add(new Option(n, s, false, s === atual));
   sel.addEventListener('change', () => { location.hash = sel.value; location.reload(); });
   // marca as escolas que ainda não têm dados publicados
@@ -474,7 +474,7 @@ function atualizarRotulos() {
   for (const [, txt, q, cl] of cand.slice(0, 70)) { const d = document.createElement('div'); d.className = 'rot ' + cl; d.textContent = txt; const o = new CSS2DObject(d); o.position.set(...q); gLab.add(o); }
 }
 $('#bRot').addEventListener('click', () => { rotulos = !rotulos; $('#bRot').classList.toggle('on', rotulos); atualizarRotulos(); });
-// validação (reunião Anderson/Daniel, 19/10/2026): 1) sem terreno e arquitetura, ver colisões e conexões; 2) terreno sólido de volta, ver as tampas
+// validação (reunião dono do projeto/sócio de modelagem, 19/10/2026): 1) sem terreno e arquitetura, ver colisões e conexões; 2) terreno sólido de volta, ver as tampas
 let val = 0, valAntes = null;
 $('#bVal').addEventListener('click', () => {
   const chk = ['#vTer', '#vSit', '#vCur', '#vCon', '#vCf'];

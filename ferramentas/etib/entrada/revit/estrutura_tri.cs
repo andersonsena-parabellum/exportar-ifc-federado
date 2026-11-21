@@ -1,4 +1,4 @@
-// Entrada da escola — estrutura as built pela FORMA REAL (mesmo método do olindina/revit/onn_ba5_estrutura.cs): triângulos de cada
+// Entrada da escola — estrutura as built pela FORMA REAL (mesmo método do exemplo/revit/onn_ba5_estrutura.cs): triângulos de cada
 // peça (fundação, viga/baldrame, pilar, laje/piso) em coordenadas INTERNAS do RVT e em metros + transformação interno -> compartilhado.
 // A posição na implantação sai do vínculo do bloco no IMP (imp_vinculos.csv da escola). Abre desanexado, lê e fecha SEM salvar.
 // Marcadores trocados pelo entrada/revit_conv.py: __ARQ__ (RVT) e __OUT__ (CSV de saída).

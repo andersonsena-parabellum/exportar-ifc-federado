@@ -158,7 +158,7 @@ def contornos(E, C, pend, regras, ter, log=print):
 def mover_caixas(E, C, pend, regras, log=print, ter=None):
     """desloca caixa de ELE/SDAI (e de DRE/ESG com 'caixas_moveis_grav') que encosta em outra rede. Só colisão de fato
     (REGRAS['mover_so_colisao'], padrão sim); equipamento (poste, quadro, abrigo) não anda; a caixa de passagem que andou fica
-    com a tampa no terreno do lugar novo (ajustes da Jandaíra, 19/10/2026)."""
+    com a tampa no terreno do lugar novo (ajustes da escola A, 19/10/2026)."""
     cx = {c['id']: c for c in C}; ids = {e['id']: e for e in E}
     eq = {c['id'] for c in C if c['info'].get('equipamento')}
     pend = [p for p in pend if p['a'] not in eq and p['b'] not in eq and (p['folga'] < cl.TOL or not regras.get('mover_so_colisao', True))]

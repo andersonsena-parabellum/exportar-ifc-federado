@@ -22,7 +22,7 @@ bash _nuvem/etib-python rodar.py <escola>        (na nuvem)
 
 Saída por rodada: LEIA-ME, visualizador HTML, IFC de projeto e de solução por cenário, CSV de conflitos antes e depois, soluções, pendentes e verificação. Cenários servem para dúvida em aberto que muda o clash (ex.: galeria "rede futura" com e sem).
 
-Para uma escola nova: gravar o terreno `.npz`, copiar um adaptador pronto (ex.: `satiro.py`) trocando sigla, origem, EPSG, retângulo da obra e CSV, rodar e conferir no HTML.
+Para uma escola nova: gravar o terreno `.npz`, copiar um adaptador pronto (ex.: `exemplo.py`) trocando sigla, origem, EPSG, retângulo da obra e CSV, rodar e conferir no HTML.
 
 ## Georreferência
 
@@ -64,7 +64,7 @@ Proibidas no perfil: `IfcCableCarrierSegment/Fitting`, `IfcDistributionChamberEl
 
 ## Material: da legenda, não da família
 
-Decisão de 21/10/2026: o material vem da **legenda da planta e do memorial descritivo**, nunca do tipo padrão da família do Revit (na Jandaíra o modelo dizia "Eletroduto Rígido PVC Roscável" e a prancha pedia PVC corrugado flexível).
+Decisão de 21/10/2026: o material vem da **legenda da planta e do memorial descritivo**, nunca do tipo padrão da família do Revit (na escola A o modelo dizia "Eletroduto Rígido PVC Roscável" e a prancha pedia PVC corrugado flexível).
 
 - Eletroduto enterrado de elétrica e de alarme = **flexível** (PEAD corrugado). Hidrante em PEAD.
 - Material flexível curva até ~30° no próprio tubo, sem peça.
@@ -83,7 +83,7 @@ PV, CI, CA e caixa de passagem (a partir de 0,30 m de altura e de lado) saem por
 
 ## Continuidade da rede
 
-Regra de 20/10/2026, depois que o incêndio da Jandaíra saiu "picotado":
+Regra de 20/10/2026, depois que o incêndio da escola A saiu "picotado":
 
 - Rede contínua de caixa a caixa: toda ponta termina em tubo, conexão, caixa, equipamento ou na edificação.
 - Pontas da mesma rede a até 15 cm (planta) e 5 cm (cota), fora de caixa, viram um nó (`costura.py`). Tubo que chega no meio de outro ganha junção. Uma peça por ponto.
@@ -93,7 +93,7 @@ Regra de 20/10/2026, depois que o incêndio da Jandaíra saiu "picotado":
 
 ## Rede acima do piso (entregas só de modelagem)
 
-Decisão de 27/10/2026 (bloco BP4 da Jandaíra): mesmo quando a entrega é só modelagem, a rede acima do piso fica **fora da estrutura**:
+Decisão de 27/10/2026 (bloco BP4 da escola A): mesmo quando a entrega é só modelagem, a rede acima do piso fica **fora da estrutura**:
 
 - nunca dentro de pilar: a coluna encosta na face (folga 2 cm) e o trecho horizontal desvia de lado o mínimo, com a fileira reta;
 - elétrica e SDAI de teto sob a viga mais baixa;

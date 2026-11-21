@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Página de pendências: recorte da PRANCHA do projetista em cada ficha, centrado no ponto e marcado no círculo vermelho, com os códigos
 citados no texto da ficha escritos ao lado dos elementos (a prancha original não traz "DRN-164" ou "CX03": checklist F3).
-Generalizado de satiro/pendencias/sat_recortes.py (Sátiro Dias) e ETIB-ALAGOINHAS/RELATORIOS/fonte_pendencias_R03/recortes_prancha.py.
+Generalizado de exemplo/pendencias/sat_recortes.py (escola C) e ETIB-<ESCOLA>/RELATORIOS/fonte_pendencias_R03/recortes_prancha.py.
 Caminho UTM -> DWG pela transformação do georreferenciamento (rot_deg, t do JSON) e DWG -> PDF por textos iguais e únicos no DXF da
 folha e no PDF (semelhança com RANSAC)."""
 import os, sys, re, math, json
@@ -47,7 +47,7 @@ def calibrar(dxf, pdf, log=print):
     for w in pg.get_text('words'): pw.setdefault(w[4].strip(), []).append(np.array([(w[0] + w[2]) / 2, (w[1] + w[3]) / 2]))
     pares = [(dx[s][0], pw[s][0]) for s in dx if len(dx[s]) == 1 and len(pw.get(s, [])) == 1]
     if len(pares) < 4:
-        # folha com poucas etiquetas numéricas (Itamira, 23/10/2026): casa a linha inteira de texto (ex.: "Muro h=3,15",
+        # folha com poucas etiquetas numéricas (escola E, 23/10/2026): casa a linha inteira de texto (ex.: "Muro h=3,15",
         # "FUNDO DE CASA"), sem exigir dígito, entre o DXF e as linhas do PDF
         norm = lambda s: re.sub(r'\s+', ' ', s).strip().upper()
         dl = {}

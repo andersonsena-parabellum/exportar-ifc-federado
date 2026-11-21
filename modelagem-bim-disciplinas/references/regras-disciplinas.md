@@ -1,6 +1,6 @@
 # Regras de modelagem por disciplina
 
-Disciplinas marcadas **[validado]** foram modeladas de ponta a ponta no ETIB Alagoinhas. As marcadas **[a validar]** seguem as mesmas regras gerais por analogia: apresente as premissas ao usuário antes de modelar e registre o que der certo ou errado no `licoes-modelagem.md`.
+Disciplinas marcadas **[validado]** foram modeladas de ponta a ponta no ETIB escola B. As marcadas **[a validar]** seguem as mesmas regras gerais por analogia: apresente as premissas ao usuário antes de modelar e registre o que der certo ou errado no `licoes-modelagem.md`.
 
 ## Sumário
 1. Regras comuns a todas

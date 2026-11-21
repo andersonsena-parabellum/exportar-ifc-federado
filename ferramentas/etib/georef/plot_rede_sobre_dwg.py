@@ -4,7 +4,7 @@ import sys, json, numpy as np
 import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 sys.path.insert(0, r'D:\Projeto Modelagem\FERRAMENTAS\georef')
-from catu_comum import carrega
+from comum import carrega
 
 def plota(tag, js, x0, y0, x1, y1, saida, layers):
     D = carrega(tag); J = json.load(open(js, encoding='utf-8'))

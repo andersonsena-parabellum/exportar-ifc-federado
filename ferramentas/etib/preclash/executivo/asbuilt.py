@@ -26,7 +26,7 @@ def entidades(fn_dxf, arcos=False, blocos=False):
     """entidades do espaço do modelo com handle: linhas/polilinhas (pts), textos e blocos (p).
     arcos=True: ARC também, como polilinha (pts) com typ 'ARC' — só para a nota não cair em cima da curva e achar a etiqueta
     do trecho; o Plano não edita arco (contorno e caixa usam só LINE/LWPOLYLINE).
-    blocos=True: textos de dentro dos blocos (arquitetura inserida como bloco: "DEP. DE UTENSÍLIOS" na DRE-001 da Jandaíra),
+    blocos=True: textos de dentro dos blocos (arquitetura inserida como bloco: "DEP. DE UTENSÍLIOS" na DRE-001 da escola A),
     typ 'BTXT', só para a nota não cair em cima deles (não servem de molde nem de etiqueta)."""
     _, model = dxfgeo.parse(fn_dxf)
     out = []
@@ -129,7 +129,7 @@ def _janela(A, B, tol):
 class Plano:
     def __init__(self, ents, tol=0.06, ext=0.0, caixa_sem_simbolo=False):
         """ext: prolonga as pontas do traçado do modelo para achar a linha da prancha quando a caixa do modelo não está
-        no mesmo ponto da prancha (Jandaíra: até ~1 m); caixa_sem_simbolo: prancha que marca a caixa só com o texto
+        no mesmo ponto da prancha (escola A: até ~1 m); caixa_sem_simbolo: prancha que marca a caixa só com o texto
         ("Cx. 80x80 cm") no vértice do eletroduto — a caixa deslocada move o vértice e o texto."""
         self.E = ents; self.tol = tol; self.ext = ext; self.sem_simbolo = caixa_sem_simbolo; self.L = []; self.log = []
         self.linhas = [e for e in ents if 'pts' in e and e['typ'] != 'ARC']
@@ -292,7 +292,7 @@ class Plano:
         # da DRE-001 contava como uma linha só e a nota caiu em cima da segunda linha
         mt = tx['typ'] == 'MTEXT' or tx.get('mtext')
         lin = [_limpo(x) for x in re.split(r'\\P', str(tx.get('txt', '')))] if mt else [_limpo(tx.get('txt', ''))]
-        # maiúsculas são mais largas: o "HIDRÔMETRO" da AGF-001 de Alagoinhas ia 0,6 m além do que 0,85 h por letra dava
+        # maiúsculas são mais largas: o "HIDRÔMETRO" da AGF-001 de escola B ia 0,6 m além do que 0,85 h por letra dava
         lmax = max(lin, key=len) if lin else ''
         fl = 1.05 if sum(c.isupper() for c in lmax) > 0.6 * max(1, sum(c.isalpha() for c in lmax)) else 0.85
         tw = max(1, len(lmax)) * tx['alt'] * fl; th = tx['alt'] * (1 + 5 / 3 * (len(lin) - 1))
@@ -316,7 +316,7 @@ class Plano:
         for tx in cand:
             s = re.sub(r'\\[A-Za-z][^;\\]*;|[{}]', '', str(tx.get('txt', '')))
             if not re.search(r'Ø|ø|%%[cC]|PVC|PEAD|PPR|PEX|FoFo|\bDN\b|\d\s*mm\b|\d"', s) or 'PROF' in s.upper(): continue
-            # eletroduto/alarme não usa etiqueta de tubo de água (o "PEAD 2.1/2"" do hidrante ao lado do alarme, IN-001 da Jandaíra)
+            # eletroduto/alarme não usa etiqueta de tubo de água (o "PEAD 2.1/2"" do hidrante ao lado do alarme, IN-001 da escola A)
             if disc in ('ELE', 'SDAI', 'CFTV') and (re.search(r'PEAD|PVC|PPR|PEX|FOFO|\d\s*MM\b', s.upper()) or re.fullmatch(r'\s*\d+\.\d+/\d+"\s*', s)):
                 continue
             a, tw, th, p0 = self._ret_texto(tx)
@@ -381,14 +381,14 @@ class Plano:
             uu = (R[1] - R[0]) / max(1e-9, np.hypot(*(R[1] - R[0]))); vv = (R[3] - R[0]) / max(1e-9, np.hypot(*(R[3] - R[0])))
             folga = lambda mg: np.array([R[0] - (uu + vv) * mg, R[1] + (uu - vv) * mg, R[2] + (uu + vv) * mg, R[3] + (vv - uu) * mg])
             # nota sobre nota também com folga de 0,4 h: duas notas paralelas a 0,03 m uma da outra leem como uma só (EL-001 de
-            # Alagoinhas, "PROF. 0,70 m" encostada em "PROF. 1,65 m")
+            # escola B, "PROF. 0,70 m" encostada em "PROF. 1,65 m")
             novas = sum(1 for Q in self.notas_novas if _sobrepoe(folga(0.4 * h), Q))
-            # texto da prancha: folga de 0,3 h (nota encostada no "#10" do circuito também lê mal, EL-002 da Jandaíra)
+            # texto da prancha: folga de 0,3 h (nota encostada no "#10" do circuito também lê mal, EL-002 da escola A)
             R1 = folga(0.3 * h)
             txt = sum(1 for i in perto if _sobrepoe(R1, self.ocupado[i]))
             if disc in ('ELE', 'SDAI', 'CFTV'):
                 # nota de eletroduto/alarme longe (1 m) da etiqueta de tubo de água: "PEAD 2.1/2" / PROF. 1,05 m" lia como se o hidrante
-                # estivesse a 1,05 m (IN-001 da Jandaíra, alarme correndo junto do hidrante)
+                # estivesse a 1,05 m (IN-001 da escola A, alarme correndo junto do hidrante)
                 Rf = folga(1.0); txt += sum(1 for i in perto if i in self._agua and _sobrepoe(Rf, self.ocupado[i]))
             idx = [i for cx in range(int(lo[0] // 2) - 1, int(hi[0] // 2) + 2) for cy in range(int(lo[1] // 2) - 1, int(hi[1] // 2) + 2) for i in self._grade.get((cx, cy), [])]
             # a tinta conta numa folga de 0,5 h em volta do texto: nota encostada na linha também lê mal
@@ -422,7 +422,7 @@ class Plano:
                     if melhor is None or cst < melhor[0] - 1e-9: melhor = (cst, bate, q, ang, R)
             if melhor[1] == 0 and melhor[0] < 3: break
         if melhor[1] > 0:
-            # trecho curto num lugar cheio (junção de 1 m entre bancos e marcadores, DRE-001 da Jandaíra): procura em volta, até 4 m,
+            # trecho curto num lugar cheio (junção de 1 m entre bancos e marcadores, DRE-001 da escola A): procura em volta, até 4 m,
             # o lugar livre mais perto, com a mesma direção da nota
             _, _, _, ang_a, _ = melhor
             ang_b = ang_a + np.pi / 2 if ang_a <= 0 else ang_a - np.pi / 2          # também em pé (sempre legível)
@@ -493,7 +493,7 @@ def texto_profundidade(m):
 
 
 def agrupar_notas(ms, raio=15.0, toque=0.20, colado=1.0, curto=3.0, familia=None):
-    """UMA nota de profundidade por trecho (Jandaíra, 20/10/2026: a prancha saiu com 19 "PROF. 0,90 m" no mesmo trecho, porque
+    """UMA nota de profundidade por trecho (escola A, 20/10/2026: a prancha saiu com 19 "PROF. 0,90 m" no mesmo trecho, porque
     o modelo quebra a curva em pedaços de 1,4 m — ELE-F-23.1, .2… — e cada eletroduto do banco é um elemento).
     Junta os mergulhos da mesma disciplina e com o mesmo texto de nota que
       - se tocam (pedaços da mesma curva, trechos encadeados, ramais curtos na casa de bombas), ou

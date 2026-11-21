@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-"""Passa a prancha com carimbo QG as built (bloco CARIMBO_QG_ASBUILT, do carimbo_qg.py) para a etapa AS BUILT
-(pedido do Anderson, 27/10/2026, piloto na Jandaíra):
-  - código e arquivo: etapa PE -> AB, revisão R00 e disciplina pelo código CONDER (tabela 9.1 de nomenclatura; Anderson,
-    28/10: AF -> AGF, EL -> ELE, IN/INC -> PCI): 24-049-JDI-CTO-ETIB-IMP-PE-AF-001-HIG-R03 -> ...-IMP-AB-AGF-001-HIG-R00;
+"""Passa a prancha com carimbo da construtora as built (bloco CARIMBO_QG_ASBUILT, do carimbo_qg.py) para a etapa AS BUILT
+(pedido do dono do projeto, 27/10/2026, piloto na escola A):
+  - código e arquivo: etapa PE -> AB, revisão R00 e disciplina pelo código CONDER (tabela 9.1 de nomenclatura; dono do projeto,
+    28/10: AF -> AGF, EL -> ELE, IN/INC -> PCI): AA-CTR-MUN-LOC-ETIB-IMP-PE-AF-001-HIG-R03 -> ...-IMP-AB-AGF-001-HIG-R00;
   - DISCIPL_SETOR-FOLHA_REV com a mesma disciplina e R00 (AF_IMP-001_R03 -> AGF_IMP-001_R00);
   - assunto: "PROJETO EXECUTIVO" -> "PROJETO DE AS BUILT DE <disciplina por extenso>" (disciplina = DISCIPLINA do carimbo
     sem o setor, com INST. por extenso);
-  - título como no modelo do Anderson (24-049-JDI-CTO-ETIB-GUA-AB-ARQ-001-PLB-R00): nome da escola (--escola), na linha de
+  - título como no modelo do dono do projeto (AA-CTR-MUN-LOC-ETIB-GUA-AB-ARQ-001-PLB-R00): nome da escola (--escola), na linha de
     baixo só o setor (IMPLANTAÇÃO) e o endereço completo (--endereco);
   - quadro de revisões: é outra etapa, então as linhas do executivo saem e fica só a R00 (data cheia, EMISSÃO INICIAL,
-    responsável vazio: Anderson, 28/10);
+    responsável vazio: dono do projeto, 28/10);
   - data da emissão.
 O resto da folha não muda. Roda só com ezdxf + ODA (nuvem).
 

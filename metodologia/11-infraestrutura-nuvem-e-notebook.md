@@ -48,16 +48,16 @@ O agente abre uma sessão do Claude Code no notebook (Remote Control) e roda os 
 
 ```
 cd "D:\Projeto Modelagem\FERRAMENTAS"
-.venv\Scripts\python.exe -X utf8 entrada\revit_conv.py AUREA CATU POJUCA
+.venv\Scripts\python.exe -X utf8 entrada\revit_conv.py <ESCOLA> <ESCOLA> <ESCOLA>
 ```
 
 - `entrada/revit_conv.py`: numa sessão só do Revit, abre cada RVT da escola desanexado, lê o terreno e os pisos do IMP e a estrutura pela forma real (`entrada/revit/estrutura_tri.cs`) em coordenada UTM, grava para o preclash e fecha **sem salvar**. O IFC de entrega do terreno e da estrutura sai depois do preclash, na nuvem.
-- Federado único: a implantação é exportada em IFC4 nas coordenadas compartilhadas, com a lista dos vínculos e a transformação de cada um, e cada RVT de módulo sozinho na origem interna (modelo de script `FERRAMENTAS/alagoinhas/revit/alh_asbuilt_ifc.py`, no notebook; passo a passo em `federado-unico-etib/referencia/EXPORTAR_RVT.md`).
+- Federado único: a implantação é exportada em IFC4 nas coordenadas compartilhadas, com a lista dos vínculos e a transformação de cada um, e cada RVT de módulo sozinho na origem interna (modelo de script `FERRAMENTAS/exemplo/revit/alh_asbuilt_ifc.py`, no notebook; passo a passo em `federado-unico-etib/referencia/EXPORTAR_RVT.md`).
 - Os IFC e malhas vão para `G:\Meu Drive\ETIB_ENVIOS\_TROCA_NUVEM\` e de lá para a nuvem.
 
 ### Opção: o agente chama o MCP do Revit direto
 
-Um agente rodando na própria máquina do Revit, com o servidor MCP do Revit configurado no Claude Code, chama a ferramenta `send_code_to_revit` sem script intermediário. Foi o método da Jandaíra e de Alagoinhas (modelagem inteira no Revit); a skill [`modelagem-bim-disciplinas`](../modelagem-bim-disciplinas/SKILL.md) documenta o uso completo. Serve para conversões pontuais, para conferir o que está aberto e para destravar o Revit. Não tira a dependência da máquina: o MCP só existe onde o Revit está aberto.
+Um agente rodando na própria máquina do Revit, com o servidor MCP do Revit configurado no Claude Code, chama a ferramenta `send_code_to_revit` sem script intermediário. Foi o método da escola A e de escola B (modelagem inteira no Revit); a skill [`modelagem-bim-disciplinas`](../modelagem-bim-disciplinas/SKILL.md) documenta o uso completo. Serve para conversões pontuais, para conferir o que está aberto e para destravar o Revit. Não tira a dependência da máquina: o MCP só existe onde o Revit está aberto.
 
 ### Armadilhas do add-in (valem nas duas formas)
 

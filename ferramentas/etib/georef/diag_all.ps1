@@ -1,5 +1,5 @@
 ﻿# DiagnÃ³stico de todos os DWGs da pasta de trabalho (cÃ³pias), um por vez.
-param([string]$W = "D:\Projeto Modelagem\FERRAMENTAS\georef\work\CATU", [int]$TimeoutSec = 600)
+param([string]$W = "D:\Projeto Modelagem\FERRAMENTAS\georef\work\<ESCOLA>", [int]$TimeoutSec = 600)
 $G = "D:\Projeto Modelagem\FERRAMENTAS\georef"
 Get-ChildItem "$W\src\*.dwg" | Sort-Object Length | ForEach-Object {
   $n = $_.BaseName

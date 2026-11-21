@@ -3,7 +3,7 @@
 Lê os IFC por disciplina como chegam ao cliente (não o JSON da ferramenta): tubos e eletrodutos pelo eixo (IfcSweptDiskSolid,
 extrusão circular ou malha), conexões pelas pernas, caixas/equipamentos pelo prisma da malha, estrutura pela MALHA REAL
 (não a caixa envolvente) e o terreno pelo IfcGeographicElement.
-Uso direto: python -X utf8 ifc_conf.py <pasta ou arquivos .ifc> [--sigla JAN]  (o revisar.py chama as funções)."""
+Uso direto: python -X utf8 ifc_conf.py <pasta ou arquivos .ifc> [--sigla EXE]  (o revisar.py chama as funções)."""
 import os, sys, re, math, collections
 import numpy as np
 from rev_comum import PRECLASH, coord, Revisao
@@ -18,10 +18,10 @@ EST_CLASSES = ('IfcColumn', 'IfcBeam', 'IfcFooting', 'IfcSlab', 'IfcWall', 'IfcP
 SIST_PRED = {'AF': ('DOMESTICCOLDWATER', 'WATERSUPPLY'), 'ESG': ('SEWAGE', 'WASTEWATER', 'DRAINAGE'), 'DRE': ('STORMWATER', 'RAINWATER', 'DRAINAGE'),
              'AP': ('STORMWATER', 'RAINWATER'), 'HID': ('FIREPROTECTION',), 'SDAI': ('FIREPROTECTION', 'SIGNAL', 'SECURITY', 'ELECTRICAL'),
              'ELE': ('ELECTRICAL', 'LIGHTING', 'POWERGENERATION'), 'CFTV': ('DATA', 'SECURITY', 'COMMUNICATION')}
-ANG_COMERCIAL = (45.0, 90.0, 135.0)   # Anderson, 21/10/2026: peças comerciais são 90° e 45° (135° = 90° + 45°); tês e junções à parte
+ANG_COMERCIAL = (45.0, 90.0, 135.0)   # dono do projeto, 21/10/2026: peças comerciais são 90° e 45° (135° = 90° + 45°); tês e junções à parte
 # deflexão sem peça (°): eletroduto enterrado de elétrica e alarme é flexível (PVC corrugado/PEAD) e faz curva de até 30° no próprio tubo
 FLEX = {'ELE': 30.0, 'SDAI': 30.0, 'CFTV': 30.0}
-MATERIAL_LEGENDA = {d: r'flex|corrugad|PEAD' for d in ('ELE', 'SDAI', 'CFTV')}   # eletroduto enterrado é flexível (Anderson, 21/10/2026)
+MATERIAL_LEGENDA = {d: r'flex|corrugad|PEAD' for d in ('ELE', 'SDAI', 'CFTV')}   # eletroduto enterrado é flexível (dono do projeto, 21/10/2026)
 RX_MAT_REVIT = re.compile(r'param[eé]tric|padr[aã]o|default|gen[eé]ric|\bDN\b|:\s|tipo \d', re.I)
 FLEX_PADRAO = 5.0                      # junta dos tubos rígidos (preclash\conexoes.py 'flexivel')
 RX_DIAM = re.compile(r'^(NominalDiameter|OuterDiameter|InnerDiameter|Diameter|Di[aâ]metro.*|DN|DE)$', re.I)
@@ -348,13 +348,13 @@ def _juncao(f):
 
 def _curva(rv, d, f, ang, flex, arq, local, q):
     """mudança de direção com peça: devolve 1 se virou pendência. Peça com 'curvatura_no_tubo' em material flexível completa o ângulo no tubo
-    (até 30°); peça marcada 'fora_do_comercial' em tubo rígido fica como observação (opção b provisória, decisão do Anderson pendente)."""
+    (até 30°); peça marcada 'fora_do_comercial' em tubo rígido fica como observação (opção b provisória, decisão do dono do projeto pendente)."""
     if _comercial(ang) or _juncao(f): return 0                # tês e junções são peças comerciais (coordenação, 21/10/2026)
     a = _ang_peca(f)
     if flex and str(f['ps'].get('curvatura_no_tubo', '')).lower() == 'sim' and a is not None and abs(a - ang) <= 30.0:
         return 0
     if str(f['ps'].get('fora_do_comercial', '')).lower() == 'sim':
-        rv.add('C6', 'OBSERVACAO', arq, local, _msg_angulo(d, f, ang) + ' — marcada "fora_do_comercial" pela entrega; aceita provisoriamente (opção b), decisão do Anderson pendente',
+        rv.add('C6', 'OBSERVACAO', arq, local, _msg_angulo(d, f, ang) + ' — marcada "fora_do_comercial" pela entrega; aceita provisoriamente (opção b), decisão do dono do projeto pendente',
                'C6 ângulo da rede = 45° ou 90°', E=q[0], N=q[1])
         return 0
     rv.add('C6', 'PENDENCIA', arq, local, _msg_angulo(d, f, ang), 'C6 ângulo da rede = 45° ou 90°', E=q[0], N=q[1])
@@ -394,7 +394,7 @@ def _local(seg_ou_nome, q, cxs):
 
 
 # ------------------------------------------------------------------------------------------------ B: informação
-# Perfis de classe IFC (Anderson aprovou o 'revit' em 20/10/2026, 19h28). Revit 2025 decide a categoria só pela classe:
+# Perfis de classe IFC (dono do projeto aprovou o 'revit' em 20/10/2026, 19h28). Revit 2025 decide a categoria só pela classe:
 # IfcCableCarrierSegment/Fitting -> bandeja de cabos, IfcDistributionChamberElement/IfcCableFitting/IfcBuildingElementProxy -> modelo genérico.
 # A classe da norma fica no Pset (classe_ifc_norma): não reprovar por ela.
 PERFIS = {
@@ -416,7 +416,7 @@ PERFIS = {
 RX_CA_BL = re.compile(r'areia|boca de lobo|\bBL\b|BL-|grelha|ralo', re.I)
 
 
-BARRILETE = ()      # prefixos de trecho do barrilete da escola (entregas.py: 'barrilete'), ex.: ('PCI-AF-',) na Jandaíra
+BARRILETE = ()      # prefixos de trecho do barrilete da escola (entregas.py: 'barrilete'), ex.: ('PCI-AF-',) na escola A
 
 
 def _barrilete(r):
@@ -496,7 +496,7 @@ def conferir_informacao(rv, R, epsg=None, origem=None, perfil='revit', materiais
             ex = ', '.join(sorted({str(r['trecho'] or r['nome']) for r in rs})[:3])
             rv.add(item, nivel, arq, f'{len(rs)} {t}(s) (ex.: {ex})', f'{t}: {msg}', f'{item} informação BIM')
     seg = [r for t, r in redes if t == 'segmento']
-    # material pela legenda/memorial (Anderson, 21/10/2026), não pelo tipo de família do Revit
+    # material pela legenda/memorial (dono do projeto, 21/10/2026), não pelo tipo de família do Revit
     regras_mat = dict(MATERIAL_LEGENDA, **(materiais or {}))
     errado = collections.defaultdict(list); suspeito = collections.defaultdict(list); por_disc = collections.defaultdict(collections.Counter)
     for r in seg:
@@ -568,13 +568,13 @@ def conferir_informacao(rv, R, epsg=None, origem=None, perfil='revit', materiais
 
 def processo_interno(rv, R, redes):
     """B9: nome de ferramenta ou de pessoa = pendência; jargão de trabalho (estudo, ajuste, premissa, obstáculo) = observação."""
-    graves = re.compile(r'preclash|pr[eé]-?compat|clash|daniel|claude|anderson', re.I)
+    graves = re.compile(r'preclash|pr[eé]-?compat|clash|claude' + ''.join('|' + re.escape(n.strip()) for n in os.environ.get('ETIB_NOMES_EQUIPE', '').split(',') if n.strip()), re.I)   # nomes da equipe: ETIB_NOMES_EQUIPE
     leves = re.compile(r'obst[aá]culo|\bestudo\b|\bajuste\b|premissa', re.I)
     for nivel, rx in (('PENDENCIA', graves), ('OBSERVACAO', leves)):
         proc = collections.defaultdict(lambda: collections.Counter())
         for t, r in redes + [('estrutura', e) for e in R['est']]:
             for k, v in r['ps'].items():
-                if k == 'recobrimento_estudo' or k == 'grupo_estudo': continue      # nome de propriedade pedido pelo Anderson
+                if k == 'recobrimento_estudo' or k == 'grupo_estudo': continue      # nome de propriedade pedido pelo dono do projeto
                 if rx.search(str(v)) and not (nivel == 'OBSERVACAO' and graves.search(str(v))): proc[r['arq']][f'{k}: {str(v)[:45]}'] += 1
             if rx.search(r['sist'][0] or '') and not (nivel == 'OBSERVACAO' and graves.search(r['sist'][0])): proc[r['arq']][f'sistema "{r["sist"][0]}"'] += 1
         for arq in R['arquivos']:
@@ -891,7 +891,7 @@ def conferir_regras(rv, R, T, prof_max, excecoes=(), declaradas=(), cob_min=0.30
                 z1 = a1[2] + t * (b1[2] - a1[2]); z2 = a2[2] + u_ * (b2[2] - a2[2]); q = a1 + t * (b1 - a1)
                 if z1 < z2 and _barrilete(PA[k][2]):
                     # barrilete na cota do modelo (fora do estudo de cota): a elétrica não tem como passar por cima com o
-                    # recobrimento mínimo dela; vai como observação para a decisão do Anderson (Alagoinhas, EL2-022 × AF-02)
+                    # recobrimento mínimo dela; vai como observação para a decisão do dono do projeto (escola B, EL2-022 × AF-02)
                     s2 = PA[k][2]
                     rv.add('D4', 'OBSERVACAO', s1['arq'], f'{s1["trecho"]} × {s2["trecho"]} — {coord(*q[:2])}',
                            f'{s1["disc"]} passa {z2 - z1:.2f} m abaixo do barrilete ({s2["disc"]}, cota do modelo, fora do estudo)', 'D4 elétrica sempre acima da água', E=q[0], N=q[1])

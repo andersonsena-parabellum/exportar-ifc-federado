@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Costura das pontas: peças da mesma rede que deviam se encostar e ficaram com folga (Revisão de qualidade da Jandaíra R03,
+"""Costura das pontas: peças da mesma rede que deviam se encostar e ficaram com folga (Revisão de qualidade da escola A R03,
 20/10/2026: 85 pontos — 2,9 cm na AF, 7,5 cm na DRE, 2,3 cm na ELE, 14 cm no incêndio — e "dois tubos sobrepostos em 4 cm").
 Pontas da mesma rede a menos de 'tol' (padrão 0,15 m) em planta e de 'tol_z' (0,05 m) em cota viram UM ponto (a média), fora de
 caixa da disciplina (dentro da caixa a ligação é a própria caixa). A cota muda no máximo alguns centímetros, a planta na mesma
@@ -58,7 +58,7 @@ def costurar(E, caixas, tol=0.15, tol_z=0.05, campo='pts_sol', log=print):
 
 def costurar_colinear(E, caixas, tol=0.30, ang=10.0, tol_z=0.05, campo='pts_sol', log=print):
     """vão de até 'tol' m entre duas pontas da mesma rede que seguem na mesma direção (o vão é a peça que faltou no modelo:
-    registro, luva): a ponta avança até a outra (Jandaíra R03: PCI-AH-05/08, 0,21 m)."""
+    registro, luva): a ponta avança até a outra (escola A R03: PCI-AH-05/08, 0,21 m)."""
     pontas = [(e, k) for e in E for k in (0, -1) if len(e[campo]) >= 2]
     feitos = 0
     for i, (e, k) in enumerate(pontas):

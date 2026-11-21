@@ -5,7 +5,7 @@ description: 'Modelagem BIM de disciplinas de infraestrutura e instalações (á
 
 # Modelagem BIM de disciplinas no Revit (via MCP)
 
-Esta skill reúne o método que funcionou na modelagem das redes externas da ETIB Alagoinhas-BA (AF, ESG, incêndio e SDAI, out/2026). O objetivo de cada disciplina é um modelo **fiel ao projeto**, nas coordenadas reais, pronto para o usuário validar sobre o CAD e para a compatibilização com as outras disciplinas no Navisworks.
+Esta skill reúne o método que funcionou na modelagem das redes externas da ETIB escola B-BA (AF, ESG, incêndio e SDAI, out/2026). O objetivo de cada disciplina é um modelo **fiel ao projeto**, nas coordenadas reais, pronto para o usuário validar sobre o CAD e para a compatibilização com as outras disciplinas no Navisworks.
 
 Ferramentas típicas:
 - Revit 2025 + `mcp-server-for-revit` (ferramenta `send_code_to_revit`, C#);
@@ -169,7 +169,6 @@ Se a lição for geral e não estiver nesta skill, diga ao usuário que vale inc
 | `references/relatorio-incompatibilidades.md` | Ao checar clash e gerar o relatório PDF |
 | `references/pdf-como-fonte.md` | Quando faltam textos/cotas do DWG ou o accoreconsole falha |
 | `references/dialogos-revit.md` | Timeout, diálogo travando o MCP, suplemento em loop, reabrir o Revit |
-| `references/caso-etib-alagoinhas.md` | Para ter ordem de grandeza e exemplos reais de erros e soluções |
 
 Scripts:
 - `scripts/topologia_rede.py`: polilinhas do CAD → grafo → trechos e nós (JSON + CSV);

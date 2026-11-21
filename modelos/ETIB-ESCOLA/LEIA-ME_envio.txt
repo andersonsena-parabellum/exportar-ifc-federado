@@ -1,0 +1,18 @@
+ETIB <Nome da Escola> — <data> — R<nn>
+
+CONTEÚDO
+01_PRANCHAS_PDF   pranchas as built alteradas, uma folha A0 por arquivo
+02_PRANCHAS_DWG   os mesmos desenhos em DWG, com os logos do carimbo ao lado
+03_IFC            redes externas por disciplina (HIDRO, ELE, PCI), terreno, estrutura de referência e federado
+                  Georreferenciado em UTM SIRGAS 2000 (EPSG:<31984>), origem E <000000> / N <0000000> / cota 0
+
+ABRIR O IFC NO REVIT
+Abrir IFC; na vista 3D escolher a Fase 3; VV > Local > desmarcar pontos de levantamento e base; ZF.
+
+ALTERAÇÕES EM RELAÇÃO AO PROJETO
+- <folha>: <o que mudou, em linguagem de campo>
+
+PENDÊNCIAS COM TERCEIROS
+- <elemento>: <o que depende de quem>
+
+(Sem nomes de pessoas, ferramentas, processo interno ou disciplina fora do escopo.)

@@ -1,32 +1,22 @@
 # 01. Contexto e escopo
 
-## Contrato
+## Para que serve
 
-- Contrato 24-049 da Construtora QG, com aprovação da CONDER. A equipe faz a modelagem BIM e a compatibilização das redes externas da implantação de escolas de tempo integral (ETIB) já construídas ou em obra.
-- Papéis: **dono do projeto** (decide escopo, aprova exceções e o padrão das entregas), **sócio de modelagem** (modelos no Revit e aprovação do federado), **projetistas** de cada disciplina (decidem o que passa dos limites da equipe) e **construtora** (fornece projeto, as built e RVT; recebe a entrega).
+O método atende contratos de **modelagem BIM e compatibilização das redes externas da implantação** de escolas (ou de qualquer conjunto de edificações num lote) já construídas ou em obra, com entrega em IFC e pranchas as built para aprovação de um órgão público. Foi construído e validado em outubro de 2026, em oito escolas de tempo integral (ETIB) na Bahia, com aprovação da CONDER.
+
+- Papéis: **dono do projeto** (decide escopo, aprova exceções e o padrão das entregas), **sócio de modelagem** (modelos no Revit e aprovação do federado), **projetistas** de cada disciplina (decidem o que passa dos limites da equipe), **construtora** (fornece projeto, as built e RVT; recebe a entrega) e **órgão aprovador** (define a nomenclatura e aprova).
 - Idioma de tudo: português do Brasil.
 
 ## Escolas e ordem de entrega
 
-Oito escolas, uma depois da outra, nesta ordem (salvo pedido direto do dono na escola):
-
-| Ordem | Escola | Sigla | Origem dos modelos (E / N / cota, EPSG:31984) |
-|---|---|---|---|
-| 1 | Jandaíra | JAN | 631578,10 / 8721003,57 / 0 |
-| 2 | Alagoinhas (implantação + bloco BA2) | ALI / ALH | 561500 / 8658000 / 0 |
-| 3 | Sátiro Dias | SAT | 546000 / 8716200 / 0 |
-| 4 | Olindina | ONN | 573950 / 8743250 / 0 |
-| 5 | Aporá Itamira | ITA | 584400 / 8704300 / 0 |
-| 6 | Aporá Prof. Áurea | AUR | 600000 / 8711300 / 0 |
-| 7 | Catu | CAT | 567700 / 8634650 / 0 |
-| 8 | Pojuca | PJC | 572450 / 8626500 / 0 |
-
-A origem é um ponto UTM redondo perto da obra, sem rotação e com cota 0: assim a cota interna é igual à absoluta. Todos os IFC de uma escola usam a mesma origem.
+- **Uma escola depois da outra**, numa ordem combinada com o dono no início do contrato (salvo pedido direto dele numa escola).
+- Cada escola tem uma **sigla** de 3 letras e uma **origem** própria: um ponto UTM redondo perto da obra, sem rotação e com cota 0, para que a cota interna seja igual à absoluta. Todos os IFC de uma escola usam a mesma origem. Sigla e origem ficam na tabela de escolas do `AGENTS.md` da pasta do projeto e no adaptador da escola.
+- Sistema de coordenadas: UTM SIRGAS 2000 na zona da obra (na Bahia, EPSG:31984, zona 24S).
 
 ## Escopo
 
 - **Só redes externas**, da face da parede dos prédios para fora (decisão de 21/10/2026, todas as escolas). O que fica dentro dos prédios não é modelado e não conta como conflito: descidas internas, ramais sob o prédio, redes × fundação interna. As redes são cortadas na face e a estrutura dos prédios vai só como referência.
-- Exceção: o IFC das instalações internas do bloco BA2 de Alagoinhas vai no pacote só como modelagem, sem compatibilização.
+- Exceção combinada caso a caso: instalações internas de um bloco podem ir no pacote só como modelagem, sem compatibilização (seguindo a regra de rede acima do piso fora da estrutura, capítulo 04).
 - **Disciplinas:** hidráulica (água fria AF/AGF, esgoto ESG, drenagem DRE), elétrica (ELE) e incêndio (PCI: hidrante e SDAI), mais o campo society quando houver.
 - **Fora do escopo:** ETE, GLP, CFTV/dados, solar, contenção e paisagismo. Disciplina fora do escopo não é citada em nenhum documento entregue.
 

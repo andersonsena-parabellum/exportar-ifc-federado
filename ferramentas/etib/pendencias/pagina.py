@@ -16,14 +16,14 @@ LIMITE_PAGINA = 15 * 1024 * 1024          # o Artifact aceita 16 MB
 
 
 def normalizar(F):
-    """aceita o formato da Sátiro/Alagoinhas (grupo D/G, a/b) e o novo (bloco, quem, codigos)."""
+    """aceita o formato da escola C/escola B (grupo D/G, a/b) e o novo (bloco, quem, codigos)."""
     out = []
     for f in F:
         f = dict(f)
         g = f.get('grupo')
         f['bloco'] = f.get('bloco') or ('aplicado' if g == 'A' else 'decisao')
         if f['bloco'] not in ('decisao', 'aplicado'): raise ValueError(f'ficha {f.get("n")}: bloco "{f["bloco"]}" (use decisao ou aplicado)')
-        f.setdefault('quem', 'Anderson' if g == 'D' else ('projetista' if g == 'G' else ''))
+        f.setdefault('quem', 'dono do projeto' if g == 'D' else ('projetista' if g == 'G' else ''))
         if 'codigos' not in f: f['codigos'] = [x for x in (f.get('a'), f.get('b')) if x]
         f.setdefault('folhas', [])
         out.append(f)
@@ -165,7 +165,7 @@ def main():
            .replace('__SUBTITULO__', esc(cfg.get('subtitulo') or f'Redes externas da implantação (da face das paredes para fora), modelo e pranchas de {cfg.get("data", "")}. '
                                          'As fichas de "Precisa de decisão" esperam a sua resposta; as de "Aplicado" já estão no modelo e nas pranchas e podem ser revertidas.'))
            .replace('__SELO__', '<br>'.join(('<b>' + esc(x) + '</b>') if i == 0 else esc(x) for i, x in enumerate(
-               cfg.get('selo') or ['Contrato 24-049', 'Implantação · redes externas', f'Modelo e pranchas de {cfg.get("data", "")}', 'Documento interno'])))
+               cfg.get('selo') or ['contrato', 'Implantação · redes externas', f'Modelo e pranchas de {cfg.get("data", "")}', 'Documento interno'])))
            .replace('__LEGENDA__', esc(legenda(discs)))
            .replace('__DADOS__', json.dumps(dados, ensure_ascii=False).replace('</', '<\\/'))
            .replace('__IMAGENS__', json.dumps(IMG)))

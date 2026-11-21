@@ -1,5 +1,5 @@
 # Exporta para DXF (accoreconsole, um por vez) os DWGs de uma pasta. Padrão: as cópias de trabalho em <W>\src -> <W>\dxf.
-param([string]$W = "D:\Projeto Modelagem\FERRAMENTAS\georef\work\CATU", [string]$Src = "", [string]$Dst = "", [string[]]$Filtro = @("*"), [int]$TimeoutSec = 600)
+param([string]$W = "D:\Projeto Modelagem\FERRAMENTAS\georef\work\<ESCOLA>", [string]$Src = "", [string]$Dst = "", [string[]]$Filtro = @("*"), [int]$TimeoutSec = 600)
 $G = "D:\Projeto Modelagem\FERRAMENTAS\georef"
 if (-not $Src) { $Src = "$W\src" }
 if (-not $Dst) { $Dst = "$W\dxf" }

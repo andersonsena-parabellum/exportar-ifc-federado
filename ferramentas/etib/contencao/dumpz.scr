@@ -1,5 +1,0 @@
-SECURELOAD 0
-(load "D:/Projeto Modelagem/FERRAMENTAS/contencao/dump_z.lsp")
-DUMPZ
-_.QUIT
-_Y

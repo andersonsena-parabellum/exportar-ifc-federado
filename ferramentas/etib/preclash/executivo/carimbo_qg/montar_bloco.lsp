@@ -2,7 +2,7 @@
 ;; "ARQ_SIMB_CARIMBO_PROJETO EXECUTIVO-QG AS BUILT.rfa" (folha da família, papel em mm).
 ;; Rodar no accoreconsole numa CÓPIA de fonte\carimbo_qg_export_revit.dwg. Variável de ambiente CARQG_OUT = DWG do bloco.
 ;; - cotas da família saem; rótulos (layer NPLT) viram atributos na mesma posição, estilo e alinhamento;
-;; - tudo vai para o layer ARQ_TXT (o do carimbo das pranchas da QG: na prancha vale a definição dela);
+;; - tudo vai para o layer ARQ_TXT (o do carimbo das pranchas da construtora: na prancha vale a definição dela);
 ;; - imagens com caminho só pelo nome (CARIMBO_QG_logo_*.png ao lado do DWG da prancha);
 ;; - ponto base = canto inferior direito do carimbo (299,5; -23,4), o mesmo canto do carimbo antigo.
 (defun carqg:att (tag prompt def x y h st hj)
@@ -34,7 +34,7 @@
   (carqg:att "ETAPA"         "Etapa do projeto"             "PROJETO EXECUTIVO"                      126.872  17.247  4.0 "Arial_B_2" 0)
   (carqg:att "NOME_FOLHA"    "Nome da folha"                "PLANTA BAIXA"                           126.872   8.474  3.5 "Arial_B_1" 0)
   (carqg:att "FOLHA"         "Discipl_setor-folha_rev"      "XX_IMP-001_R00"                         273.915  14.122  4.5 "Arial_B"   1)
-  (carqg:att "CODIGO"        "C\\U+00F3digo da folha"              "24-049-XXX-XXX-ETIB-IMP-PE-XX-001-XXX-R00" 127.185 -5.977 4.0 "Arial_B_2" 0)
+  (carqg:att "CODIGO"        "C\\U+00F3digo da folha"              "AA-CTR-MUN-LOC-ETIB-IMP-PE-XX-001-XXX-R00" 127.185 -5.977 4.0 "Arial_B_2" 0)
   (carqg:att "RESP_PROJETO"  "Respons\\U+00E1vel pelo projeto"     "-"                                      127.497 -15.365  1.6 "Arial_4"   0)
   (carqg:att "CAU_CREA"      "CAU/CREA do respons\\U+00E1vel"      "-"                                      210.000 -15.365  1.6 "Arial_4"   2)
   (carqg:att "COORDENADOR"   "Coordenador"                  "-"                                      212.957 -15.365  1.6 "Arial_4"   0)
@@ -54,7 +54,7 @@
                 (T (setq out nil)))
           (if out (entmod (subst (cons 1 out) (assoc 1 it) it)))))))
   ;; definição do bloco por entmake (o WBLOCK direto do papel deixa as entidades no papel do arquivo novo, e o INSERT sai vazio)
-  ;; imagens primeiro: ficam por baixo das linhas e textos (o logo da QG cobre o "CONTRATADA")
+  ;; imagens primeiro: ficam por baixo das linhas e textos (o logo da construtora cobre o "CONTRATADA")
   (setq ss (ssget "_X" '((67 . 1) (0 . "IMAGE"))) i 0
         s2 (ssget "_X" '((67 . 1) (-4 . "<NOT") (-4 . "<OR") (0 . "VIEWPORT") (0 . "IMAGE") (-4 . "OR>") (-4 . "NOT>"))))
   (setq e 0) (while (< e (sslength s2)) (ssadd (ssname s2 e) ss) (setq e (1+ e)))

@@ -1,14 +1,14 @@
 # Gera os DWGs georreferenciados de uma escola, um console por vez, a partir dos JSON de transformação.
 #   _GEO: cópia movida para UTM (geo.lsp), nada apagado.        _REF: base limpa para vincular no Revit (ref.lsp).
-# Uso: gerar_geo.ps1 [-Escola ETIB-CATU] [-W pasta_de_trabalho] [-So @("AF","SIT_REF")]
+# Uso: gerar_geo.ps1 [-Escola ETIB-<ESCOLA>] [-W pasta_de_trabalho] [-So @("AF","SIT_REF")]
 param(
-  [string]$Escola = "ETIB-CATU",
-  [string]$W = "D:\Projeto Modelagem\FERRAMENTAS\georef\work\CATU",
+  [string]$Escola = "ETIB-<ESCOLA>",
+  [string]$W = "D:\Projeto Modelagem\FERRAMENTAS\georef\work\<ESCOLA>",
   [string[]]$So = @()
 )
 $G = "D:\Projeto Modelagem\FERRAMENTAS\georef"
 $OUT = "D:\Projeto Modelagem\$Escola\CAD_GEORREFERENCIADO"
-$P = "24-049-CAU-RNV-ETIB-"
+$P = "AA-CTR-MUN-LOC-ETIB-"
 function F([double]$v) { $v.ToString("0.00000000", [Globalization.CultureInfo]::InvariantCulture) }
 function Scr([string]$nome, [string[]]$lsps, [string[]]$cmds, [string]$saida, [bool]$wblock = $false) {
   $l = @("SECURELOAD 0", "FILEDIA 0", "CMDDIA 0")

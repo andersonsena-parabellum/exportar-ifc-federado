@@ -27,18 +27,18 @@ Decisão de 22/10/2026:
 | Plano da revisão | `preclash/executivo/rever.py <escola> [cen]` | lê as mudanças da rodada (mergulhos, contornos, caixas deslocadas, em UTM), acha a entidade de cada trecho no DXF da cópia (tolerância 6 cm) e planeja os comandos |
 | Aplicar (nuvem) | `revisao_ezdxf.py` | aplica o `_cmd` do `rever.py` com ezdxf |
 | Aplicar (notebook) | `executivo/revisao.lsp` no accoreconsole | DEL, PLC, REPL, MV, VTX, TXC, RT, CPR, ST, LT |
-| Carimbo QG | `carimbo_qg.py` / `carimbo_ezdxf.py` | carimbo da construtora com os 3 logos |
+| Carimbo da construtora | `carimbo_qg.py` / `carimbo_ezdxf.py` | carimbo da construtora com os 3 logos |
 | Carimbo AS BUILT | `preclash/executivo/carimbo_asbuilt.py` | etapa AB, disciplina CONDER, R00, título |
 | PDF | `pranchas_pdf/render_pdf_nuvem.py` | PDF A0 na nuvem |
 | PDF híbrido | `pranchas_pdf/hibrido.py` | PDF do AutoCAD com só o carimbo novo encaixado |
 
-Conferido na Sátiro: revisão e carimbo da nuvem idênticos aos do AutoCAD, entidade a entidade.
+Conferido na escola C: revisão e carimbo da nuvem idênticos aos do AutoCAD, entidade a entidade.
 
 ## Carimbo AS BUILT
 
-Decisão de 27-28/10/2026, aprovada no piloto da Jandaíra e válida para todas as escolas. A prancha entregue é de **outra etapa** (As Built), então volta a R00.
+Decisão de 27-28/10/2026, aprovada no piloto da escola A e válida para todas as escolas. A prancha entregue é de **outra etapa** (As Built), então volta a R00.
 
-- **Código pela nomenclatura CONDER** `AA-CTR-MUN-LOC-EMPR-PAE-EP-DIS-999-DES-R99`: etapa **AB** no lugar de PE; disciplina com o código CONDER da tabela 9.1: **AGF** água fria, **ESG** esgoto, **DRE** drenagem, **PCI** incêndio, **ELE** elétrica (também PDA SPDA, CTV CFTV, AAC águas pluviais). **Nunca AF, EL, IN.** Ex.: `24-049-JDI-CTO-ETIB-IMP-AB-AGF-001-HIG-R00`. O conteúdo (HIG, DRG, ELG, ING) fica como o do projetista.
+- **Código pela nomenclatura CONDER** `AA-CTR-MUN-LOC-EMPR-PAE-EP-DIS-999-DES-R99`: etapa **AB** no lugar de PE; disciplina com o código CONDER da tabela 9.1: **AGF** água fria, **ESG** esgoto, **DRE** drenagem, **PCI** incêndio, **ELE** elétrica (também PDA SPDA, CTV CFTV, AAC águas pluviais). **Nunca AF, EL, IN.** Ex.: `AA-CTR-MUN-LOC-ETIB-IMP-AB-AGF-001-HIG-R00`. O conteúdo (HIG, DRG, ELG, ING) fica como o do projetista.
 - Mesma disciplina no código, no nome do arquivo e no campo da folha (`AGF_IMP-001_R00`).
 - Assunto: "PROJETO DE AS BUILT DE <disciplina por extenso>".
 - Título como no modelo da guarita: nome do colégio (em duas linhas se longo), setor (IMPLANTAÇÃO) e endereço completo.
@@ -61,4 +61,4 @@ bash _nuvem/etib-python preclash/executivo/carimbo_asbuilt.py ... --escola "LINH
 - O DWG abre na folha: `(setvar "TILEMODE" 1)` antes de criar entidade, senão cai no espaço do papel.
 - Estilo Standard das pranchas usa SHX sem acento: pôr `{\fArial|b0|i0|c0|p34;…}` no MTEXT.
 - Texto novo copiando molde: o grupo 41 só se copia de molde TEXT (no MTEXT é a largura da caixa).
-- Carimbo da QG: os atributos de revisão ficam fora do quadro; o código grande e o "ARQUIVO" são campos com o nome do arquivo, então salvar com o nome final e plotar de uma cópia com o mesmo nome.
+- Carimbo da construtora: os atributos de revisão ficam fora do quadro; o código grande e o "ARQUIVO" são campos com o nome do arquivo, então salvar com o nome final e plotar de uma cópia com o mesmo nome.

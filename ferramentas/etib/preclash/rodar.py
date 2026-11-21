@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Pré-compatibilização sem Revit: redes 3D georreferenciadas -> clash -> soluções só de profundidade -> IFC + visualizador.
-Uso:  ..\\.venv\\Scripts\\python.exe -X utf8 rodar.py satiro
-A escola é um módulo em escolas/<nome>.py com carregar() e as constantes (ver escolas/satiro.py e LEIA-ME.md)."""
+Uso:  ..\\.venv\\Scripts\\python.exe -X utf8 rodar.py exemplo
+A escola é um módulo em escolas/<nome>.py com carregar() e as constantes (ver escolas/exemplo.py e LEIA-ME.md)."""
 import os, sys, re, csv, json, copy, importlib, time, collections
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -411,4 +411,4 @@ def resumo_md(S, D, res):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1] if len(sys.argv) > 1 else 'satiro')
+    main(sys.argv[1] if len(sys.argv) > 1 else 'exemplo')

@@ -1,6 +1,6 @@
 # Página de pendências — gerador único
 
-Página que vai ao Anderson (e ao Daniel) com as colisões e decisões de uma escola, no padrão das páginas de Alagoinhas e Sátiro Dias.
+Página que vai ao dono do projeto (e ao sócio de modelagem) com as colisões e decisões de uma escola, no padrão das páginas de escola B e escola C.
 Regra em `AGENTS.md` > Forma de trabalho; conferência na seção F do `FERRAMENTAS\revisao\CHECKLIST.md`.
 
 ```
@@ -9,7 +9,7 @@ Regra em `AGENTS.md` > Forma de trabalho; conferência na seção F do `FERRAMEN
 
 Grava em `saida`: `index.html` (a página, com todas as imagens embutidas em base64), `img\` (as mesmas imagens em tamanho cheio, para
 conferir) e `CONFERENCIA_F.md` (F1 abre no celular, F2 dois blocos, F3 conteúdo de cada ficha). Só publicar com a conferência
-**APROVADA**. Exemplo pronto: `exemplo_satiro\` (fichas da Sátiro, com a ficha 3 marcada como aplicada só para mostrar o bloco).
+**APROVADA**. Modelos de `config.json` e `fichas.json` abaixo (valores fictícios).
 
 ## O que a página tem
 
@@ -32,12 +32,12 @@ Caminhos relativos valem a partir da pasta do config.
 
 ```json
 {
- "escola": "ETIB Aporá Itamira", "sigla": "ITA", "data": "23/10/2026",
+ "escola": "ETIB escola E", "sigla": "EXE", "data": "23/10/2026",
  "fichas": "fichas.json",
- "saida": "D:\\Projeto Modelagem\\ETIB-APORA-ITAMIRA\\RELATORIOS\\PENDENCIAS_2026-10-23",
- "ifc": "D:\\Projeto Modelagem\\ETIB-APORA-ITAMIRA\\RELATORIOS\\ENTREGA_IFC\\*.ifc",
- "terreno": "D:\\Projeto Modelagem\\FERRAMENTAS\\preclash\\escolas\\dados\\itamira_terreno.npz",
- "transf_json": "D:\\Projeto Modelagem\\ETIB-APORA-ITAMIRA\\CAD_GEORREFERENCIADO\\transformacoes_local_para_UTM.json",
+ "saida": "D:\\Projeto Modelagem\\ETIB-<ESCOLA>\\RELATORIOS\\PENDENCIAS_2026-10-23",
+ "ifc": "D:\\Projeto Modelagem\\ETIB-<ESCOLA>\\RELATORIOS\\ENTREGA_IFC\\*.ifc",
+ "terreno": "D:\\Projeto Modelagem\\FERRAMENTAS\\preclash\\escolas\\dados\\exemplo_terreno.npz",
+ "transf_json": "D:\\Projeto Modelagem\\ETIB-<ESCOLA>\\CAD_GEORREFERENCIADO\\transformacoes_local_para_UTM.json",
  "folhas": {
    "EL-001": {"dxf": "...\\_copias\\<folha>.dxf", "pdf": "...\\PDF\\<folha>-R01.pdf", "chave": "PROJETO_ORIGINAL/.../<folha>.dwg"},
    "DRE-001": {"dxf": "...\\<folha>_GEO.dxf", "pdf": "...\\PRANCHAS\\...\\<folha>.pdf", "chave": null}
@@ -57,11 +57,11 @@ Caminhos relativos valem a partir da pasta do config.
 [{"n": 1, "bloco": "decisao", "quem": "projetista de drenagem",
   "titulo": "DRN-164 encosta na sapata S12 do BP4",
   "o": "o que é", "t": "o que já foi feito ou testado", "p": "proposta",
-  "E": 584412.3, "N": 8704321.8, "z": 182.4, "raio": 10, "raio3d": 4.5,
-  "folhas": ["DRE-001"], "codigos": ["DRN-164", "CX03", {"codigo": "S12", "E": 584413.0, "N": 8704322.5}]},
+  "E": 500412.3, "N": 8700321.8, "z": 182.4, "raio": 10, "raio3d": 4.5,
+  "folhas": ["DRE-001"], "codigos": ["DRN-164", "CX03", {"codigo": "S12", "E": 500413.0, "N": 8700322.5}]},
  {"n": 2, "bloco": "aplicado",
   "titulo": "CX-07 deslocada 0,45 m", "o": "o que era", "t": "o que foi aplicado", "reverter": "como voltar atrás",
-  "E": 584420.0, "N": 8704300.0, "folhas": ["EL-001"], "codigos": ["CX-07", "ELE-06"]}]
+  "E": 500420.0, "N": 8700300.0, "folhas": ["EL-001"], "codigos": ["CX-07", "ELE-06"]}]
 ```
 
 - `bloco`: `decisao` ou `aplicado` (o formato antigo, `grupo` D/G e `a`/`b`, também é aceito).
@@ -72,6 +72,6 @@ Caminhos relativos valem a partir da pasta do config.
 
 ## Peças
 
-- `recortes.py`: calibração DXF → PDF e recorte com o círculo e os códigos (generalizado de `satiro\pendencias\sat_recortes.py`).
-- `vistas.py`: planta e 3D do IFC de entrega (generalizado de `satiro\pendencias\sat_vistas.py`; lê pelo `revisao\ifc_conf.py`).
+- `recortes.py`: calibração DXF → PDF e recorte com o círculo e os códigos (generalizado de `exemplo\pendencias\sat_recortes.py`).
+- `vistas.py`: planta e 3D do IFC de entrega (generalizado de `exemplo\pendencias\sat_vistas.py`; lê pelo `revisao\ifc_conf.py`).
 - `modelo.html`: a página (dados e imagens entram no lugar de `__DADOS__` e `__IMAGENS__`).

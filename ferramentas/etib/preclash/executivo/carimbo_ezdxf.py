@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Aplica o arquivo de comandos do carimbo QG as built (carqg_<folha>.txt, o mesmo que o carimbo_qg/aplicar.lsp lê no
+"""Aplica o arquivo de comandos do carimbo da construtora as built (carqg_<folha>.txt, o mesmo que o carimbo_qg/aplicar.lsp lê no
 accoreconsole) com ezdxf, sem AutoCAD. Comandos: DEL h | ATT TAG valor [largura] | INS layout x y escala caminho |
 LN x1 y1 x2 y2 | TX x y h alinh estilo texto (ver aplicar.lsp).
 

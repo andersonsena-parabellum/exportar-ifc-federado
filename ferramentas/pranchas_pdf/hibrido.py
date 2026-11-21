@@ -10,10 +10,10 @@ def ink(p, clip=None, dpi=144):
 OUT = '/tmp/claude-0/jan/final'; os.makedirs(OUT, exist_ok=True)
 NOVO = {'AF-001-HIG': 'AGF-001-HIG', 'DRE-001-DRG': 'DRE-001-DRG', 'EL-001-ELG': 'ELE-001-ELG', 'EL-002-ELG': 'ELE-002-ELG', 'IN-001-ING': 'PCI-001-ING'}
 for k in ['AF-001-HIG', 'DRE-001-DRG', 'EL-001-ELG', 'EL-002-ELG', 'IN-001-ING']:
-    n = f'24-049-JDI-CTO-ETIB-IMP-AB-{NOVO[k]}-R00'
+    n = f'AA-CTR-MUN-LOC-ETIB-IMP-AB-{NOVO[k]}-R00'
     A = fitz.open(f'/tmp/claude-0/jan/pdf_r03/{k}.pdf'); pa = A[0]
     C = fitz.open(f'/tmp/claude-0/jan/so/{n}.pdf'); pc = C[0]
-    B = fitz.open(f'/tmp/claude-0/jan/ab_antigo/24-049-JDI-CTO-ETIB-IMP-AB-{k}-R00.pdf'); pb = B[0]   # folha inteira da nuvem (1ª rodada; o carimbo fica no mesmo lugar)
+    B = fitz.open(f'/tmp/claude-0/jan/ab_antigo/AA-CTR-MUN-LOC-ETIB-IMP-AB-{k}-R00.pdf'); pb = B[0]   # folha inteira da nuvem (1ª rodada; o carimbo fica no mesmo lugar)
     # deslocamento AutoCAD -> nuvem medido no corpo do carimbo (logos e linhas, iguais nas duas)
     a, _ = ink(pa, fitz.Rect(3370 - 200 * mm, 2383 - 60 * mm, 3370, 2383), 288); b, _ = ink(pb, fitz.Rect(3370 - 200 * mm, 2383 - 60 * mm, 3370, 2383), 288)
     h = min(a.shape[0], b.shape[0]); a, b = a[:h], b[:h]

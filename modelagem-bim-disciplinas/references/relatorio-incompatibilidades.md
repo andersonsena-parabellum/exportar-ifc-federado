@@ -34,7 +34,7 @@ Saídas: o PDF + uma pasta `PRINTS_Rxx\` com as imagens marcadas. Revisões R00,
 ## Ferramentas e identidade visual
 
 - PyMuPDF com fontes Segoe UI.
-- Cores e logo da empresa do usuário. Padrão usado (Populus): dourado `#D8A800`, azul-marinho `#0B0B26`, logo branco sobre o fundo azul. Confirme com o usuário se o relatório é para outra empresa.
+- Cores e logo da empresa do usuário. Padrão usado (da empresa): dourado `#D8A800`, azul-marinho `#0B0B26`, logo branco sobre o fundo azul. Confirme com o usuário se o relatório é para outra empresa.
 
 ## Pegadinhas do script
 

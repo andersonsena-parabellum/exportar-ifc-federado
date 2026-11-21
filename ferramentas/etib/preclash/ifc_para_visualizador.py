@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Monta o <SIGLA>.json do visualizador único a partir de um IFC federado (ex.: a Jandaíra, modelada no Revit e exportada
-no formato do preclash por FERRAMENTAS\\jandaira\\jan_ifc.py), sem rodar o clash.
+"""Monta o <SIGLA>.json do visualizador único a partir de um IFC federado (ex.: a escola A, modelada no Revit e exportada
+no formato do preclash por FERRAMENTAS\\exemplo\\jan_ifc.py), sem rodar o clash.
   - tubos e eletrodutos (IfcSweptDiskSolid) viram 'elementos' (eixo + diâmetro), como no preclash;
   - caixas, conexões, registros, quadros, equipamentos e estrutura viram 'malhas' (triângulos, em cm);
   - IfcGeographicElement vira o terreno; proxies com Pset PRECLASH 'folga' viram as esferas de conflito.

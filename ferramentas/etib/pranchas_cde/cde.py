@@ -7,13 +7,10 @@ from originais import L
 H = os.path.dirname(os.path.abspath(__file__)); W = os.path.join(H, 'work')
 CDE = r'D:\Projeto Modelagem\PRANCHAS'
 LIB = json.load(open(os.path.join(H, 'biblioteca.json'), encoding='utf-8')) if os.path.exists(os.path.join(H, 'biblioteca.json')) else {}
-NOME = {'ETIB-ALAGOINHAS': 'Alagoinhas', 'ETIB-APORA-ITAMIRA': 'Aporá (Itamira)', 'ETIB-APORA-PROF-AUREA': 'Aporá (Prof. Áurea)',
-        'ETIB-CATU': 'Catu', 'ETIB-JANDAIRA': 'Jandaíra', 'ETIB-POJUCA': 'Pojuca', 'ETIB-SATIRO-DIAS': 'Sátiro Dias'}
-SUB = {'IMP': 'Implantação', 'BA2': 'Bloco BA2', 'CPS': 'Campo society'}
+NOME = {'ETIB-<ESCOLA>': '<Nome da Escola>'}      # MODELO (fictício): uma linha por escola
+SUB = {'IMP': 'Implantação', 'CPS': 'Campo society'}
 OBS = {
- 'ETIB-APORA-ITAMIRA': 'Intervenção = campo society + pista. O Drive não traz AF, ESG nem PCI da implantação.',
- 'ETIB-APORA-PROF-AUREA': 'Drive incompleto: só elétrica, incêndio e a drenagem (folha AF-002). Faltam AF e ESG.',
- 'ETIB-POJUCA': 'A implantação do projetista da quadra (PI000) não é desta obra e ficou fora.',
+ 'ETIB-<ESCOLA>': 'Observação curta sobre o que o Drive da construtora traz ou não traz.',
 }
 
 linhas = {}; arquivos = []

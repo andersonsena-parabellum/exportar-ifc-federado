@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Miniaturas ANTES | DEPOIS de cada folha alterada, para o Anderson olhar no celular junto com o "pronto para envio"
+"""Miniaturas ANTES | DEPOIS de cada folha alterada, para o dono do projeto olhar no celular junto com o "pronto para envio"
 (PDCA A3, 22/10/2026; regra em AGENTS.md > Pranchas > Prévia).
 Para cada PDF revisado acha a revisão de origem (mesma regra da Revisão de qualidade: _SUPERADAS do CDE, depois PROJETO_ORIGINAL),
 compara a área de desenho das duas folhas e grava <saida>/<folha>_antes_depois.jpg: a folha inteira antes e depois, lado a lado, com as regiões que

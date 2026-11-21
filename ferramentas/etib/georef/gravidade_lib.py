@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Extração de redes por gravidade (esgoto, drenagem) de DWG QiBuilder em UTM — partes comuns da ETIB Catu.
-Usada por esg_catu.py e dre_catu.py. Método da skill (redes-gravidade.md): nós de projeto primeiro (PVs, caixas, prumadas),
+"""Extração de redes por gravidade (esgoto, drenagem) de DWG QiBuilder em UTM — partes comuns da ETIB escola G.
+Usada pelos scripts de esgoto e drenagem da escola. Método da skill (redes-gravidade.md): nós de projeto primeiro (PVs, caixas, prumadas),
 depois eixos (pares de parede exclusivos + linhas únicas), sentido (seta > CF > ramal > continuidade) e rótulos."""
 import re, math, csv, json, os, collections
 import numpy as np
 from rede_lib import parear_paredes, fundir_colineares, Rede, sentido_por_setas, dist_pt_seg, unit
-from catu_comum import num
+from comum import num
 
 
 def pvs_por_bloco(ob, bloco, tipo):

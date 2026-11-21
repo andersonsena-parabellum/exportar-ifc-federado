@@ -1,4 +1,4 @@
-;; Troca o carimbo da prancha pelo carimbo QG as built (bloco CARIMBO_QG_ASBUILT.dwg), na cópia aberta no console.
+;; Troca o carimbo da prancha pelo carimbo da construtora as built (bloco CARIMBO_QG_ASBUILT.dwg), na cópia aberta no console.
 ;; Variável de ambiente CARQG_CMD = arquivo de comandos (campos separados por TAB; texto não ASCII já vem como \U+XXXX):
 ;;   DEL h                          apaga a entidade de handle h (carimbo antigo: linhas, textos, logos, linhas de revisão)
 ;;   ATT TAG valor [largura]        valor do atributo TAG do bloco (antes do INS); largura = fator de largura para caber na caixa

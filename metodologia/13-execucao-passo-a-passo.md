@@ -6,7 +6,7 @@ Roteiro executável de uma escola nova, do zero à entrega. Cada passo diz **ond
 - 💻 **precisa do notebook** (Windows com Revit, AutoCAD ou a pasta sincronizada do Drive);
 - 🙋 **precisa do dono** (decisão ou ação que só ele faz).
 
-Os exemplos usam `<escola>` = nome do adaptador (ex.: `catu`) e `<SIGLA>` = sigla da escola (ex.: `CAT`). Para cada passo há um script pronto de uma escola já entregue: copiar e trocar o que é da escola é o caminho mais rápido.
+Os exemplos usam `<escola>` = nome do adaptador (ex.: `exemplo`) e `<SIGLA>` = sigla da escola (ex.: `EXE`). O código genérico está em `ferramentas/etib`; o que é da escola (adaptador, scripts de extração, de pranchas e de envio) é escrito para cada escola a partir dos modelos em `preclash/escolas/exemplo.py`, `revisao/entregas.py` e `modelos/` deste repositório. Ver também o capítulo 14 (escola nova).
 
 ## 0. Preparar o ambiente ☁️
 
@@ -17,6 +17,13 @@ export ETIB_RAIZ=$HOME/etib-raiz ETIB_G=$HOME/etib-raiz/_G
 mkdir -p $ETIB_RAIZ && ln -sfn ~/metodologia-etib/ferramentas/etib $ETIB_RAIZ/FERRAMENTAS
 alias etib='bash $ETIB_RAIZ/FERRAMENTAS/_nuvem/etib-python'
 ```
+
+Variáveis opcionais:
+
+| Variável | Para quê |
+|---|---|
+| `ETIB_NOMES_EQUIPE` | nomes da equipe separados por vírgula; a revisão e o `export_ifc.py` recusam entrega que contenha algum deles |
+| `ETIB_DXF_GEO`, `ETIB_RELATORIOS`, `ETIB_WORK_REDE`, `ETIB_PREFIXO` | pastas e prefixo da escola usados por `georef/comum.py` (plotagem das redes sobre o DWG) |
 
 - Antes: colocar o instalador `.deb` do ODA File Converter em `ferramentas/` e as fontes das pranchas (Arial, Swiss 721, romans, simplex, isocp) em `ferramentas/pranchas_pdf/fontes/`. Os dois têm licença e não vão no repositório.
 - Conferir: o script imprime as versões de ifcopenshell, ezdxf e numpy e o caminho do ODA.
@@ -41,9 +48,9 @@ alias etib='bash $ETIB_RAIZ/FERRAMENTAS/_nuvem/etib-python'
 | Passo | Comando / ação | Conferir |
 |---|---|---|
 | 2.1 Diagnóstico | ler INSUNITS, EXTMIN/EXTMAX e layers de cada DXF (ezdxf) | UTM ou local |
-| 2.2 Transformação | ICP dos blocos de arquitetura contra a implantação; libs em `georef_dxf/` (ex.: `georef_dxf/satiro/`) | resíduo de milímetros; JSON gravado em `CAD_GEORREFERENCIADO/` |
-| 2.3 Extração em planta | script da escola lendo layers e textos, montando o grafo (ex.: `georef_dxf/satiro/`, `catu/`, `georef/rede_lib.py`) | CSV de trechos, caixas e nós; códigos do projeto em cada peça |
-| 2.4 Terreno | `preclash/escolas/<escola>_terreno.py` (copiar `catu_terreno.py`) | `.npz` gravado; ajuste às cotas da base com relatório antes/depois |
+| 2.2 Transformação | ICP dos blocos de arquitetura contra a implantação; libs em `georef_dxf/` (`casar.py`, `icp_regiao.py`, `dxfgeo.py`) e `georef/` (`icp_pts.py`, `casar_blocos.py`) | resíduo de milímetros; JSON gravado em `CAD_GEORREFERENCIADO/` |
+| 2.3 Extração em planta | script da escola lendo layers e textos, montando o grafo (libs `georef/rede_lib.py`, `georef/linha_lib.py`, `georef/gravidade_lib.py`, `georef/dxf_ler.py`; formato dos CSV no cabeçalho de `preclash/preclash/leitura.py`) | CSV de trechos, caixas e nós; códigos do projeto em cada peça |
+| 2.4 Terreno | `preclash/escolas/<escola>_terreno.py` (copiar `exemplo_terreno.py`) | `.npz` gravado; ajuste às cotas da base com relatório antes/depois |
 
 **Seguir quando:** sobreposição da rede extraída com o PDF conferida em imagem, sem deslocamento.
 
@@ -51,7 +58,7 @@ alias etib='bash $ETIB_RAIZ/FERRAMENTAS/_nuvem/etib-python'
 
 ```
 cd $ETIB_RAIZ/FERRAMENTAS/preclash
-cp escolas/catu.py escolas/<escola>.py      # trocar BASE, SIGLA, ORIGEM, EPSG, CAIXA_OBRA, CSV, REGRAS
+cp escolas/exemplo.py escolas/<escola>.py      # trocar BASE, SIGLA, ORIGEM, EPSG, CAIXA_OBRA, CSV, REGRAS
 etib rodar.py <escola>
 ```
 
@@ -66,7 +73,7 @@ etib rodar.py <escola>
 
 ```
 cd $ETIB_RAIZ/FERRAMENTAS/pendencias
-etib pagina.py <config.json>       # modelo de config e fichas no LEIA-ME e em itamira/pendencias/, catu/pendencias/
+etib pagina.py <config.json>       # modelo de config.json e fichas.json no pendencias/LEIA-ME.md
 ```
 
 - Conferir `CONFERENCIA_F.md` APROVADA antes de publicar.
@@ -76,7 +83,7 @@ etib pagina.py <config.json>       # modelo de config e fichas no LEIA-ME e em i
 
 ## 5. IFC de entrega (capítulo 04) ☁️
 
-- IFC por disciplina + terreno + estrutura + federado, perfil `'revit'`, Pset `Dados_ETIB`, georreferenciado. Exemplos: `catu/ifc/`, `itamira/ifc/ita_entrega.py`.
+- IFC por disciplina + terreno + estrutura + federado, perfil `'revit'`, Pset `Dados_ETIB`, georreferenciado. Saem do `rodar.py` (cenário `CENARIO_ENTREGA`, grupos `DISCIPLINAS_ENTREGA`, exportador `preclash/preclash/export_ifc.py`); terreno e estrutura entram pelo adaptador.
 - Conferir rodando a revisão só do IFC: `cd ../revisao && etib revisar.py <escola> --sem-pdf --sem-envio`.
 
 ## 6. Pranchas (capítulo 07) ☁️
@@ -85,12 +92,12 @@ etib pagina.py <config.json>       # modelo de config e fichas no LEIA-ME e em i
 |---|---|---|
 | 6.1 Plano da revisão | `etib preclash/executivo/rever.py <escola> [cen]` | registro do que não foi achado na prancha (conferir à mão) |
 | 6.2 Aplicar | `etib preclash/executivo/revisao_ezdxf.py ...` (ou 💻 `revisao.lsp` no accoreconsole) | entidade trocada na mesma layer, cor e tipo de linha |
-| 6.3 Carimbo QG | `etib preclash/executivo/carimbo_ezdxf.py ...` | 3 logos ao lado do DWG |
+| 6.3 Carimbo da construtora | `etib preclash/executivo/carimbo_ezdxf.py ...` | 3 logos ao lado do DWG |
 | 6.4 Carimbo AS BUILT | `etib preclash/executivo/carimbo_asbuilt.py ... --escola "L1|L2" --endereco "..."` | AB, disciplina CONDER, R00, responsável vazio |
 | 6.5 PDF | `cd ferramentas/pranchas_pdf && CTB=prancha/acad.ctb LAY=<folha> etib render_pdf_nuvem.py <prancha.dxf> <saida.pdf>` | A0, um PDF por folha |
 | 6.6 Prévia | `etib preclash/executivo/rever.py --miniaturas <pasta> --origem <pdfs de origem>` | miniaturas antes e depois vão ao dono 🙋 |
 
-Exemplos completos por escola: `catu/exe/cat_exec.py`, `satiro/exe/sat_exec.py`, `itamira/exe/`.
+O script de pranchas da escola encadeia 6.1 a 6.6 para as folhas dela (DWG de origem, transformação, revisão nova, título e endereço do carimbo).
 
 ## 7. Revisão de qualidade (capítulo 08) ☁️
 
@@ -101,13 +108,13 @@ etib revisar.py <escola> --recortes
 ```
 
 - Olhar os recortes dos itens visuais; confirmar à mão cada grupo de pendência.
-- Corrigir em lote e repetir até **APROVADO**. Exemplo: `catu/exe/cat_revisar_envio.py`.
+- Corrigir em lote e repetir até **APROVADO**. O que a entrega declarar (exceções aprovadas, pendências de terceiros, cotas alteradas) vai na entrada da escola em `entregas.py`.
 
 ## 8. Envio e CDE (capítulo 09)
 
 | Passo | Onde | Comando | Conferir |
 |---|---|---|---|
-| 8.1 Montar a pasta de envio | ☁️ | ex.: `catu/exe/cat_envio.py` | conteúdo do item A |
+| 8.1 Montar a pasta de envio | ☁️ | script da escola que copia o que foi revisado para a estrutura do capítulo 09 e escreve o LEIA-ME | conteúdo do item A |
 | 8.2 Limpar o IFC | ☁️ | `etib revisao/limpar_entrega.py <envio>/03_IFC <csv interno>` | sem propriedades de trabalho |
 | 8.3 Revisão do envio | ☁️ | `etib revisao/revisar.py <escola>` | APROVADO, hash igual |
 | 8.4 Subir ao Drive | 💻 | `<script de envio> --drive` no notebook (cópia para a pasta de envios e do CDE) | arquivos no Drive |

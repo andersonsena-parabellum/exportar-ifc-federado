@@ -16,9 +16,9 @@ for d in doc.objects.query('IMAGEDEF'):
         if k.lower() in fn.lower(): d.dxf.filename=os.path.abspath(os.path.join(os.path.dirname(src),v)); break
 for o in doc.objects.query('RASTERVARIABLES'): o.dxf.frame=0
 # o AutoCAD só quebra a linha do MTEXT quando passa da largura com uma folga pequena
-# (medido: não quebra a 1,006x nem a 1,012x [Sátiro ESG CT/CF], quebra a 1,19x); o ezdxf quebra no limite exato
+# (medido: não quebra a 1,006x nem a 1,012x [escola C ESG CT/CF], quebra a 1,19x); o ezdxf quebra no limite exato
 # só em rótulo curto (até 30 caracteres por parágrafo): em nota longa e justificada a folga alarga o bloco
-# inteiro e invade o carimbo (Sátiro ESG, notas da LEGENDA)
+# inteiro e invade o carimbo (escola C ESG, notas da LEGENDA)
 for e in doc.entitydb.values():
     if e.dxftype()=='MTEXT' and e.dxf.get('width',0) and max(map(len, e.plain_text().split('\n')))<=30: e.dxf.width=e.dxf.width*1.08
 # máscaras (WIPEOUT) dos blocos vão para o fundo do bloco, como o AutoCAD desenha pela ordem de exibição
@@ -44,16 +44,16 @@ def _entrelinha(es):
             m.text=_rx.sub(lambda h: h.group(1)+h.group(3), m.text).replace('\\px;','')
 for blk in doc.blocks: _entrelinha(blk)
 # ponto (_DotSmall/_Dot) na ponta do MLEADER: o AutoCAD plota com cerca de metade do diâmetro que o ezdxf
-# desenha (medido na ESG-001 da Sátiro: 0,9 contra 1,9 com seta 3,0)
+# desenha (medido na ESG-001 da escola C: 0,9 contra 1,9 com seta 3,0)
 for _m in doc.entitydb.values():
     if _m.dxftype()=='MULTILEADER':
         _b=doc.entitydb.get(_m.dxf.get('arrow_head_handle'))
         if _b is not None and _b.dxf.get('name','').upper() in ('_DOTSMALL','_DOT'):
             _m.context.arrow_head_size*=0.47; _m.dxf.arrow_head_size=_m.context.arrow_head_size
-# layout da prancha: LAY (padrão '01'); se não houver, a única folha do arquivo (ex.: 'Layout1' da EL-002 da Sátiro)
+# layout da prancha: LAY (padrão '01'); se não houver, a única folha do arquivo (ex.: 'Layout1' da EL-002 da escola C)
 _lays=[n for n in doc.layouts.names() if n!='Model']
 psp=doc.layouts.get(os.environ.get('LAY','01') if os.environ.get('LAY','01') in _lays else _lays[0])
-# cinza 252 como o DWG To PDF do AutoCAD imprime (medido na ESG-001 da Sátiro)
+# cinza 252 como o DWG To PDF do AutoCAD imprime (medido na ESG-001 da escola C)
 import ezdxf.colors as _c
 _c.DXF_DEFAULT_COLORS[252]=0x989898
 for _e in doc.entitydb.values():
@@ -79,7 +79,7 @@ for _e in doc.entitydb.values():
 # o ezdxf só olha a camada de cada objeto de dentro
 from ezdxf.entities import Insert as _Insert
 from ezdxf.addons.drawing.properties import layer_key as _lk
-# MLEADER com dogleg de comprimento 0 dentro de bloco (DRE-001 da Jandaíra): o ezdxf
+# MLEADER com dogleg de comprimento 0 dentro de bloco (DRE-001 da escola A): o ezdxf
 # divide por zero ao transformar; o AutoCAD desenha sem o dogleg, então zera e segue
 import ezdxf.entities.mleader as _ml
 _ml_tr = _ml.LeaderData.transform
@@ -107,12 +107,12 @@ be=pmb.PyMuPdfBackend()
 # tracejado do model space visto na viewport: o ezdxf divide o padrão pela escala da
 # viewport, o que deixa os traços pequenos demais. Como o AutoCAD plota:
 #   PSLTSCALE 1 -> padrão fixo no papel; PSLTSCALE 0 -> padrão em unidades do modelo.
-# Medido na Olindina: EL (1:200, PSLTSCALE 1) e ESG/DRE (1:100, PSLTSCALE 0)
+# Medido na escola D: EL (1:200, PSLTSCALE 1) e ESG/DRE (1:100, PSLTSCALE 0)
 import ezdxf.addons.drawing.pipeline as _pl
 _psl = psp.dxf_layout.dxf.get('layout_flags', doc.header.get('$PSLTSCALE', 1)) & 1
 _pl.RenderPipeline2d.get_vp_ltype_scale = (lambda self: 1.0) if _psl else (lambda self: self.current_vp_scale)
 # o PyMuPDF junta todo o desenho num só "shape" e a junção fica quadrática em pranchas
-# grandes (5 min na Olindina); grava o shape na página a cada 2000 objetos
+# grandes (5 min na escola D); grava o shape na página a cada 2000 objetos
 def _em_lotes(nome):
     orig=getattr(pmb.PyMuPdfRenderBackend, nome)
     def f(self, shape, *a, **k):
@@ -162,7 +162,7 @@ if _oles:
             _b=_o.binary_data(); _cf=olefile.OleFileIO(_b[_b.find(bytes.fromhex('d0cf11e0a1b11ae1')):])
             _nm=[x for x in _cf.listdir() if 'OlePres' in x[0]]
             if not _nm and _cf.exists('CONTENTS') and _cf.openstream('CONTENTS').read(2)==b'BM':
-                # imagem colada (StaticDib: o CONTENTS é um BMP), como a foto de satélite da IN-001 da Jandaíra
+                # imagem colada (StaticDib: o CONTENTS é um BMP), como a foto de satélite da IN-001 da escola A
                 from PIL import Image as _Im; import io as _io
                 _img=os.path.join(_tmp,'ole%d.png'%_i); _Im.open(_io.BytesIO(_cf.openstream('CONTENTS').read())).convert('RGB').save(_img)
                 raise StopIteration

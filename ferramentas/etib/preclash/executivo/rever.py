@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Passo 7 do preclash: as pranchas executivas no padrão de EXECUTIVO FINAL (as built), numa cópia do DWG de projeto.
-Padrão (19/10/2026, pedido do Anderson): a prancha vai para o campo, então
+Padrão (19/10/2026, pedido do dono do projeto): a prancha vai para o campo, então
   - mudança de traçado: o trecho antigo sai e o novo entra na MESMA entidade/layer/tipo de linha/cor; as tags de diâmetro
     e de fluxo junto do trecho acompanham (nada de nuvem, rascunho ou traçado "substituído");
   - caixa deslocada: o bloco/contorno e o texto dela andam; as pontas das linhas que chegam nela acompanham;
@@ -22,9 +22,9 @@ O adaptador da escola define:
   EXECUTIVO_NOTA_RAIO (opcional, m, padrão 15): no mesmo grupo de profundidade, outra nota só a mais disso da anterior.
   Notas de profundidade (20/10/2026): uma por trecho — ver asbuilt.agrupar_notas; ao lado da etiqueta do trecho quando houver.
 Uso: ..\\..\\.venv\\Scripts\\python.exe -X utf8 rever.py <escola> [cenário] [--so-comandos] [--rascunho]
-Prévia (PDCA A3, 22/10/2026): depois de plotar os PDF com o carimbo QG,
+Prévia (PDCA A3, 22/10/2026): depois de plotar os PDF com o carimbo da construtora,
      rever.py --miniaturas <pasta dos PDF revisados> --origem <_SUPERADAS do CDE> [<PROJETO_ORIGINAL>] [--saida PASTA]
-grava uma imagem ANTES | DEPOIS por folha (miniaturas.py), que vai ao Anderson junto com o "pronto para envio"."""
+grava uma imagem ANTES | DEPOIS por folha (miniaturas.py), que vai ao dono do projeto junto com o "pronto para envio"."""
 import os, sys, json, math, shutil, subprocess, importlib, collections
 import numpy as np
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -199,7 +199,7 @@ def main(nome, cen=None, so_comandos=False, rascunho=False):
 
 
 if __name__ == '__main__':
-    if '--miniaturas' in sys.argv:          # prévia ANTES | DEPOIS das folhas já plotadas (vai ao Anderson junto com o "pronto")
+    if '--miniaturas' in sys.argv:          # prévia ANTES | DEPOIS das folhas já plotadas (vai ao dono do projeto junto com o "pronto")
         import argparse, miniaturas
         ap = argparse.ArgumentParser(); ap.add_argument('--miniaturas', required=True); ap.add_argument('--origem', nargs='+', required=True)
         ap.add_argument('--saida'); m = ap.parse_args()
