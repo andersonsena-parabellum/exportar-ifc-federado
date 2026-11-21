@@ -1,4 +1,4 @@
-# versões testadas no federado da Jandaíra R04 (Python 3.11)
+# versões testadas no federado da escola A R04 (Python 3.11)
 ifcopenshell==0.9.0.post1
 ifcpatch==0.9.0
 numpy==2.4.6

@@ -1,6 +1,27 @@
-# exportar-ifc-federado
+# Metodologia ETIB: modelagem e compatibilização em IFC
 
-Este é o método do **IFC federado único** das escolas ETIB , empacotado como skill do Claude Code. É o padrão aprovado na Jandaíra R04 em 29/10/2026.
+Método de trabalho da equipe para modelar, compatibilizar e entregar em IFC as redes externas das escolas ETIB, com o código e as skills que executam cada etapa.
+
+- **Agente:** comece pelo [`AGENTS.md`](AGENTS.md).
+- **Pessoa:** comece pela [metodologia](metodologia/README.md).
+- **Executar uma escola:** [roteiro passo a passo](metodologia/13-execucao-passo-a-passo.md).
+- **Ferramentas:** [`ferramentas/`](ferramentas/) (Python 3.11, versões fixas em `ferramentas/ambiente/requirements.txt`).
+
+## Skills do Claude Code
+
+| Skill | Para quê |
+|---|---|
+| [`federado-unico-etib`](federado-unico-etib/SKILL.md) | IFC federado único da escola (detalhes abaixo) |
+| [`revisao-qualidade-etib`](revisao-qualidade-etib/SKILL.md) | revisão de qualidade antes de todo envio |
+| [`modelagem-bim-disciplinas`](modelagem-bim-disciplinas/SKILL.md) | método antigo, no Revit via MCP |
+
+Para instalar uma skill, copie a pasta dela para `~/.claude/skills/` (Windows: `%USERPROFILE%\.claude\skills\`).
+
+---
+
+## Federado único
+
+Este é o método do **IFC federado único** das escolas ETIB , empacotado como skill do Claude Code. É o padrão aprovado na escola A R04 em 29/10/2026.
 
 O resultado é um só IFC4 da escola com:
 - o terreno recortado no lote;
@@ -27,7 +48,7 @@ Ele passa por conferência automática e sai com prévias e o pacote de envio.
 
 ## Usar
 
-No Claude Code, aberto na pasta do projeto, peça por exemplo "monte o federado único da escola Alagoinhas". A skill guia o passo a passo:
+No Claude Code, aberto na pasta do projeto, peça por exemplo "monte o federado único da escola escola B". A skill guia o passo a passo:
 - o JSON da escola;
 - a cota do RVT;
 - os módulos, a divisa, a urbanização e o terreno;
@@ -37,7 +58,7 @@ Os detalhes estão em:
 - `federado-unico-etib/SKILL.md`: o método e as armadilhas;
 - `federado-unico-etib/referencia/CONFIG.md`: cada campo do JSON;
 - `federado-unico-etib/referencia/EXPORTAR_RVT.md`: como exportar os RVT da construtora;
-- `federado-unico-etib/escolas/JDI.json`: o exemplo real da Jandaíra.
+- `federado-unico-etib/escolas/EXEMPLO.json`: exemplo fictício completo.
 
 ## Atualizar
 

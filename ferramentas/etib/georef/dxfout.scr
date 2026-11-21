@@ -1,0 +1,7 @@
+SECURELOAD 0
+FILEDIA 0
+CMDDIA 0
+(load "D:/Projeto Modelagem/FERRAMENTAS/georef/dxfout.lsp")
+DXFX
+_.QUIT
+_Y

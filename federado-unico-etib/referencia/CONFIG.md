@@ -1,11 +1,11 @@
 # Configuração da escola (escola.json)
 
-Um JSON por escola, na pasta FEDERADO_UNICO dela. Caminhos relativos à `raiz`. Exemplo completo: `escolas/JDI.json` (Jandaíra R04).
+Um JSON por escola, na pasta FEDERADO_UNICO dela. Caminhos relativos à `raiz`. Exemplo completo: `escolas/EXEMPLO.json` (escola A R04).
 
 ## Geral
 | chave | o que é | como achar |
 |---|---|---|
-| `escola`, `sigla`, `pasta_envio` | nome, sigla de 3 letras (JDI, ALH...), nome da pasta de envio sem acento (JANDAIRA) | lista mestra |
+| `escola`, `sigla`, `pasta_envio` | nome, sigla de 3 letras (EXE, EXE...), nome da pasta de envio sem acento (<ESCOLA>) | lista mestra |
 | `nome_completo`, `contrato` | nome oficial do colégio e contrato, vão no IfcSite e no projeto | carimbo das pranchas |
 | `raiz`, `pasta_saidas` | pasta base dos caminhos; onde gravar trabalho/, saida/, envio/ | — |
 | `georref` | EPSG, zona, `e0`/`n0` = origem do arquivo | **a mesma dos IFC já entregues** da escola (IfcMapConversion deles) |

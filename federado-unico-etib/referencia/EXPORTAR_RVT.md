@@ -1,7 +1,7 @@
 # Exportar os RVT da construtora em IFC (Revit, na máquina com Revit)
 
-Os RVT ficam no Drive da construtora (pasta "QG as built" > escola), **somente leitura**: copie para a sua máquina antes de abrir.
-Confira o código da escola no nome do arquivo (na pasta da Jandaíra havia IFC soltos da Pojuca).
+Os RVT ficam no Drive da construtora (pasta "as built da construtora" > escola), **somente leitura**: copie para a sua máquina antes de abrir.
+Confira o código da escola no nome do arquivo (na pasta da escola A havia IFC soltos da escola H).
 
 ## Implantação (IMP)
 1. Abrir o RVT da implantação. Deixar a topografia visível na vista 3D exportada (o p0 compara o terreno dele com o as built).
@@ -11,7 +11,7 @@ Confira o código da escola no nome do arquivo (na pasta da Jandaíra havia IFC 
 
 ## Módulos (BP4, GUA...)
 Dois caminhos; use o que der menos trabalho e confira com o p6 (arquitetura × estrutura) e as prévias:
-- **A. Exportar o módulo sozinho** (coordenadas próprias do RVT do módulo) e posicionar com `posicao: {giro_graus, e, n, dz}`: no RVT da implantação, o vínculo do módulo diz onde ele fica. `e`/`n` = posição em UTM da origem interna do módulo; `giro_graus` = rotação do vínculo; `dz` = cota absoluta do zero do módulo (piso as built − cota do piso no RVT). Na Jandaíra: BP4 giro −58,9075°, E 631529,527, N 8721120,793, dz 147,465 (térreo +0,10 no piso as built 147,565).
+- **A. Exportar o módulo sozinho** (coordenadas próprias do RVT do módulo) e posicionar com `posicao: {giro_graus, e, n, dz}`: no RVT da implantação, o vínculo do módulo diz onde ele fica. `e`/`n` = posição em UTM da origem interna do módulo; `giro_graus` = rotação do vínculo; `dz` = cota absoluta do zero do módulo (piso as built − cota do piso no RVT). Na escola A: BP4 giro −58,9075°, E 631529,527, N 8721120,793, dz 147,465 (térreo +0,10 no piso as built 147,565).
 - **B. Exportar pela implantação com os vínculos carregados**, opção de exportar vínculos como IFC separados, coordenadas compartilhadas: cada módulo já sai em UTM; use `posicao: {"dz": ...}` (só o ajuste de cota, se houver).
 
 Exportar em IFC4. Não precisa limpar nada no Revit: o p1 tira tubulação, portas de conexão, fundação e os grupos de modelo; louças, metais e mobiliário ficam (são da arquitetura).

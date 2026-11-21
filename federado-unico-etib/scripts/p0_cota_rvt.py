@@ -2,7 +2,7 @@
 """Passo 0 — antes de usar o RVT da implantação: em que cota ele está? Compara o terreno do RVT (IfcGeographicElement do IFC exportado,
 em UTM absoluto) com o terreno as built da escola (o mesmo das redes) nos mesmos pontos em planta.
 Se a diferença é quase constante (p5 e p95 perto da mediana), o RVT está na cota de projeto: use dz = -mediana em "urbanizacao_rvt.posicao".
-Na Jandaíra deu mediana -0,566 m (p5 -0,66 / p95 -0,46): dz = 0,565.
+Na escola A deu mediana -0,566 m (p5 -0,66 / p95 -0,46): dz = 0,565.
 Uso: python p0_cota_rvt.py escola.json arquivo_do_rvt.ifc"""
 import os, sys, numpy as np, ifcopenshell
 from scipy.interpolate import LinearNDInterpolator
