@@ -1,0 +1,34 @@
+// Revit MCP (send_code_to_revit): lê sapatas, blocos, pilares e vigas (baldrames) de UM RVT de fundação as built copiado em
+// scratch\imp\fun\ (trocar ARQ abaixo) e grava <arquivo>_est.csv (coordenadas INTERNAS do RVT, em m). Abre, lê e fecha sem salvar.
+// Um arquivo por chamada: o plugin do MCP devolve "tempo esgotado" por volta de 60 s.
+var sb = new System.Text.StringBuilder();
+string ARQ = "__ARQ__";
+sb.AppendLine("MARCADOR SAT-FUN " + ARQ);
+var app = document.Application;
+var inv = System.Globalization.CultureInfo.InvariantCulture;
+string dir = @"C:\Users\ander\AppData\Local\Temp\claude\D--Projeto-Modelagem\b28e7087-be02-4c86-8417-721af249be58\scratchpad\imp\fun\";
+var cats = new BuiltInCategory[] { BuiltInCategory.OST_StructuralFoundation, BuiltInCategory.OST_StructuralColumns, BuiltInCategory.OST_StructuralFraming };
+string fn = dir + ARQ;
+Document d = null;
+try {
+  var op = new OpenOptions(); op.DetachFromCentralOption = DetachFromCentralOption.DoNotDetach;
+  d = app.OpenDocumentFile(ModelPathUtils.ConvertUserVisiblePathToModelPath(fn), op);
+  var L = new System.Collections.Generic.List<string>();
+  L.Add("id;categoria;familia;tipo;classe;minx;miny;minz;maxx;maxy;maxz;p0;p1");
+  foreach (var c in cats) foreach (Element e in new FilteredElementCollector(d).OfCategory(c).WhereElementIsNotElementType()) {
+    BoundingBoxXYZ bb = e.get_BoundingBox(null); if (bb == null) continue;
+    string p0 = "", p1 = "";
+    var lc = e.Location as LocationCurve; var lp = e.Location as LocationPoint;
+    if (lc != null) { XYZ a = lc.Curve.GetEndPoint(0) * 0.3048, b = lc.Curve.GetEndPoint(1) * 0.3048;
+      p0 = string.Format(inv, "{0:F4},{1:F4},{2:F4}", a.X, a.Y, a.Z); p1 = string.Format(inv, "{0:F4},{1:F4},{2:F4}", b.X, b.Y, b.Z); }
+    else if (lp != null) { XYZ a = lp.Point * 0.3048; p0 = string.Format(inv, "{0:F4},{1:F4},{2:F4}", a.X, a.Y, a.Z); }
+    string fam = "", tip = "";
+    var fi = e as FamilyInstance; if (fi != null) { fam = fi.Symbol.FamilyName; tip = fi.Name; } else { tip = e.Name; }
+    L.Add(e.Id.ToString() + ";" + e.Category.Name + ";" + fam.Replace(";", ",") + ";" + tip.Replace(";", ",") + ";" + e.GetType().Name + ";" +
+      string.Format(inv, "{0:F4};{1:F4};{2:F4};{3:F4};{4:F4};{5:F4}", bb.Min.X*0.3048, bb.Min.Y*0.3048, bb.Min.Z*0.3048, bb.Max.X*0.3048, bb.Max.Y*0.3048, bb.Max.Z*0.3048) + ";" + p0 + ";" + p1);
+  }
+  System.IO.File.WriteAllLines(fn.Replace(".rvt", "_est.csv"), L);
+  sb.AppendLine("pecas=" + (L.Count - 1));
+} catch (Exception ex) { sb.AppendLine("ERRO " + ex.Message); }
+finally { if (d != null) d.Close(false); }
+return sb.ToString();

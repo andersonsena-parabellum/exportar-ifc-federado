@@ -1,0 +1,257 @@
+{
+ "fonte": "IFC as built do IMP (pilares) + QDC-FUN-001/002 R01 (sapatas)",
+ "pecas": [
+  {
+   "id": "3CYxOLgG62f43ABwUHAn38",
+   "nome": "SAP-325963",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325963",
+   "x": 600068.8523540834,
+   "y": 8711394.996184308,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95,
+   "zt": 188.0,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.1,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "3UfDUlTpWqsrGbaAX358Gw",
+   "nome": "SAP-325964",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325964",
+   "x": 600069.8806049176,
+   "y": 8711389.56075606,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.85,
+   "zt": 187.9,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.0,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "2dS1CfF3qg6mBGNyIBaRle",
+   "nome": "SAP-325965",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325965",
+   "x": 600070.9091345705,
+   "y": 8711384.12385395,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.85,
+   "zt": 187.9,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.0,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "15e32wqPMabJLW1rkRFZpJ",
+   "nome": "SAP-325966",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325966",
+   "x": 600071.937664223,
+   "y": 8711378.686951842,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95999999999998,
+   "zt": 188.01,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.10999999999999,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "0F9unTj9Cdrs6KoTeA_xLB",
+   "nome": "SAP-325967",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325967",
+   "x": 600072.9661938754,
+   "y": 8711373.250049734,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.85,
+   "zt": 187.9,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.0,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "0sAw3z_OYStr0xKWTdQUn1",
+   "nome": "SAP-325968",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325968",
+   "x": 600073.994723528,
+   "y": 8711367.813147629,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.85,
+   "zt": 187.9,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.0,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "1q2pB3m0V6nt3c22LTAshT",
+   "nome": "SAP-325969",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325969",
+   "x": 600075.0232531804,
+   "y": 8711362.376245521,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95,
+   "zt": 188.0,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.1,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "1ebzLv5Vg9Ee0tfcvkWHcQ",
+   "nome": "SAP-325970",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325970",
+   "x": 600045.8047345045,
+   "y": 8711385.006186904,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95,
+   "zt": 188.0,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.1,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "3mmiBiLD4NXD157MU9WqjZ",
+   "nome": "SAP-325971",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325971",
+   "x": 600046.8332641573,
+   "y": 8711379.569284797,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95,
+   "zt": 188.0,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.1,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "1ey$sVqrTgMjmFy4eHDcLi",
+   "nome": "SAP-325972",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325972",
+   "x": 600047.8617938098,
+   "y": 8711374.132382689,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95,
+   "zt": 188.0,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.1,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "3MTAJPbZksi0tiLtxBQz91",
+   "nome": "SAP-325973",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325973",
+   "x": 600048.8903234623,
+   "y": 8711368.695480581,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95,
+   "zt": 188.0,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.1,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "2b8ZDsg9Cl3E5mLDvJFjQ5",
+   "nome": "SAP-325974",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325974",
+   "x": 600049.9188531149,
+   "y": 8711363.258578474,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95,
+   "zt": 188.0,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.1,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "2brjPq1v09z3DLcy5NtYBr",
+   "nome": "SAP-325975",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325975",
+   "x": 600050.9473827673,
+   "y": 8711357.821676366,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95,
+   "zt": 188.0,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.1,
+   "base_pilar": 188.0
+  },
+  {
+   "id": "1V7vzin$dPI$gn8MD$LiRp",
+   "nome": "SAP-325976",
+   "pilar": "UC-Colunas universais-Coluna:PILAR_MET\u00c1LICO_LAMINADO_200x200x596:325976",
+   "x": 600044.7762327336,
+   "y": 8711390.442941628,
+   "rot": -1.3838728557455975,
+   "lx": 1.3,
+   "ly": 1.1,
+   "zb": 186.95,
+   "zt": 188.0,
+   "pedestal": [
+    0.6,
+    0.75
+   ],
+   "piso": 188.1,
+   "base_pilar": 188.0
+  }
+ ]
+}

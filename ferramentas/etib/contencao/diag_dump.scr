@@ -1,0 +1,7 @@
+SECURELOAD 0
+(load "D:/Projeto Modelagem/FERRAMENTAS/contencao/diag.lsp")
+DIAG
+(load "D:/Projeto Modelagem/FERRAMENTAS/contencao/dump_dwg.lsp")
+DUMP
+_.QUIT
+_Y

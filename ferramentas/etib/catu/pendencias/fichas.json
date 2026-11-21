@@ -1,0 +1,419 @@
+[
+ {
+  "n": 1,
+  "bloco": "aplicado",
+  "E": 567703.23,
+  "N": 8634682.98,
+  "z": 86.24,
+  "titulo": "Iluminação EL2-025 ao lado do esgoto, entre a CE-04 e a CE-03",
+  "o": "O EL2-025 (EL2-CX03 -> EL2-CX02) estava desenhado em cima do esgoto ESG-29/ESG-11 por 17 m, passando por dentro das caixas CES-01, CE-04 e CE-03, e a EL2-CX02 ficava sobre o ESG-01, na saída da CE-03.",
+  "t": "O EL2-025 passa paralelo ao esgoto, 0,70 m a sudeste do eixo, fora das caixas e da caixa do registro RG-02. A EL2-CX02 foi 1,49 m para o mesmo lado da CE-03 e a EL2-CX03 andou 1,03 m (saiu de cima do ESG-05); os eletrodutos acompanham. A cota do esgoto não muda.",
+  "reverter": "Voltar o EL2-025 ao traçado do EL-002 R02 e as caixas EL2-CX02 e EL2-CX03 ao lugar do projeto (volta a cruzar as três caixas de esgoto).",
+  "raio": 12,
+  "raio3d": 6,
+  "folhas": [
+   "EL-002"
+  ],
+  "codigos": [
+   "EL2-025",
+   "EL2-CX02",
+   "EL2-CX03",
+   "CE-03",
+   "CE-04",
+   "ESG-11"
+  ]
+ },
+ {
+  "n": 2,
+  "bloco": "aplicado",
+  "E": 567723.03,
+  "N": 8634671.63,
+  "z": 85.76,
+  "titulo": "Caixas de iluminação e alarme fora da PVP-05",
+  "o": "A EL2-CX04 (iluminação) e a CX-09 (alarme) estavam desenhadas encostadas e dentro da PVP-05; o EL2-013 e o EL2-014 saíam da EL2-CX04 atravessando o PV.",
+  "t": "A EL2-CX04 foi 0,72 m para sudoeste e a CX-09 0,90 m para nordeste do coletor Ø280, com os eletrodutos acompanhando; o EL2-013 e o EL2-014 contornam a PVP-05 a 0,30 m da parede. Os ramais das descidas AP-17 e AP-18 (DRE-032, DRE-104 e DRE-212) chegam na PVP-05 0,10 m acima do fundo, para o AF-07 passar por baixo com folga.",
+  "reverter": "Voltar as duas caixas e os eletrodutos ao desenho do EL-002 e do INC-001, e os ramais ao fundo da PVP-05 (volta o conflito com o PV e o AF-07).",
+  "raio": 7,
+  "raio3d": 3.5,
+  "folhas": [
+   "EL-002",
+   "INC-001",
+   "DRE-001"
+  ],
+  "codigos": [
+   "PVP-05",
+   "EL2-CX04",
+   "CX-09",
+   "EL2-013",
+   "EL2-014",
+   "DRE-212",
+   "AF-07"
+  ]
+ },
+ {
+  "n": 3,
+  "bloco": "aplicado",
+  "E": 567730.09,
+  "N": 8634663.26,
+  "z": 85.34,
+  "titulo": "Caixa CX-12 do alarme fora da PVP-07",
+  "o": "A CX-12 do alarme estava desenhada dentro da PVP-07 (coletor Ø280).",
+  "t": "A CX-12 foi 1,32 m para nordeste do coletor, com o SDAI-11 acompanhando.",
+  "reverter": "Voltar a CX-12 ao desenho do INC-001 (dentro do PV).",
+  "raio": 6,
+  "raio3d": 3,
+  "folhas": [
+   "INC-001"
+  ],
+  "codigos": [
+   "PVP-07",
+   "CX-12",
+   "SDAI-11"
+  ]
+ },
+ {
+  "n": 4,
+  "bloco": "aplicado",
+  "E": 567717.99,
+  "N": 8634677.57,
+  "z": 85.76,
+  "titulo": "Água fria AF-06 e alarme SDAI-12 em volta da PVP-03",
+  "o": "O AF-06 e o SDAI-12 estavam desenhados atravessando a PVP-03.",
+  "t": "Os dois contornam o PV a 0,30 m da parede, em curvas de 90° (AF) e no próprio eletroduto (alarme).",
+  "reverter": "Voltar ao traçado do AGF-001 e do INC-001 (passando pelo PV).",
+  "raio": 6,
+  "raio3d": 3,
+  "folhas": [
+   "AGF-001",
+   "INC-001"
+  ],
+  "codigos": [
+   "PVP-03",
+   "AF-06",
+   "SDAI-12"
+  ]
+ },
+ {
+  "n": 5,
+  "bloco": "aplicado",
+  "E": 567740.08,
+  "N": 8634650.35,
+  "z": 83.81,
+  "titulo": "Banco de eletrodutos da alimentação em volta da PVP-09",
+  "o": "Os quatro eletrodutos do banco EL1-005, EL1-010, EL1-025 e EL1-038 estavam desenhados atravessando a PVP-09.",
+  "t": "O banco contorna o PV a 0,30 m da parede, com os quatro eletrodutos lado a lado, a 1,10 m de profundidade.",
+  "reverter": "Voltar o banco ao traçado do EL-001 R05.",
+  "raio": 6,
+  "raio3d": 3,
+  "folhas": [
+   "EL-001"
+  ],
+  "codigos": [
+   "PVP-09",
+   "EL1-005",
+   "EL1-025",
+   "EL1-038"
+  ]
+ },
+ {
+  "n": 6,
+  "bloco": "aplicado",
+  "E": 567775.0,
+  "N": 8634628.5,
+  "z": 81.67,
+  "titulo": "Iluminação, hidrante e alarme entre a PVP-13 e a casa de resíduos",
+  "o": "O EL2-008 (iluminação), o HID-01 (hidrante) e o SDAI-38 (alarme) passavam pela PVP-13, pela PVE-07 e pelas sapatas da casa de resíduos; o SDAI-36 passava pela PVE-08, e a CX-20 do alarme encostava no SDAI-39.",
+  "t": "O EL2-008 contorna o conjunto PV + sapata pelo leste; o HID-01 contorna a PVP-13; o SDAI-38 contorna a PVE-07 e a sapata; o SDAI-36 contorna a PVE-08 (todos a 0,30 m); o SDAI-38 chega na casa de resíduos fora da sapata; a CX-20 andou 0,20 m.",
+  "reverter": "Voltar os quatro traçados ao EL-002 e ao INC-001 (voltam a passar pelos PV e pelas sapatas).",
+  "raio": 9,
+  "raio3d": 4.5,
+  "folhas": [
+   "EL-002",
+   "INC-001"
+  ],
+  "codigos": [
+   "PVP-13",
+   "PVE-07",
+   "EL2-008",
+   "HID-01",
+   "SDAI-38",
+   "SDAI-36",
+   {
+    "codigo": "sapata da casa de resíduos",
+    "E": 567774.2,
+    "N": 8634631.1
+   }
+  ]
+ },
+ {
+  "n": 7,
+  "bloco": "aplicado",
+  "E": 567718.17,
+  "N": 8634645.0,
+  "z": 84.29,
+  "titulo": "Caixa EL1-CX12 fora da PVE-04 e chegada do ESG-04",
+  "o": "A EL1-CX12 (alimentação) estava desenhada sobre a PVE-04 do esgoto; o banco EL1-R08 passava encostado no ESG-04.",
+  "t": "A EL1-CX12 foi 0,98 m, com os 8 eletrodutos acompanhando. O ESG-04 (CE-06 -> PVE-04) chega na PVE-04 0,13 m acima do fundo (i de 1,65 % para 1,00 %, o mínimo), e passa por cima do banco com folga.",
+  "reverter": "Voltar a EL1-CX12 ao desenho do EL-001 e o ESG-04 ao fundo da PVE-04.",
+  "raio": 7,
+  "raio3d": 3.5,
+  "folhas": [
+   "EL-001",
+   "ESG-001"
+  ],
+  "codigos": [
+   "PVE-04",
+   "EL1-CX12",
+   "ESG-04",
+   "EL1-069"
+  ]
+ },
+ {
+  "n": 8,
+  "bloco": "aplicado",
+  "E": 567702.96,
+  "N": 8634632.07,
+  "z": 84.42,
+  "titulo": "Caixa EL1-CX13 fora da CE-06",
+  "o": "A EL1-CX13 (alimentação) estava desenhada sobre a CE-06 do esgoto.",
+  "t": "A EL1-CX13 foi 0,82 m, com os 6 eletrodutos acompanhando.",
+  "reverter": "Voltar a EL1-CX13 ao desenho do EL-001.",
+  "raio": 6,
+  "raio3d": 3,
+  "folhas": [
+   "EL-001"
+  ],
+  "codigos": [
+   "CE-06",
+   "EL1-CX13"
+  ]
+ },
+ {
+  "n": 9,
+  "bloco": "aplicado",
+  "E": 567742.6,
+  "N": 8634645.41,
+  "z": 83.81,
+  "titulo": "Chegada do ESG-15 na PVE-03",
+  "o": "O ESG-15 (PVE-02 -> PVE-03, i 9,5 %) passava 2 cm dentro dos eletrodutos EL1-010 e EL1-025.",
+  "t": "O ESG-15 chega na PVE-03 0,20 m acima do fundo (i de 9,5 % para 8,4 %); os eletrodutos passam por baixo com folga.",
+  "reverter": "Voltar a chegada ao fundo da PVE-03.",
+  "raio": 6,
+  "raio3d": 3,
+  "folhas": [
+   "ESG-001"
+  ],
+  "codigos": [
+   "PVE-03",
+   "ESG-15",
+   "EL1-010"
+  ]
+ },
+ {
+  "n": 10,
+  "bloco": "aplicado",
+  "E": 567666.46,
+  "N": 8634632.61,
+  "z": 87.36,
+  "titulo": "Chegada do ramal DRE-125 na CA-13",
+  "o": "O ramal da descida AP-7 (DRE-125) chegava no fundo da CA-13 na mesma cota do eletroduto EL2-021 da iluminação.",
+  "t": "O DRE-125 chega na CA-13 0,20 m acima do fundo (a descida AP-7 sobe junto), e o EL2-021 fica a 0,95 m, passando por baixo dele e acima do hidrante HID-09.",
+  "reverter": "Voltar a chegada ao fundo da CA-13 (volta o cruzamento com o EL2-021).",
+  "raio": 6,
+  "raio3d": 3,
+  "folhas": [
+   "DRE-001",
+   "EL-002"
+  ],
+  "codigos": [
+   "CA-13",
+   "DRE-125",
+   "EL2-021"
+  ]
+ },
+ {
+  "n": 11,
+  "bloco": "aplicado",
+  "E": 567700.04,
+  "N": 8634683.97,
+  "z": 86.06,
+  "titulo": "Chegada do ramal DRE-218 na PVP-02",
+  "o": "O ramal da descida AP-6 (DRE-218) chegava no fundo da PVP-02 passando 7 cm dentro do AF-01.",
+  "t": "O DRE-218 chega na PVP-02 0,20 m acima do fundo (a descida AP-6 sobe junto), por cima do AF-01.",
+  "reverter": "Voltar a chegada ao fundo da PVP-02.",
+  "raio": 6,
+  "raio3d": 3,
+  "folhas": [
+   "DRE-001"
+  ],
+  "codigos": [
+   "PVP-02",
+   "DRE-218",
+   "AF-01"
+  ]
+ },
+ {
+  "n": 12,
+  "bloco": "aplicado",
+  "E": 567696.07,
+  "N": 8634634.24,
+  "z": 85.58,
+  "titulo": "Caixas do alarme CX-21 e CX-19 junto da CA-12",
+  "o": "A CX-21 do alarme estava encostada na CA-12 da drenagem; a CX-19, no ramal do lado.",
+  "t": "A CX-21 andou 0,42 m e a CX-19 0,20 m, com os eletrodutos.",
+  "reverter": "Voltar as duas caixas ao desenho do INC-001.",
+  "raio": 5,
+  "raio3d": 2.5,
+  "folhas": [
+   "INC-001"
+  ],
+  "codigos": [
+   "CA-12",
+   "CX-21",
+   "CX-19"
+  ]
+ },
+ {
+  "n": 13,
+  "bloco": "aplicado",
+  "E": 567712.67,
+  "N": 8634595.35,
+  "z": 78.06,
+  "titulo": "Hidrante H-10 recuado pelo ramal",
+  "o": "O H-10 estava desenhado em cima do tubo de drenagem DRE-205 (borda do campo).",
+  "t": "O hidrante recua 0,35 m pelo próprio ramal HID-06, como se faz com a torneira de jardim; o abrigo não muda.",
+  "reverter": "Voltar o H-10 ao desenho do INC-001 (em cima do DRE-205).",
+  "raio": 5,
+  "raio3d": 2.5,
+  "folhas": [
+   "INC-001"
+  ],
+  "codigos": [
+   "H-10",
+   "HID-06",
+   "DRE-205"
+  ]
+ },
+ {
+  "n": 14,
+  "bloco": "aplicado",
+  "E": 567764.32,
+  "N": 8634595.1,
+  "z": 81.5,
+  "titulo": "Caixa de areia CA-24 deslocada 0,34 m",
+  "o": "A CA-24 da drenagem encostava no ESG-14.",
+  "t": "A CA-24 andou 0,34 m em planta, com a CT e a CF do projeto; o tubo que chega nela acompanha.",
+  "reverter": "Voltar a CA-24 ao desenho do DRE-001.",
+  "raio": 5,
+  "raio3d": 2.5,
+  "folhas": [
+   "DRE-001"
+  ],
+  "codigos": [
+   "CA-24",
+   "ESG-14"
+  ]
+ },
+ {
+  "n": 15,
+  "bloco": "aplicado",
+  "E": 567747.34,
+  "N": 8634631.58,
+  "z": 82.68,
+  "titulo": "Caixa do registro RG-03 deslocada 1,20 m",
+  "o": "A caixa do registro RG-03 da água fria estava sobre o ramal de drenagem DRE-223.",
+  "t": "A caixa andou 1,20 m pelo ramal AF-10, que acompanha.",
+  "reverter": "Voltar a RG-03 ao desenho do AGF-001.",
+  "raio": 5,
+  "raio3d": 2.5,
+  "folhas": [
+   "AGF-001"
+  ],
+  "codigos": [
+   "RG-03",
+   "AF-10",
+   "DRE-223"
+  ]
+ },
+ {
+  "n": 16,
+  "bloco": "aplicado",
+  "E": 567729.88,
+  "N": 8634705.83,
+  "z": 87.21,
+  "titulo": "Caixa do registro RG-01 deslocada 0,15 m",
+  "o": "A caixa do registro RG-01 da água fria encostava na CE-01 do esgoto.",
+  "t": "A caixa andou 0,15 m pela linha do AF-02, que acompanha; as curvas continuam a 90°.",
+  "reverter": "Voltar a RG-01 ao desenho do AGF-001.",
+  "raio": 5,
+  "raio3d": 2.5,
+  "folhas": [
+   "AGF-001"
+  ],
+  "codigos": [
+   "RG-01",
+   "CE-01",
+   "AF-02"
+  ]
+ },
+ {
+  "n": 17,
+  "bloco": "aplicado",
+  "E": 567771.52,
+  "N": 8634613.24,
+  "z": 81.46,
+  "titulo": "Caixa EL2-CX21 deslocada 0,42 m",
+  "o": "A EL2-CX21 da iluminação encostava no DRE-229.",
+  "t": "A caixa andou 0,42 m, com os eletrodutos.",
+  "reverter": "Voltar a EL2-CX21 ao desenho do EL-002.",
+  "raio": 5,
+  "raio3d": 2.5,
+  "folhas": [
+   "EL-002"
+  ],
+  "codigos": [
+   "EL2-CX21",
+   "DRE-229"
+  ]
+ },
+ {
+  "n": 18,
+  "bloco": "aplicado",
+  "E": 567676.12,
+  "N": 8634659.9,
+  "z": 86.76,
+  "titulo": "Caixa EL2-CX08 deslocada 0,25 m",
+  "o": "A EL2-CX08 da iluminação estava sobre o hidrante HID-08.",
+  "t": "A caixa andou 0,25 m para o lado do eletroduto, que acompanha.",
+  "reverter": "Voltar a EL2-CX08 ao desenho do EL-002.",
+  "raio": 5,
+  "raio3d": 2.5,
+  "folhas": [
+   "EL-002"
+  ],
+  "codigos": [
+   "EL2-CX08",
+   "HID-08"
+  ]
+ },
+ {
+  "n": 19,
+  "bloco": "aplicado",
+  "E": 567737.06,
+  "N": 8634689.96,
+  "z": 86.64,
+  "titulo": "Caixa CX-02 do alarme deslocada 0,40 m",
+  "o": "A CX-02 do alarme encostava em outra rede no ramal SDAI-18.",
+  "t": "A caixa andou 0,40 m, com o SDAI-18.",
+  "reverter": "Voltar a CX-02 ao desenho do INC-001.",
+  "raio": 5,
+  "raio3d": 2.5,
+  "folhas": [
+   "INC-001"
+  ],
+  "codigos": [
+   "CX-02",
+   "SDAI-18"
+  ]
+ }
+]

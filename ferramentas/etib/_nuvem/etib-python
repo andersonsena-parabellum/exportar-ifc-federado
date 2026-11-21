@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Roda um script das FERRAMENTAS na nuvem com a camada de compatibilidade (caminhos do Windows).
+# Ex.: ETIB_RAIZ=~/etib-raiz etib-python revisao/revisar.py jandaira --recortes
+AQUI="$(cd "$(dirname "$0")" && pwd)"
+export PYTHONPATH="$AQUI${PYTHONPATH:+:$PYTHONPATH}" PYTHONUTF8=1
+exec "${ETIB_VENV:-$HOME/etib-venv}/bin/python" -X utf8 "$@"

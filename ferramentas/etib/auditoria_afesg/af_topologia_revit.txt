@@ -1,0 +1,217 @@
+﻿#PIPES id|tipoId|sisId|nivelId|params
+443432|362087|328303|311|Marca=AL-01.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-01.1~String^COMP_Descrição=Alimentação: rede pública → hidrômetro → tê Guarita~String^COMP_Recobrimento Mín=0.9841135684223079~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.97276902887137~Double^COMP_Cota Topo Fim=445.35301837270333~Double^COMP_Terreno Início=445.6767601205637~Double^COMP_Terreno Fim=446.3371319411257~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443435|362087|328303|311|Marca=AL-02.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.1~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=0.9670143413228859~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.97276902887137~Double^COMP_Cota Topo Fim=443.09677570043425~Double^COMP_Terreno Início=445.56542370347586~Double^COMP_Terreno Fim=444.15580473399365~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443438|362087|328303|311|Marca=AL-02.2~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.2~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=1.015121607098878~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=444.121719160105~Double^COMP_Cota Topo Fim=443.09670452219495~Double^COMP_Terreno Início=445.6987197160947~Double^COMP_Terreno Fim=444.1563246428611~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443441|362087|328303|311|Marca=AL-02.3~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.3~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=0.970701174292198~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=444.121719160105~Double^COMP_Cota Topo Fim=442.5803805774278~Double^COMP_Terreno Início=445.7430375678921~Double^COMP_Terreno Fim=443.85130789840383~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443444|362087|328303|311|Marca=AL-02.4~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.4~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=0.9842519685039369~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=442.5803805774278~Double^COMP_Cota Topo Fim=441.9291338582677~Double^COMP_Terreno Início=443.85130789840383~Double^COMP_Terreno Fim=442.9133858267716~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443447|362087|328303|311|Marca=AL-02.5~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.5~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=0.9842519685039369~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.9291338582677~Double^COMP_Cota Topo Fim=441.9291338582677~Double^COMP_Terreno Início=442.9133858267716~Double^COMP_Terreno Fim=443.62210562798884~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443450|362087|328303|311|Marca=AL-02.6~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.6~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=1.0232533453606443~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.9385750738989~Double^COMP_Cota Topo Fim=443.15583989501306~Double^COMP_Terreno Início=443.62946339016554~Double^COMP_Terreno Fim=444.1790932403737~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443453|362087|328303|311|Marca=AL-02.7~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.7~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=0.984486915493665~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.15583989501306~Double^COMP_Cota Topo Fim=444.00933661526244~Double^COMP_Terreno Início=444.1790932403737~Double^COMP_Terreno Fim=444.9938235307561~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443456|362087|328303|311|Marca=AL-02.8~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.8~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=0.9843989128976585~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.99610584722933~Double^COMP_Cota Topo Fim=443.253280839895~Double^COMP_Terreno Início=444.9951905211495~Double^COMP_Terreno Fim=444.23767975279264~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443459|362087|328303|311|Marca=AL-03.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-03.1~String^COMP_Descrição=Ramal Guarita (RG 3/4")~String^COMP_Recobrimento Mín=0.9891238347072892~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.96128608923885~Double^COMP_Cota Topo Fim=445.140091863517~Double^COMP_Terreno Início=445.73162543763607~Double^COMP_Terreno Fim=446.1292156982243~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443462|362087|328303|311|Marca=AL-03.2~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-03.2~String^COMP_Descrição=Ramal Guarita (RG 3/4")~String^COMP_Recobrimento Mín=0.9856597875395889~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=445.140091863517~Double^COMP_Cota Topo Fim=444.9199475065616~Double^COMP_Terreno Início=446.1292156982243~Double^COMP_Terreno Fim=445.9592134857941~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443465|362087|328305|311|Marca=AF-01.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-01.1~String^COMP_Descrição=Barrilete: saída RES → nó de distribuição~String^COMP_Recobrimento Mín=0.9869807212906782~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=442.12893700787396~Double^COMP_Cota Topo Fim=441.98704597078114~Double^COMP_Terreno Início=443.1160182975023~Double^COMP_Terreno Fim=442.97402669207185~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443468|362087|328305|311|Marca=AF-01.2~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-01.2~String^COMP_Descrição=Barrilete: saída RES → nó de distribuição~String^COMP_Recobrimento Mín=0.9858719088755883~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.97375328083984~Double^COMP_Cota Topo Fim=441.98576742417134~Double^COMP_Terreno Início=442.95962518971544~Double^COMP_Terreno Fim=442.9738151836438~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443471|362087|328305|311|Marca=AF-02.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-02.1~String^COMP_Descrição=Barrilete: sucção/recalque bombas B1/B2~String^COMP_Recobrimento Mín=0.9849207155061062~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=442.1135170603674~Double^COMP_Cota Topo Fim=442.006691460412~Double^COMP_Terreno Início=443.09843777587355~Double^COMP_Terreno Fim=442.99719062293553~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443474|362087|328305|311|Marca=AF-02.2~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-02.2~String^COMP_Descrição=Barrilete: sucção/recalque bombas B1/B2~String^COMP_Recobrimento Mín=0.9841090097386354~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.96723165043954~Double^COMP_Cota Topo Fim=441.93864829396324~Double^COMP_Terreno Início=442.9513406601782~Double^COMP_Terreno Fim=442.9333100751342~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443477|362087|328305|311|Marca=AF-02.3~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-02.3~String^COMP_Descrição=Barrilete: sucção/recalque bombas B1/B2~String^COMP_Recobrimento Mín=0.9842713324627397~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.93864829396324~Double^COMP_Cota Topo Fim=441.93250577914387~Double^COMP_Terreno Início=442.9333100751342~Double^COMP_Terreno Fim=442.9167771116066~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443480|362087|328305|311|Marca=AF-03.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-03.1~String^COMP_Descrição=Ligação bomba B1~String^COMP_Recobrimento Mín=0.9849070171526252~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.96771880879595~Double^COMP_Cota Topo Fim=441.96771880879595~Double^COMP_Terreno Início=442.9526258259486~Double^COMP_Terreno Fim=442.9737960867611~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443483|362087|328305|311|Marca=AF-04.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-04.1~String^COMP_Descrição=Ligação bomba B2~String^COMP_Recobrimento Mín=0.9809711286089454~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.9324146981627~Double^COMP_Cota Topo Fim=441.9324146981627~Double^COMP_Terreno Início=442.91589473551716~Double^COMP_Terreno Fim=442.9133858267716~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443486|362087|328305|311|Marca=AF-05.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-05.1~String^COMP_Descrição=Distribuição oeste Ø75~String^COMP_Recobrimento Mín=0.9836696354825321~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.97375328083984~Double^COMP_Cota Topo Fim=443.1422267668254~Double^COMP_Terreno Início=442.97188900349073~Double^COMP_Terreno Fim=444.1258964023079~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443489|362087|328305|311|Marca=AF-06.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-06.1~String^COMP_Descrição=Distribuição oeste Ø50 até tê ADM~String^COMP_Recobrimento Mín=0.9835251594942638~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.07020997375326~Double^COMP_Cota Topo Fim=443.10110893567776~Double^COMP_Terreno Início=444.21058673765~Double^COMP_Terreno Fim=444.1261603589253~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443492|362087|328305|311|Marca=AF-07.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.1~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=1.1616401669105036~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.07020997375326~Double^COMP_Cota Topo Fim=443.1116830064813~Double^COMP_Terreno Início=444.23185014066377~Double^COMP_Terreno Fim=444.30654046889543~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443495|362087|328305|311|Marca=AF-07.2~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.2~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=0.9723546059114059~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.1141259019487~Double^COMP_Cota Topo Fim=444.89012044145176~Double^COMP_Terreno Início=444.30760819842646~Double^COMP_Terreno Fim=446.00559610778384~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443498|362087|328305|311|Marca=AF-07.3~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.3~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=0.9850281556628483~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=444.8935318159048~Double^COMP_Cota Topo Fim=445.9919669725593~Double^COMP_Terreno Início=446.00920086033426~Double^COMP_Terreno Fim=447.218030326141~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443501|362087|328305|311|Marca=AF-07.4~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.4~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=0.8543713421784895~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=445.9944166503432~Double^COMP_Cota Topo Fim=446.80512362471336~Double^COMP_Terreno Início=447.2452294287368~Double^COMP_Terreno Fim=448.7848182179712~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443504|362087|328305|311|Marca=AF-07.5~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.5~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=0.9911308335410814~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=446.8105375011222~Double^COMP_Cota Topo Fim=450.07086614173227~Double^COMP_Terreno Início=448.83380866324393~Double^COMP_Terreno Fim=451.16675251385135~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443507|362087|328305|311|Marca=AF-07.6~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.6~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=0.9513413545044299~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=450.07086614173227~Double^COMP_Cota Topo Fim=454.4078963541784~Double^COMP_Terreno Início=451.16675251385135~Double^COMP_Terreno Fim=455.4104499405518~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443510|362087|328305|311|Marca=AF-07.7~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.7~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=0.8956478092122793~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=454.4164008062362~Double^COMP_Cota Topo Fim=452.4066592244522~Double^COMP_Terreno Início=455.4348827717657~Double^COMP_Terreno Fim=453.8510242305336~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443513|362087|328305|311|Marca=AF-07.8~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.8~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=1.1479361922284945~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=452.41117598837104~Double^COMP_Cota Topo Fim=454.8830334988755~Double^COMP_Terreno Início=453.8506954733594~Double^COMP_Terreno Fim=456.0642460303439~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443516|362087|328305|311|Marca=AF-07.9~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.9~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=1.0183311000627908~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=455.07053805774274~Double^COMP_Cota Topo Fim=454.88865891635214~Double^COMP_Terreno Início=456.08886915780556~Double^COMP_Terreno Fim=456.06768904629644~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443519|362087|328305|311|Marca=AF-08.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-08.1~String^COMP_Descrição=Entrada Refeitório (RG + alçapão)~String^COMP_Recobrimento Mín=0.9730775135796443~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=455.07053805774274~Double^COMP_Cota Topo Fim=454.9730971128609~Double^COMP_Terreno Início=456.0436155713224~Double^COMP_Terreno Fim=455.9573941654419~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443522|362087|328305|311|Marca=AF-09.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-09.1~String^COMP_Descrição=Ramal Ø25 (torneira de lavagem)~String^COMP_Recobrimento Mín=0.9836822868904557~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=455.02952755905505~Double^COMP_Cota Topo Fim=455.0609083068929~Double^COMP_Terreno Início=456.0367454068239~Double^COMP_Terreno Fim=456.19078952961235~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443525|362087|328305|311|Marca=AF-09.2~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-09.2~String^COMP_Descrição=Ramal Ø25 (torneira de lavagem)~String^COMP_Recobrimento Mín=0.9843331631227834~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=455.06460560450745~Double^COMP_Cota Topo Fim=455.1601049868766~Double^COMP_Terreno Início=456.1920421137384~Double^COMP_Terreno Fim=456.1444381499994~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443528|362087|328305|311|Marca=AF-10.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-10.1~String^COMP_Descrição=Entrada ADM (RG + alçapão)~String^COMP_Recobrimento Mín=1.015656943004713~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.07020997375326~Double^COMP_Cota Topo Fim=443.39041994750653~Double^COMP_Terreno Início=444.21999655289255~Double^COMP_Terreno Fim=444.4649881433295~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443531|362087|328305|311|Marca=AF-11.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-11.1~String^COMP_Descrição=Subida leste Ø75 até tê Bloco 24 Salas~String^COMP_Recobrimento Mín=0.9825997565382727~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.23031496062987~Double^COMP_Cota Topo Fim=441.97375328083984~Double^COMP_Terreno Início=442.2674537412831~Double^COMP_Terreno Fim=442.9563530373781~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443534|362087|328305|311|Marca=AF-12.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-12.1~String^COMP_Descrição=Entrada Bloco 24 Salas Ø60 (RG + alçapão)~String^COMP_Recobrimento Mín=0.9843915289084554~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.2057086614173~Double^COMP_Cota Topo Fim=441.44652230971127~Double^COMP_Terreno Início=442.32274408945835~Double^COMP_Terreno Fim=442.4309138386197~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443537|362087|328305|311|Marca=AF-13.1~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-13.1~String^COMP_Descrição=Distribuição norte Ø50 até Auditório (RG + alçapão)~String^COMP_Recobrimento Mín=1.1536004030297213~Double^COMP_Recobrimento Exigido=1.9685039370078738~Double^COMP_Cota Topo Início=441.18930446194224~Double^COMP_Cota Topo Fim=439.8592224048943~Double^COMP_Terreno Início=442.34290486497196~Double^COMP_Terreno Fim=442.0168711924133~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443540|362087|328305|311|Marca=AF-13.2~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-13.2~String^COMP_Descrição=Distribuição norte Ø50 até Auditório (RG + alçapão)~String^COMP_Recobrimento Mín=1.970232405385905~Double^COMP_Recobrimento Exigido=1.9685039370078738~Double^COMP_Cota Topo Início=439.85840444656696~Double^COMP_Cota Topo Fim=440.7007874015748~Double^COMP_Terreno Início=442.030326199626~Double^COMP_Terreno Fim=442.6787508154814~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443543|362087|328305|311|Marca=AF-13.3~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-13.3~String^COMP_Descrição=Distribuição norte Ø50 até Auditório (RG + alçapão)~String^COMP_Recobrimento Mín=1.977963413906581~Double^COMP_Recobrimento Exigido=1.9685039370078738~Double^COMP_Cota Topo Início=440.7007874015748~Double^COMP_Cota Topo Fim=443.40616797900265~Double^COMP_Terreno Início=442.6787508154814~Double^COMP_Terreno Fim=445.488956265951~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443546|362087|328305|311|Marca=AF-13.4~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-13.4~String^COMP_Descrição=Distribuição norte Ø50 até Auditório (RG + alçapão)~String^COMP_Recobrimento Mín=1.9740579568950511~Double^COMP_Recobrimento Exigido=1.9685039370078738~Double^COMP_Cota Topo Início=443.40616797900265~Double^COMP_Cota Topo Fim=440.3595800524934~Double^COMP_Terreno Início=445.488956265951~Double^COMP_Terreno Fim=443.253816528505~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443549|362087|328305|311|Marca=AF-13.5~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-13.5~String^COMP_Descrição=Distribuição norte Ø50 até Auditório (RG + alçapão)~String^COMP_Recobrimento Mín=1.9686248216654032~Double^COMP_Recobrimento Exigido=1.9685039370078738~Double^COMP_Cota Topo Início=440.3595800524934~Double^COMP_Cota Topo Fim=440.7024278215223~Double^COMP_Terreno Início=443.253816528505~Double^COMP_Terreno Fim=442.6710526431877~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443552|362087|328305|311|Marca=AF-13.6~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-13.6~String^COMP_Descrição=Distribuição norte Ø50 até Auditório (RG + alçapão)~String^COMP_Recobrimento Mín=1.9686248216654032~Double^COMP_Recobrimento Exigido=1.9685039370078738~Double^COMP_Cota Topo Início=440.7024278215223~Double^COMP_Cota Topo Fim=440.4183070866141~Double^COMP_Terreno Início=442.6710526431877~Double^COMP_Terreno Fim=445.5182729305001~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443555|362087|328305|311|Marca=AF-13.7~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-13.7~String^COMP_Descrição=Distribuição norte Ø50 até Auditório (RG + alçapão)~String^COMP_Recobrimento Mín=1.966445611466909~Double^COMP_Recobrimento Exigido=1.9685039370078738~Double^COMP_Cota Topo Início=440.4183070866141~Double^COMP_Cota Topo Fim=440.82972440944883~Double^COMP_Terreno Início=445.5182729305001~Double^COMP_Terreno Fim=442.890977934371~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443780|362087|328303|311|Marca=AL-01.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-01.1~String^COMP_Descrição=Alimentação: rede pública → hidrômetro → tê Guarita~String^COMP_Recobrimento Mín=1.6519333641025475~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.97276902887137~Double^COMP_Cota Topo Fim=443.97276902887137~Double^COMP_Terreno Início=445.6247023929739~Double^COMP_Terreno Fim=445.6767601205637~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443783|362087|328303|311|Marca=AL-02.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.1~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=1.5926546746044845~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.97276902887137~Double^COMP_Cota Topo Fim=443.97276902887137~Double^COMP_Terreno Início=445.61748143106564~Double^COMP_Terreno Fim=445.56542370347586~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443786|362087|328303|311|Marca=AL-03.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-03.1~String^COMP_Descrição=Ramal Guarita (RG 3/4")~String^COMP_Recobrimento Mín=1.6668483874130058~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.96128608923885~Double^COMP_Cota Topo Fim=443.96128608923885~Double^COMP_Terreno Início=445.62813447665184~Double^COMP_Terreno Fim=445.73162543763607~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443792|362087|328303|311|Marca=AL-02.2-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.2~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=1.5770005559897093~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=444.121719160105~Double^COMP_Cota Topo Fim=444.121719160105~Double^COMP_Terreno Início=445.7931350754917~Double^COMP_Terreno Fim=445.6987197160947~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443795|362087|328303|311|Marca=AL-02.3-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AL-02.3~String^COMP_Descrição=Alimentação: tê Guarita → reservatório inferior (RES)~String^COMP_Recobrimento Mín=1.6213184077871323~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=444.121719160105~Double^COMP_Cota Topo Fim=444.121719160105~Double^COMP_Terreno Início=445.79561785546866~Double^COMP_Terreno Fim=445.7430375678921~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443801|362087|328305|311|Marca=AF-01.2-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-01.2~String^COMP_Descrição=Barrilete: saída RES → nó de distribuição~String^COMP_Recobrimento Mín=0.9844943327416765~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.97375328083984~Double^COMP_Cota Topo Fim=441.97375328083984~Double^COMP_Terreno Início=442.9582476135815~Double^COMP_Terreno Fim=442.95962518971544~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443804|362087|328305|311|Marca=AF-05.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-05.1~String^COMP_Descrição=Distribuição oeste Ø75~String^COMP_Recobrimento Mín=0.9862731594331278~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.97375328083984~Double^COMP_Cota Topo Fim=441.97375328083984~Double^COMP_Terreno Início=442.96002644027294~Double^COMP_Terreno Fim=442.97188900349073~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443807|362087|328305|311|Marca=AF-11.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-11.1~String^COMP_Descrição=Subida leste Ø75 até tê Bloco 24 Salas~String^COMP_Recobrimento Mín=0.9825997565382727~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.97375328083984~Double^COMP_Cota Topo Fim=441.97375328083984~Double^COMP_Terreno Início=442.9577306135121~Double^COMP_Terreno Fim=442.9563530373781~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443813|362087|328305|311|Marca=AF-06.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-06.1~String^COMP_Descrição=Distribuição oeste Ø50 até tê ADM~String^COMP_Recobrimento Mín=1.1403767638967557~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.07020997375326~Double^COMP_Cota Topo Fim=443.07020997375326~Double^COMP_Terreno Início=444.22026158602125~Double^COMP_Terreno Fim=444.21058673765~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443816|362087|328305|311|Marca=AF-07.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.1~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=1.1519653185392642~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.07020997375326~Double^COMP_Cota Topo Fim=443.07020997375326~Double^COMP_Terreno Início=444.2221752922925~Double^COMP_Terreno Fim=444.23185014066377~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443819|362087|328305|311|Marca=AF-10.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-10.1~String^COMP_Descrição=Entrada ADM (RG + alçapão)~String^COMP_Recobrimento Mín=1.1497865791393~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=443.07020997375326~Double^COMP_Cota Topo Fim=443.07020997375326~Double^COMP_Terreno Início=444.221118942704~Double^COMP_Terreno Fim=444.21999655289255~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443825|362087|328305|311|Marca=AF-07.9-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-07.9~String^COMP_Descrição=Distribuição sul Ø50 até tê Refeitório~String^COMP_Recobrimento Mín=0.9978118309916795~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=455.07053805774274~Double^COMP_Cota Topo Fim=455.07053805774274~Double^COMP_Terreno Início=456.0683498887344~Double^COMP_Terreno Fim=456.08886915780556~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443828|362087|328305|311|Marca=AF-08.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-08.1~String^COMP_Descrição=Entrada Refeitório (RG + alçapão)~String^COMP_Recobrimento Mín=0.9730775135796443~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=455.07053805774274~Double^COMP_Cota Topo Fim=455.07053805774274~Double^COMP_Terreno Início=456.06413484039354~Double^COMP_Terreno Fim=456.0436155713224~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443831|362087|328305|311|Marca=AF-09.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-09.1~String^COMP_Descrição=Ramal Ø25 (torneira de lavagem)~String^COMP_Recobrimento Mín=1.007217847768896~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=455.02952755905505~Double^COMP_Cota Topo Fim=455.02952755905505~Double^COMP_Terreno Início=456.06272054218715~Double^COMP_Terreno Fim=456.0367454068239~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443837|362087|328305|311|Marca=AF-11.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-11.1~String^COMP_Descrição=Subida leste Ø75 até tê Bloco 24 Salas~String^COMP_Recobrimento Mín=1.037138780653204~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.23031496062987~Double^COMP_Cota Topo Fim=441.23031496062987~Double^COMP_Terreno Início=442.29914321323247~Double^COMP_Terreno Fim=442.2674537412831~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443840|362087|328305|311|Marca=AF-12.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-12.1~String^COMP_Descrição=Entrada Bloco 24 Salas Ø60 (RG + alçapão)~String^COMP_Recobrimento Mín=1.1022810075231642~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.2057086614173~Double^COMP_Cota Topo Fim=441.2057086614173~Double^COMP_Terreno Início=442.3079896689405~Double^COMP_Terreno Fim=442.32274408945835~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443843|362087|328305|311|Marca=AF-13.1-ex~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-13.1~String^COMP_Descrição=Distribuição norte Ø50 até Auditório (RG + alçapão)~String^COMP_Recobrimento Mín=1.1278554017538536~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=441.18930446194224~Double^COMP_Cota Topo Fim=441.18930446194224~Double^COMP_Terreno Início=442.31715986369613~Double^COMP_Terreno Fim=442.34290486497196~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+443862|362087|328305|311|Marca=AF-02.2b~String^COMP_Disciplina=AF~String^COMP_Trecho=AF-02.2~String^COMP_Descrição=Barrilete: sucção/recalque bombas B1/B2~String^COMP_Recobrimento Mín=0.9842710318556064~Double^COMP_Recobrimento Exigido=0.9842519685039369~Double^COMP_Cota Topo Início=442.0054516745846~Double^COMP_Cota Topo Fim=441.9682059671523~Double^COMP_Terreno Início=442.9959164094629~Double^COMP_Terreno Fim=442.9524769990079~Double^COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06~String
+#FITTINGS id|familia:tipo:parttype|simboloId|conexoes(pipeId@x,y,z)
+443707|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443438@4.912,23.270,135.040;443435@4.890,23.288,135.040
+443712|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443450@97.893,13.510,134.687;443447@97.870,13.527,134.684
+443717|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443453@98.817,7.170,135.318;443456@98.801,7.147,135.314
+443722|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443465@92.661,2.975,134.680;443468@92.613,3.011,134.680
+443727|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443862@93.126,3.769,134.698;443471@93.159,3.744,134.699
+443864|AF_Soldavel_Te_Reducao:Standard:Tê|362112|443480@92.789,6.186,134.687;443862@92.766,6.150,134.687;443474@92.756,6.213,134.687
+443857|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443483@92.429,10.031,134.676;443477@92.401,10.001,134.676
+443732|AF_Soldavel_Bucha de Reducao Longa:Standard:Transição|362093|443489@50.050,1.054,135.032;443486@50.105,1.062,135.032
+443735|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443492@32.029,-1.526,135.035;443495@32.004,-1.559,135.036
+443740|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443495@35.746,-28.371,135.578;443498@35.721,-28.404,135.579
+443745|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443501@13.844,-31.579,135.914;443498@13.869,-31.546,135.913
+443750|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443501@17.226,-55.851,136.161;443504@17.201,-55.884,136.163
+443755|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443507@-11.131,-59.936,138.479;443510@-11.156,-59.970,138.481
+443760|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443513@-10.337,-65.885,137.870;443510@-10.339,-65.871,137.869
+443765|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443516@-9.994,-68.357,138.625;443513@-9.996,-68.346,138.624
+443770|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443522@-13.584,-73.878,138.690;443525@-13.603,-73.864,138.691
+443775|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443537@86.354,46.771,134.044;443540@86.321,46.796,134.044
+443789|AF_Soldavel_Te_Reducao:Standard:Tê|362112|443780@-13.293,21.938,135.307;443786@-13.272,21.962,135.307;443783@-13.247,21.942,135.307
+443798|AF_Soldavel_Joelho 45_90:Standard:Cotovelo|362101|443795@6.669,0.351,135.352;443792@6.649,0.369,135.352
+443810|AF_Soldavel_Te_Reducao:Standard:Tê|362112|443807@91.952,7.025,134.676;443801@91.968,6.915,134.676;443804@91.909,6.963,134.676
+443822|AF_Soldavel_Te_Reducao:Standard:Tê|362112|443816@34.299,-1.175,135.023;443813@34.361,-1.165,135.023;443819@34.334,-1.198,135.023
+443834|AF_Soldavel_Te_Reducao:Standard:Tê|362112|443828@-9.305,-73.332,138.680;443825@-9.315,-73.268,138.680;443831@-9.343,-73.305,138.680
+443846|AF_Soldavel_Te_Reducao:Standard:Tê|362112|-@88.222,33.435,134.450;443840@88.175,33.372,134.450;443837@88.238,33.325,134.450
+443851|AF_Soldavel_Bucha de Reducao Longa:Standard:Transição|362093|-@88.222,33.435,134.450;443843@88.215,33.490,134.450
+#DIRECT pipe-pipe
+443432-443780
+443435-443783
+443438-443792
+443441-443795
+443441-443444
+443444-443441
+443444-443447
+443447-443444
+443450-443453
+443453-443450
+443459-443786
+443459-443462
+443462-443459
+443468-443801
+443474-443477
+443477-443474
+443486-443804
+443489-443813
+443492-443816
+443504-443507
+443507-443504
+443516-443825
+443519-443828
+443522-443831
+443528-443819
+443531-443807
+443531-443837
+443534-443840
+443537-443843
+443540-443543
+443543-443540
+443543-443546
+443546-443549
+443546-443543
+443549-443552
+443549-443546
+443552-443549
+443552-443555
+443555-443552
+443780-443432
+443783-443435
+443786-443459
+443792-443438
+443795-443441
+443801-443468
+443804-443486
+443807-443531
+443813-443489
+443816-443492
+443819-443528
+443825-443516
+443828-443519
+443831-443522
+443837-443531
+443840-443534
+443843-443537
+#OUTROS AF
+443433|Linha de centro||Element|-15.905,21.742,135.291,135.744
+443436|Linha de centro||Element|-4.016,22.627,135.024,135.323
+443439|Linha de centro||Element|5.768,11.984,135.024,135.368
+443442|Linha de centro||Element|22.360,2.607,134.867,135.368
+443445|Linha de centro||Element|64.846,8.757,134.668,134.898
+443448|Linha de centro||Element|94.921,13.101,134.668,134.700
+443451|Linha de centro||Element|98.092,12.245,134.671,135.074
+443454|Linha de centro||Element|98.554,9.075,135.042,135.334
+443457|Linha de centro||Element|98.400,7.078,135.072,135.329
+443460|Linha de centro||Element|-13.608,24.420,135.294,135.679
+443463|Linha de centro||Element|-14.030,27.320,135.587,135.679
+443466|Linha de centro||Element|95.206,3.313,134.643,134.761
+443469|Linha de centro||Element|92.311,4.817,134.639,134.717
+443472|Linha de centro||Element|95.135,4.017,134.674,134.756
+443475|Linha de centro||Element|92.618,7.126,134.653,134.712
+443478|Linha de centro||Element|92.441,9.020,134.651,134.703
+443481|Linha de centro||Element|93.205,6.249,134.662,134.712
+443484|Linha de centro||Element|92.814,10.047,134.651,134.701
+443487|Linha de centro||Element|70.859,3.992,134.639,135.070
+443490|Linha de centro||Element|42.363,-0.031,134.998,135.057
+443493|Linha de centro||Element|33.007,-1.374,134.998,135.060
+443496|Linha de centro||Element|33.875,-14.965,135.011,135.603
+443499|Linha de centro||Element|24.795,-29.975,135.554,135.938
+443502|Linha de centro||Element|15.535,-43.715,135.889,136.186
+443505|Linha de centro||Element|6.447,-57.422,136.138,137.182
+443508|Linha de centro||Element|-7.719,-59.448,137.132,138.503
+443511|Linha de centro||Element|-10.747,-62.920,137.844,138.506
+443514|Linha de centro||Element|-10.166,-67.116,137.846,138.647
+443517|Linha de centro||Element|-9.682,-70.624,138.600,138.705
+443520|Linha de centro||Element|-8.905,-76.103,138.625,138.705
+443523|Linha de centro||Element|-11.620,-73.614,138.668,138.703
+443526|Linha de centro||Element|-13.641,-73.657,138.679,138.733
+443529|Linha de centro||Element|34.727,-3.983,134.998,135.145
+443532|Linha de centro||Element|90.095,20.175,134.412,134.714
+443535|Linha de centro||Element|86.862,33.186,134.420,134.553
+443538|Linha de centro||Element|87.268,40.249,134.019,134.474
+443541|Linha de centro||Element|80.432,45.968,134.019,134.326
+443544|Linha de centro||Element|69.623,44.450,134.276,135.150
+443547|Linha de centro||Element|60.768,43.205,134.172,135.150
+443550|Linha de centro||Element|48.961,41.546,134.172,134.326
+443553|Linha de centro||Element|38.138,40.025,134.190,134.326
+443556|Linha de centro||Element|26.823,38.435,134.190,134.365
+443781|Linha de centro||Element|-13.456,21.926,135.291,135.323
+443784|Linha de centro||Element|-13.084,21.954,135.291,135.323
+443787|Linha de centro||Element|-13.284,22.126,135.294,135.319
+443793|Linha de centro||Element|6.636,0.534,135.336,135.368
+443796|Linha de centro||Element|6.834,0.364,135.336,135.368
+443802|Linha de centro||Element|91.988,6.769,134.639,134.714
+443805|Linha de centro||Element|91.761,6.942,134.639,134.714
+443808|Linha de centro||Element|91.932,7.171,134.639,134.714
+443814|Linha de centro||Element|34.519,-1.141,134.998,135.048
+443817|Linha de centro||Element|34.141,-1.199,134.998,135.048
+443820|Linha de centro||Element|34.359,-1.357,134.998,135.048
+443826|Linha de centro||Element|-9.341,-73.079,138.655,138.705
+443829|Linha de centro||Element|-9.282,-73.489,138.655,138.705
+443832|Linha de centro||Element|-9.500,-73.327,138.668,138.693
+443838|Linha de centro||Element|88.258,33.179,134.412,134.487
+443841|Linha de centro||Element|88.029,33.352,134.420,134.480
+443844|Linha de centro||Element|88.198,33.608,134.425,134.475
+443863|Linha de centro||Element|92.946,4.960,134.662,134.723
+443866|Modelos genéricos|AF - Alçapão enterrado 0,75x0,65x0,30|DirectShape|-13.978,26.959,135.662,135.962
+443867|Modelos genéricos|AF - Registro (volume)|DirectShape|-13.978,26.959,135.598,135.698
+443868|Modelos genéricos|AF - Alçapão enterrado 0,75x0,65x0,30|DirectShape|34.707,-3.838,135.101,135.401
+443869|Modelos genéricos|AF - Registro (volume)|DirectShape|34.707,-3.838,135.019,135.119
+443870|Modelos genéricos|AF - Alçapão enterrado 0,75x0,65x0,30|DirectShape|-8.926,-75.961,138.700,139.000
+443871|Modelos genéricos|AF - Registro (volume)|DirectShape|-8.926,-75.961,138.617,138.717
+443872|Modelos genéricos|AF - Alçapão enterrado 0,75x0,65x0,30|DirectShape|87.400,33.263,134.527,134.827
+443873|Modelos genéricos|AF - Registro (volume)|DirectShape|87.400,33.263,134.417,134.517
+443874|Modelos genéricos|AF - Alçapão enterrado 0,75x0,65x0,30|DirectShape|19.301,37.378,134.682,134.982
+443875|Modelos genéricos|AF - Registro (volume)|DirectShape|19.301,37.378,134.284,134.384
+443876|Modelos genéricos|AF - Abrigo do hidrômetro (aprox.)|DirectShape|-16.279,21.714,135.943,136.543
+443877|Equipamento mecânico|AF - Bomba pressurizadora (volume)|DirectShape|93.918,6.356,134.537,134.887
+443878|Equipamento mecânico|AF - Bomba pressurizadora (volume)|DirectShape|93.499,10.074,134.526,134.876

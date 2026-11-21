@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITULO__</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* tela inteira do 3D; barra de ferramentas no topo, controles à esquerda, listas à direita, ficha do item embaixo */
+:root{--bg:#e9edf1;--panel:#fbfcfdf2;--txt:#18212c;--mut:#596577;--bd:#cfd6df;--hl:#e2eaf6;--acc:#1d5bbf;--crit:#c81e1e;--warn:#cf6a00;--ok:#1d7f48;--pend:#6a4fd6;--sobre:#ffffff;--sombra:0 6px 22px #1b26331f;
+--f-ui:"IBM Plex Sans",system-ui,"Segoe UI",Roboto,sans-serif;--f-num:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+--i-t:env(safe-area-inset-top,0px);--i-b:env(safe-area-inset-bottom,0px);--i-l:env(safe-area-inset-left,0px);--i-r:env(safe-area-inset-right,0px);--alvo:34px;--topo:62px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#13171d;--panel:#1c222af2;--txt:#e4e8ee;--mut:#9ba6b6;--bd:#313a46;--hl:#22314a;--acc:#7ba7ff;--sombra:0 6px 22px #0006;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#13171d;--panel:#1c222af2;--txt:#e4e8ee;--mut:#9ba6b6;--bd:#313a46;--hl:#22314a;--acc:#7ba7ff;--sombra:0 6px 22px #0006;color-scheme:dark}
+@media (pointer:coarse){:root{--alvo:44px}}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font:13px/1.4 var(--f-ui);overflow:hidden}
+#c{position:fixed;inset:0;touch-action:none}
+.pn{position:fixed;background:var(--panel);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;box-shadow:var(--sombra);backdrop-filter:blur(8px)}
+#esq{top:var(--topo);left:calc(10px + var(--i-l));width:272px;max-height:calc(100% - var(--topo) - 12px - var(--i-b));overflow:auto}
+#dir{top:var(--topo);right:calc(10px + var(--i-r));width:370px;max-height:calc(100% - var(--topo) - 12px - var(--i-b));display:flex;flex-direction:column}
+#info{bottom:calc(10px + var(--i-b));left:294px;right:392px;max-height:34%;overflow:auto}
+#barra{position:fixed;top:calc(10px + var(--i-t));left:50%;transform:translateX(-50%);display:flex;gap:4px;flex-wrap:wrap;justify-content:center;padding:5px;max-width:calc(100% - 20px - var(--i-l) - var(--i-r));z-index:4}
+#barra .sep{width:1px;background:var(--bd);margin:3px 2px}
+.bt{min-height:var(--alvo);min-width:var(--alvo);padding:4px 10px;border:1px solid var(--bd);background:transparent;color:var(--txt);border-radius:7px;cursor:pointer;font:500 12.5px/1 var(--f-ui);white-space:nowrap}
+.bt:hover{background:var(--hl)}.bt.on{background:var(--acc);border-color:var(--acc);color:var(--sobre)}
+.bt:disabled{opacity:.4;cursor:default}
+h1{font:600 15px/1.25 var(--f-ui);margin:0 0 3px;text-wrap:balance}
+details{border-top:1px solid var(--bd);padding-top:6px;margin-top:8px}
+summary{font:600 11px/1.6 var(--f-ui);text-transform:uppercase;letter-spacing:.06em;color:var(--mut);cursor:pointer;list-style:none;min-height:24px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸ ";}details[open] summary::before{content:"▾ ";}
+.mut{color:var(--mut)}.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+label{display:flex;align-items:center;gap:7px;margin:2px 0;cursor:pointer;min-height:26px}
+@media (pointer:coarse){label{min-height:36px}}
+input[type=checkbox]{width:16px;height:16px;accent-color:var(--acc)}
+select,input[type=range]{width:100%}
+select{min-height:var(--alvo);padding:4px;border-radius:7px;border:1px solid var(--bd);background:var(--bg);color:var(--txt);font:inherit}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block;flex:none}
+.tabs{display:flex;gap:4px;margin:0 0 6px}
+.tabs button{flex:1}
+#lista{overflow:auto;flex:1;min-height:120px}
+.it{padding:7px 6px;border-bottom:1px solid var(--bd);cursor:pointer}
+.it:hover,.it:focus-visible{background:var(--hl)}
+.g{font:600 10.5px/1.6 var(--f-ui);padding:0 6px;border-radius:9px;color:var(--sobre);margin-right:5px;display:inline-block}
+.g.c{background:var(--crit)}.g.a{background:var(--warn)}.g.s{background:var(--ok)}.g.p{background:var(--pend)}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.kp div{border:1px solid var(--bd);border-radius:8px;padding:5px 7px}
+.kp b{font:500 17px/1.2 var(--f-num);display:block}
+.kp .c b{color:var(--crit)}.kp .a b{color:var(--warn)}
+#filtro{width:100%;min-height:var(--alvo);padding:5px 8px;border-radius:7px;border:1px solid var(--bd);background:var(--bg);color:var(--txt);margin-bottom:6px;font:inherit}
+table{border-collapse:collapse;width:100%}td{padding:3px 6px;border-bottom:1px solid var(--bd);vertical-align:top}td:first-child{color:var(--mut);white-space:nowrap;width:1%}
+#info .acoes{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+#erro{position:fixed;right:calc(10px + var(--i-r));bottom:calc(60px + var(--i-b));display:none;background:var(--crit);color:var(--sobre);padding:8px 12px;border-radius:8px;max-width:calc(100% - 20px)}
+#tg{position:fixed;left:calc(10px + var(--i-l));bottom:calc(10px + var(--i-b));z-index:5;background:var(--panel)}
+#dica{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--topo) + 4px);background:var(--acc);color:var(--sobre);padding:6px 12px;border-radius:16px;font-weight:500;display:none;z-index:6}
+.rot{font:500 10.5px/1.2 var(--f-num);color:var(--txt);background:var(--panel);border:1px solid var(--bd);padding:1px 5px;border-radius:5px;white-space:nowrap;pointer-events:none}
+.rot.cx{border-style:dashed}.rot.med{background:var(--acc);color:var(--sobre);border-color:var(--acc);font-size:12px;padding:3px 7px}
+#rosa{position:fixed;right:calc(392px + var(--i-r));bottom:calc(14px + var(--i-b));width:46px;height:46px;pointer-events:none}
+body.sem-paineis .pn:not(#barra){display:none!important}
+body.sem-paineis #rosa{right:calc(14px + var(--i-r))}
+.bt:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+@media (max-width:1000px){#esq{width:240px;max-height:calc(52% - var(--topo))}#dir{top:auto;bottom:calc(10px + var(--i-b));width:320px;max-height:42%}
+  #info{left:calc(10px + var(--i-l));right:calc(340px + var(--i-r));bottom:calc(58px + var(--i-b));max-height:30%}#rosa{display:none}}
+@media (max-width:600px){#esq{width:auto;right:calc(10px + var(--i-r));max-height:44%}#dir{bottom:calc(58px + var(--i-b));left:calc(10px + var(--i-l));right:calc(10px + var(--i-r));width:auto;max-height:36%}
+  #info{top:var(--topo);bottom:auto;right:calc(10px + var(--i-r));max-height:40%}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ---- aba Pranchas (CDE): mantida pela thread "Pranchas atuais na biblioteca"; dados em pranchas.json ---- */
+#prn{position:fixed;z-index:8;top:var(--topo);left:50%;transform:translateX(-50%);width:min(760px,calc(100% - 20px - var(--i-l) - var(--i-r)));max-height:calc(100% - var(--topo) - 12px - var(--i-b));display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;box-shadow:var(--sombra);backdrop-filter:blur(8px)}
+#prn[hidden]{display:none}
+#prn .cab{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+#prn .cab h1{flex:1;margin:0}
+#prn .cab select{width:auto;flex:1 1 180px}
+#prnLista{overflow:auto;flex:1;min-height:120px}
+#prn .gr{font:600 11px/1.6 var(--f-ui);text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:10px 0 2px}
+#prn .fl{display:flex;gap:8px;align-items:center;padding:6px 2px;border-bottom:1px solid var(--bd)}
+#prn .fl .nm{flex:1;min-width:0}
+#prn .fl .nm small{display:block;color:var(--mut);font:400 11px/1.3 var(--f-num);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#prn .st{font:600 10.5px/1.6 var(--f-ui);padding:0 7px;border-radius:9px;white-space:nowrap;border:1px solid var(--bd)}
+#prn .st.orig{color:var(--mut)}#prn .st.rev{background:var(--warn);border-color:var(--warn);color:var(--sobre)}#prn .st.mod{background:var(--ok);border-color:var(--ok);color:var(--sobre)}
+#prn a.bt{display:inline-flex;align-items:center;text-decoration:none}
+#prn .nota{color:var(--mut);margin:4px 0}
+@media (max-width:600px){#prn{top:calc(8px + var(--i-t));max-height:calc(100% - 16px - var(--i-t) - var(--i-b))}}
+</style>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="barra" class="pn" role="toolbar" aria-label="Ferramentas do 3D">
+  <button class="bt on" data-v="3d" title="Vista 3D em perspectiva">3D</button>
+  <button class="bt" data-v="planta" title="Planta (de cima, sem perspectiva)">Planta</button>
+  <button class="bt" data-v="N" title="Elevação olhando para o norte">N</button>
+  <button class="bt" data-v="S" title="Elevação olhando para o sul">S</button>
+  <button class="bt" data-v="L" title="Elevação olhando para o leste">L</button>
+  <button class="bt" data-v="O" title="Elevação olhando para o oeste">O</button>
+  <span class="sep"></span>
+  <button class="bt" id="bTudo" title="Enquadrar a obra inteira">Enquadrar</button>
+  <button class="bt" id="bCorte" title="Caixa de corte em volta do ponto selecionado">Corte</button>
+  <button class="bt" id="bMedir" title="Medir entre dois pontos">Medir</button>
+  <button class="bt" id="bRot" title="Rótulos dos trechos e caixas perto do centro da vista">Rótulos</button>
+  <button class="bt" id="bVal" title="Validação: 1º toque esconde terreno e arquitetura (colisões e conexões); 2º volta o terreno sólido para conferir as tampas; 3º sai">Validação</button>
+  <span class="sep"></span>
+  <a class="bt" id="bPainel" href="<link privado da página>" target="_blank" rel="noopener" title="Abre o painel geral do projeto" style="display:inline-flex;align-items:center;text-decoration:none">Painel do projeto ↗</a>
+  <button class="bt" id="bPranchas" type="button" title="Pranchas em PDF de cada escola, com a versão que vale">Pranchas</button>
+</div>
+<!-- aba Pranchas (CDE): mantida pela thread "Pranchas atuais na biblioteca"; dados em pranchas.json -->
+<div id="prn" role="dialog" aria-label="Pranchas da escola" hidden>
+  <div class="cab"><h1>Pranchas</h1><select id="prnEsc" aria-label="Escola das pranchas"></select><button class="bt" id="prnFechar" type="button">Fechar</button></div>
+  <div class="nota" id="prnNota">Carregando…</div>
+  <div id="prnLista"></div>
+</div>
+<script>
+(() => {
+  const q = s => document.querySelector(s), esc = t => String(t).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  let P = null;
+  const ST = {'Original': 'orig', 'Em revisão': 'rev', 'Modificada': 'mod'};
+  function mostrar(sigla) {
+    const e = P.escolas.find(x => x.sigla === sigla) || P.escolas[0];
+    const n = {o: 0, r: 0, m: 0}; e.folhas.forEach(f => n[{'Original': 'o', 'Em revisão': 'r', 'Modificada': 'm'}[f.situacao]]++);
+    q('#prnNota').innerHTML = `${e.folhas.length} folhas: ${n.m} modificadas, ${n.r} em revisão (vale a original até a nova versão), ${n.o} originais. ` +
+      `<a href="${esc(e.pasta)}" target="_blank" rel="noopener">Pasta da escola no Drive ↗</a>` + (e.obs ? `<br>${esc(e.obs)}` : '') +
+      `<br><span class="mut">Atualizado em ${esc(P.atualizado)}.</span>`;
+    let g = '', h = '';
+    for (const f of e.folhas) {
+      if (f.grupo !== g) { g = f.grupo; h += `<div class="gr">${esc(g)}</div>`; }
+      h += `<div class="fl"><div class="nm">${esc(f.folha)} <span class="num">${esc(f.rev)}</span><small>${esc(f.arquivo)}</small></div>` +
+        `<span class="st ${ST[f.situacao] || 'orig'}">${esc(f.situacao)}</span>` +
+        `<a class="bt" href="${esc(f.ver)}" target="_blank" rel="noopener">Abrir</a><a class="bt" href="${esc(f.baixar)}" target="_blank" rel="noopener">Baixar</a></div>`;
+    }
+    q('#prnLista').innerHTML = h;
+  }
+  async function abrir() {
+    q('#prn').hidden = false;
+    if (!P) {
+      try { const r = await fetch('pranchas.json', {cache: 'no-store'}); if (!r.ok) throw 0; P = await r.json(); }
+      catch (_) { q('#prnNota').textContent = 'A lista de pranchas ainda não foi publicada aqui.'; return; }
+      const sel = q('#prnEsc'), atual = (location.hash.slice(1) || 'SAT').toUpperCase();
+      for (const e of P.escolas) sel.add(new Option(e.nome, e.sigla, false, e.sigla === atual));
+      sel.addEventListener('change', () => mostrar(sel.value));
+    }
+    const h = location.hash.slice(1).toUpperCase(), sel = q('#prnEsc');
+    if (h && [...sel.options].some(o => o.value === h)) sel.value = h;
+    mostrar(sel.value);
+  }
+  q('#bPranchas').addEventListener('click', () => q('#prn').hidden ? abrir() : (q('#prn').hidden = true));
+  q('#prnFechar').addEventListener('click', () => { q('#prn').hidden = true; });
+  addEventListener('keydown', ev => { if (ev.key === 'Escape') q('#prn').hidden = true; });
+})();
+</script>
+<div id="dica"></div>
+<div id="esq" class="pn">
+  <h1 id="titulo">__TITULO__</h1>
+  <select id="escola" aria-label="Escola" hidden></select>
+  <div class="mut" id="sub"></div>
+  <details open><summary>Situação</summary>
+    <select id="estado" aria-label="Situação"></select>
+    <div class="kp"><div class="c"><span class="mut">Críticos</span><b id="kc">–</b></div><div class="a"><span class="mut">Atenção</span><b id="ka">–</b></div><div><span class="mut">Soluções</span><b id="ks">–</b></div></div>
+  </details>
+  <details open><summary>Disciplinas</summary><div id="discs"></div></details>
+  <details><summary>Mostrar</summary>
+    <label><input type="checkbox" id="vCf" checked> Conflitos</label>
+    <label><input type="checkbox" id="vCx" checked> Caixas</label>
+    <label><input type="checkbox" id="vLin" checked> Eixos coloridos (só de longe)</label>
+    <label><input type="checkbox" id="vTer" checked> Terreno</label>
+    <label><input type="checkbox" id="vCur"> Curvas de nível</label>
+    <label><input type="checkbox" id="vSit"> Arquitetura (SIT)</label>
+    <label><input type="checkbox" id="vCxT"> Caixas transparentes</label>
+    <label><input type="checkbox" id="vCon" checked> Conexões (curvas e junções)</label>
+  </details>
+  <details><summary>Ajustes</summary>
+    <div class="mut">Qualidade da imagem</div><select id="qual" aria-label="Qualidade da imagem"><option value="alta">Alta (sombras e oclusão)</option><option value="leve">Leve (tablet antigo)</option></select>
+    <div class="mut">Transparência do terreno (zero = terreno sólido)</div><input type="range" id="tOp" min="0" max="1" step="0.05" value="0.7">
+    <div class="mut">Exagero vertical <span id="lEx" class="num">1×</span></div><input type="range" id="tEx" min="1" max="5" step="0.5" value="1">
+    <div class="mut">Espessura visual dos tubos <span id="lEsp" class="num">1×</span></div><input type="range" id="tEsp" min="1" max="6" step="1" value="1">
+    <div class="mut">Raio da caixa de corte <span id="lCorte" class="num">12 m</span></div><input type="range" id="tCorte" min="3" max="40" step="1" value="12">
+  </details>
+  <p class="mut" style="margin:10px 0 0">Um dedo gira, dois dedos movem e aproximam (no mouse: botão direito move, roda aproxima). Toque num tubo, caixa ou conflito para ver a ficha. Tubos no diâmetro real.</p>
+</div>
+<div id="dir" class="pn">
+  <div class="tabs"><button class="bt on" data-t="conf">Conflitos</button><button class="bt" data-t="sol">Soluções</button><button class="bt" data-t="pend">Pendentes</button><button class="bt" data-t="desv">Desvios</button></div>
+  <input id="filtro" placeholder="Filtrar por trecho, disciplina ou caixa" aria-label="Filtrar a lista">
+  <div id="lista"></div>
+</div>
+<div id="info" class="pn" hidden></div>
+<svg id="rosa" viewBox="-23 -23 46 46" aria-hidden="true"><circle r="21" fill="var(--panel)" stroke="var(--bd)"/><g id="rosaG"><path d="M0,-17 L5,0 L0,4 L-5,0Z" fill="var(--crit)"/><path d="M0,17 L5,0 L0,4 L-5,0Z" fill="var(--mut)"/><text y="-8" x="0" font-size="7" text-anchor="middle" fill="var(--sobre)" font-family="sans-serif" font-weight="700" dy="0">N</text></g></svg>
+<div id="erro"></div>
+<button id="tg" class="bt" type="button">Ocultar painéis</button>
+<script id="dados" type="application/json">__DADOS__</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { SMAAPass } from 'three/addons/postprocessing/SMAAPass.js';
+const $ = s => document.querySelector(s);
+// Um arquivo por escola (modo único, com seletor) ou dados embutidos (arquivo local de uma escola).
+const ESCOLAS = [['SAT', 'Sátiro Dias'], ['CAT', 'Catu'], ['PJC', 'Pojuca'], ['ITA', 'Aporá – Itamira'], ['AUR', 'Aporá – Prof. Áurea'], ['JAN', 'Jandaíra'], ['ALH', 'Alagoinhas (BA2)']];
+async function carregarDados() {
+  const inl = JSON.parse(document.getElementById('dados').textContent);
+  if (inl) return inl;
+  const sel = $('#escola'); sel.hidden = false;
+  const atual = (location.hash.slice(1) || 'SAT').toUpperCase();
+  for (const [s, n] of ESCOLAS) sel.add(new Option(n, s, false, s === atual));
+  sel.addEventListener('change', () => { location.hash = sel.value; location.reload(); });
+  // marca as escolas que ainda não têm dados publicados
+  ESCOLAS.forEach(([s], i) => fetch(`dados/${s}.json`, {method: 'HEAD'}).then(r => { if (!r.ok) sel.options[i].text += ' (em preparo)'; }).catch(() => {}));
+  const r = await fetch(`dados/${atual}.json`);
+  if (!r.ok) { $('#titulo').textContent = 'Pré-compatibilização ETIB'; $('#sub').textContent = 'Esta escola ainda não tem pré-compatibilização publicada. Escolha outra na lista.'; throw new Error('sem dados'); }
+  const d = await r.json(); $('#titulo').textContent = 'Pré-compatibilização ' + (d.escola || atual); return d;
+}
+let D;
+try { D = await carregarDados(); } catch (e) { if (e.message !== 'sem dados') throw e; await new Promise(() => {}); }
+const fmt = (v, n = 2) => (v === null || v === undefined || v === '') ? '' : (typeof v === 'number' ? v.toLocaleString('pt-BR', {minimumFractionDigits: n, maximumFractionDigits: n}) : v);
+$('#sub').textContent = D.sub;
+$('#tg').addEventListener('click', () => { const s = document.body.classList.toggle('sem-paineis'); $('#tg').textContent = s ? 'Mostrar painéis' : 'Ocultar painéis'; });
+if (innerWidth < 600) { document.body.classList.add('sem-paineis'); $('#tg').textContent = 'Mostrar painéis'; }
+const css = getComputedStyle(document.body);
+const tema = document.documentElement.dataset.theme; const escuro = tema ? tema === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+// ------------------------------------------------------------ renderização
+const R = new THREE.WebGLRenderer({canvas: $('#c'), antialias: true});
+const toque = matchMedia('(pointer:coarse)').matches;
+let qualidade = 'alta';
+R.setPixelRatio(Math.min(devicePixelRatio, toque ? 1.5 : 2)); R.toneMapping = THREE.ACESFilmicToneMapping; R.toneMappingExposure = 1.0; R.localClippingEnabled = false;
+R.shadowMap.enabled = true; R.shadowMap.type = THREE.PCFSoftShadowMap;
+function texCanvas(w, h, pintar) { const c = document.createElement('canvas'); c.width = w; c.height = h; pintar(c.getContext('2d'), w, h); const tx = new THREE.CanvasTexture(c); tx.colorSpace = THREE.SRGBColorSpace; return tx; }
+function ruido(g, w, h, base, amp, n) { g.fillStyle = base; g.fillRect(0, 0, w, h); for (let i = 0; i < n; i++) { const v = (Math.random() - .5) * amp; g.fillStyle = `rgba(${v > 0 ? '255,255,255' : '0,0,0'},${Math.abs(v)})`; const s = 1 + Math.random() * 3; g.fillRect(Math.random() * w, Math.random() * h, s, s); } }
+const L2 = new CSS2DRenderer(); L2.domElement.style.cssText = 'position:fixed;inset:0;pointer-events:none'; document.body.insertBefore(L2.domElement, $('#barra'));
+const cena = new THREE.Scene();
+cena.background = texCanvas(4, 256, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h);
+  if (escuro) { gr.addColorStop(0, '#0d1420'); gr.addColorStop(.6, '#1a2433'); gr.addColorStop(1, '#2a3340'); }
+  else { gr.addColorStop(0, '#9fc3e6'); gr.addColorStop(.55, '#d7e6f2'); gr.addColorStop(1, '#eef1f0'); }
+  g.fillStyle = gr; g.fillRect(0, 0, w, h); });
+const pm = new THREE.PMREMGenerator(R); cena.environment = pm.fromScene(new RoomEnvironment(R), 0.04).texture;
+cena.add(new THREE.HemisphereLight(0xffffff, escuro ? 0x2a2a26 : 0x8a8a80, 0.55));
+const luz = new THREE.DirectionalLight(0xfff4e2, 1.6); luz.castShadow = true;
+luz.shadow.mapSize.set(toque ? 1024 : 2048, toque ? 1024 : 2048); luz.shadow.bias = -0.0004; luz.shadow.normalBias = 0.03;
+{ const s = luz.shadow.camera; s.left = -170; s.right = 170; s.top = 170; s.bottom = -170; s.near = 1; s.far = 900; }
+cena.add(luz); cena.add(luz.target);
+const camP = new THREE.PerspectiveCamera(40, 1, 0.1, 3000); camP.up.set(0, 0, 1);
+const camO = new THREE.OrthographicCamera(-1, 1, 1, -1, -1500, 1500); camO.up.set(0, 0, 1);
+let cam = camP, ctl = null;
+const mundo = new THREE.Group(); cena.add(mundo);
+const G = n => { const g = new THREE.Group(); g.name = n; mundo.add(g); return g; };
+const gMal = G('mal'), gTer = G('ter'), gCur = G('cur'), gSit = G('sit'), gLin = G('lin'), gTub = G('tub'), gCx = G('cx'), gCf = G('cf'), gLab = G('lab'), gMed = G('med'), gCon = G('con');
+const mat = {}; for (const [k, d] of Object.entries(D.disc)) mat[k] = new THREE.MeshPhysicalMaterial({color: d.cor, roughness: (k === 'ELE' || k === 'SDAI') ? .55 : .3, metalness: 0, clearcoat: (k === 'ELE' || k === 'SDAI') ? .15 : .7, clearcoatRoughness: .25, envMapIntensity: .9});
+const txConc = texCanvas(256, 256, (g, w, h) => ruido(g, w, h, '#b9b6ae', .22, 9000));
+const matCx = {}, matCxT = {};
+for (const [k, d] of Object.entries(D.disc)) {
+  const c = new THREE.Color(d.cor).lerp(new THREE.Color(escuro ? 0x8d8d86 : 0xb9b8b0), .55);
+  matCx[k] = new THREE.MeshStandardMaterial({color: c, map: txConc, roughness: .92, metalness: 0, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1});
+  matCxT[k] = new THREE.MeshStandardMaterial({color: c, roughness: .9, transparent: true, opacity: .28, depthWrite: false});
+}
+const matAresta = new THREE.LineBasicMaterial({color: escuro ? 0x0b0d10 : 0x2d333b, transparent: true, opacity: .75});
+const matSel = new THREE.MeshStandardMaterial({color: 0x00d8ff, emissive: 0x00505e, roughness: .3});
+// terreno
+const tg = new THREE.BufferGeometry();
+tg.setAttribute('position', new THREE.Float32BufferAttribute(D.terreno.v, 3)); tg.setIndex(D.terreno.f); tg.computeVertexNormals();
+{ const uv = []; for (let i = 0; i < D.terreno.v.length; i += 3) uv.push(D.terreno.v[i] / 8, D.terreno.v[i + 1] / 8); tg.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2)); }
+const txTer = texCanvas(512, 512, (g, w, h) => { ruido(g, w, h, escuro ? '#5d6a4a' : '#9caf74', .28, 26000); for (let i = 0; i < 900; i++) { g.fillStyle = `rgba(120,100,70,${Math.random() * .18})`; g.beginPath(); g.arc(Math.random() * w, Math.random() * h, 2 + Math.random() * 7, 0, 7); g.fill(); } });
+txTer.wrapS = txTer.wrapT = THREE.RepeatWrapping; txTer.anisotropy = 4;
+const tm = new THREE.MeshStandardMaterial({map: txTer, transparent: true, opacity: .3, depthWrite: false, side: THREE.DoubleSide, roughness: 1});
+const terreno = new THREE.Mesh(tg, tm); terreno.receiveShadow = true; gTer.add(terreno);
+if (D.curvas && D.curvas.v.length) {
+  const add = (arr, cor, op) => { if (!arr.length) return; const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(arr, 3));
+    gCur.add(new THREE.LineSegments(g, new THREE.LineBasicMaterial({color: cor, transparent: true, opacity: op}))); };
+  add(D.curvas.v, escuro ? 0x5d636c : 0xa7adb5, .22); add(D.curvas.m, escuro ? 0x7b828c : 0x8c939c, .45);
+}
+if (D.sit.length) { const sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.Float32BufferAttribute(D.sit, 3));
+  gSit.add(new THREE.LineSegments(sg, new THREE.LineBasicMaterial({color: escuro ? 0x6c7480 : 0x9aa1aa, transparent: true, opacity: .35}))); }
+// ------------------------------------------------------------ estado
+const EST = D.estados; const selE = $('#estado');
+EST.forEach((e, i) => selE.add(new Option(e.nome, i)));
+let est = EST[0], esp = 1, sel = null, ocultos = new Set(), isolados = null, corte = null, modo = null, rotulos = false;
+const visD = {}; Object.keys(D.disc).forEach(k => visD[k] = true);
+const cont = {}; D.elementos.forEach(e => cont[e.disc] = (cont[e.disc] || 0) + 1); (D.malhas || []).forEach(m => cont[m.disc] = (cont[m.disc] || 0) + 1);
+for (const [k, d] of Object.entries(D.disc)) {
+  if (!cont[k]) continue;
+  const l = document.createElement('label');
+  l.innerHTML = `<input type="checkbox" checked data-d="${k}"><span class="sw" style="background:${d.cor}"></span>${d.nome} <span class="mut num">${cont[k]}</span>`;
+  $('#discs').append(l);
+}
+$('#discs').addEventListener('change', ev => { visD[ev.target.dataset.d] = ev.target.checked; aplicarVis(); });
+const ptsDe = e => (est.fase === 'sol' && e.sol && e.sol[est.cen]) ? e.sol[est.cen] : e.p;
+function cilindros(pts, r) {
+  const gs = [], seg = r > .3 ? 28 : 16;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const a = new THREE.Vector3(...pts[i]), b = new THREE.Vector3(...pts[i + 1]); const L = a.distanceTo(b); if (L < 1e-4) continue;
+    const g = new THREE.CylinderGeometry(r, r, L, seg, 1, true);
+    g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), b.clone().sub(a).normalize()));
+    g.translate((a.x + b.x) / 2, (a.y + b.y) / 2, (a.z + b.z) / 2); gs.push(g);
+    const s = new THREE.SphereGeometry(r, seg, Math.max(6, seg / 2)); s.translate(a.x, a.y, a.z); gs.push(s);
+    if (i === pts.length - 2) { const s2 = new THREE.SphereGeometry(r, seg, Math.max(6, seg / 2)); s2.translate(b.x, b.y, b.z); gs.push(s2); }
+  }
+  return gs.length ? mergeGeometries(gs) : null;
+}
+function construirTubos() {
+  gTub.children.forEach(m => m.geometry.dispose()); gTub.clear();
+  gLin.children.forEach(m => m.geometry.dispose()); gLin.clear();
+  const lin = {}, fant = [];
+  for (const e of D.elementos) {
+    if (!e.cen.includes(est.cen)) continue;
+    const pts = ptsDe(e);
+    const l = lin[e.disc] = lin[e.disc] || [];
+    if (est.fase === 'sol' && e.dv && e.dv.includes(est.cen)) for (let i = 0; i < e.p.length - 1; i++) fant.push(...e.p[i], ...e.p[i + 1]);
+    for (let i = 0; i < pts.length - 1; i++) l.push(...pts[i], ...pts[i + 1]);
+    const g = cilindros(pts, e.de / 2 * esp); if (!g) continue;
+    const m = new THREE.Mesh(g, e === sel ? matSel : mat[e.disc]); m.castShadow = m.receiveShadow = true; m.userData.e = e; gTub.add(m);
+  }
+  if (fant.length) { const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(fant, 3));
+    const ls = new THREE.LineSegments(g, new THREE.LineDashedMaterial({color: escuro ? 0xc9d0dc : 0x3e4552, dashSize: .6, gapSize: .4})); ls.computeLineDistances(); ls.userData.d = '_antigo'; gLin.add(ls); }
+  for (const [d, l] of Object.entries(lin)) { const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(l, 3));
+    const ls = new THREE.LineSegments(g, new THREE.LineBasicMaterial({color: D.disc[d].cor, transparent: true, opacity: .85})); ls.userData.d = d; gLin.add(ls); }
+  aplicarVis();
+}
+const posCx = c0 => (est.fase === 'sol' && c0.mv && c0.mv[est.cen]) ? {...c0, x: c0.mv[est.cen][0], y: c0.mv[est.cen][1]} : c0;
+function construirCaixas() {
+  gCx.children.forEach(m => { m.geometry.dispose(); m.children.forEach(x => x.geometry.dispose()); }); gCx.clear();
+  const tr = $('#vCxT').checked;
+  for (const c0 of D.caixas) {
+    const c = posCx(c0); const h = Math.max(.05, c.zt - c.zb);
+    const g = c.f === 'c' ? new THREE.CylinderGeometry(c.m, c.m, h, 28).rotateX(Math.PI / 2)
+            : c.f === 'r' ? new THREE.BoxGeometry(2 * c.mx, 2 * c.my, h).rotateZ(c.rot || 0) : new THREE.BoxGeometry(2 * c.m, 2 * c.m, h);
+    g.translate(c.x, c.y, c.zb + h / 2);
+    const m = new THREE.Mesh(g, (tr ? matCxT : matCx)[c.disc]); m.castShadow = !tr; m.receiveShadow = true; m.userData.c = c;
+    m.add(new THREE.LineSegments(new THREE.EdgesGeometry(g, 25), matAresta)); gCx.add(m);
+  }
+  aplicarVis();
+}
+const matMal = {};
+function construirMalhas() {
+  for (const m of (D.malhas || [])) {
+    if (!matMal[m.disc]) { const base = new THREE.Color((D.disc[m.disc] || {cor: '#999999'}).cor);
+      if (m.disc !== 'EST' && m.disc !== 'ARQ') base.lerp(new THREE.Color(escuro ? 0x8d8d86 : 0xb9b8b0), .35);
+      matMal[m.disc] = new THREE.MeshStandardMaterial({color: base, map: (m.disc === 'EST') ? txConc : null, roughness: .8, metalness: 0, side: THREE.DoubleSide}); }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(m.v.map(x => x / 100), 3)); g.setIndex(m.f); g.computeVertexNormals();
+    const me = new THREE.Mesh(g, matMal[m.disc]); me.castShadow = me.receiveShadow = true; me.userData.m = m; gMal.add(me);
+  }
+}
+const mCrit = new THREE.MeshBasicMaterial({color: 0xff1f1f, transparent: true, opacity: .85, depthTest: false}), mAt = new THREE.MeshBasicMaterial({color: 0xff8a00, transparent: true, opacity: .85, depthTest: false});
+function construirConflitos() {
+  gCf.clear(); const L = D.conflitos[est.k] || []; const sg = new THREE.SphereGeometry(.22, 16, 10);
+  for (const c of L) { const m = new THREE.Mesh(sg, c.g === 'CRÍTICA' ? mCrit : mAt); m.renderOrder = 10; m.position.set(c.x, c.y, c.z); m.userData.cf = c; gCf.add(m); }
+  $('#kc').textContent = L.filter(c => c.g === 'CRÍTICA').length; $('#ka').textContent = L.filter(c => c.g === 'ATENÇÃO').length;
+  $('#ks').textContent = est.fase === 'sol' ? (D.solucoes[est.cen] || []).length + ((D.desvios || {})[est.cen] || []).filter(d => d.ok).length : '–';
+}
+// conexões (curvas 90°/45°/22,5°/11,25° e junções) da situação de solução: [x, y, z, disc, de, ângulo|'J', fora do comercial, plano]
+const matCon = {}, geoCon = new THREE.SphereGeometry(1, 12, 8);
+function construirConexoes() {
+  gCon.clear();
+  const L = est.fase === 'sol' ? ((D.conexoes || {})[est.cen] || []) : [], por = {};
+  for (const c of L) (por[c[3] + (c[6] ? '!' : '')] = por[c[3] + (c[6] ? '!' : '')] || []).push(c);
+  for (const [k, cs] of Object.entries(por)) {
+    const fora = k.endsWith('!'), d = fora ? k.slice(0, -1) : k;
+    if (!matCon[k]) matCon[k] = new THREE.MeshStandardMaterial({color: fora ? new THREE.Color(0xd01060) : new THREE.Color((D.disc[d] || {cor: '#888888'}).cor).multiplyScalar(.55), roughness: .5});
+    const im = new THREE.InstancedMesh(geoCon, matCon[k], cs.length), M = new THREE.Matrix4();
+    cs.forEach((c, i) => { const r = Math.max(.03, c[4] * .75); M.makeScale(r, r, r).setPosition(c[0], c[1], c[2]); im.setMatrixAt(i, M); });
+    im.userData.con = cs; im.userData.d = d; gCon.add(im);
+  }
+  aplicarVis();
+}
+const vivo = id => !ocultos.has(id) && (!isolados || isolados.has(id));
+function aplicarVis() {
+  gTub.children.forEach(m => m.visible = visD[m.userData.e.disc] && vivo(m.userData.e.id));
+  const longe = cam === camO ? (camO.userData.hh || 60) / camO.zoom > 25 : cam.position.distanceTo(ctl.target) > 45;
+  gLin.children.forEach(m => m.visible = m.userData.d === '_antigo' ? $('#vLin').checked : (visD[m.userData.d] && $('#vLin').checked && !isolados && longe));
+  gCx.children.forEach(m => m.visible = visD[m.userData.c.disc] && $('#vCx').checked && vivo(m.userData.c.id));
+  gMal.children.forEach(m => m.visible = visD[m.userData.m.disc] && vivo(m.userData.m.id));
+  gCf.visible = $('#vCf').checked; gSit.visible = $('#vSit').checked; gTer.visible = $('#vTer').checked; gCur.visible = $('#vCur').checked;
+  gCon.visible = $('#vCon').checked; gCon.children.forEach(m => m.visible = visD[m.userData.d] !== false);
+  if (rotulos) atualizarRotulos();
+}
+['#vLin', '#vCx', '#vCf', '#vSit', '#vTer', '#vCur', '#vCon'].forEach(s => $(s).addEventListener('change', aplicarVis));
+$('#vCxT').addEventListener('change', construirCaixas);
+$('#qual').addEventListener('change', ev => { qualidade = ev.target.value; R.shadowMap.enabled = qualidade === 'alta'; cena.traverse(o => { if (o.material) o.material.needsUpdate = true; }); montarComp(); });
+$('#tOp').addEventListener('input', ev => { tm.opacity = 1 - ev.target.value; const t = tm.opacity < .97; if (t !== tm.transparent) { tm.transparent = t; tm.needsUpdate = true; } tm.depthWrite = !t; });
+tm.opacity = 1 - $('#tOp').value;
+$('#tEx').addEventListener('input', ev => { mundo.scale.z = +ev.target.value; $('#lEx').textContent = ev.target.value + '×'; if (corte) aplicarCorte(); });
+$('#tEsp').addEventListener('change', ev => { esp = +ev.target.value; $('#lEsp').textContent = esp + '×'; construirTubos(); });
+$('#tEsp').addEventListener('input', ev => { $('#lEsp').textContent = ev.target.value + '×'; });
+$('#tCorte').addEventListener('input', ev => { $('#lCorte').textContent = ev.target.value + ' m'; if (corte) { corte.r = +ev.target.value; aplicarCorte(); } });
+selE.addEventListener('change', () => { est = EST[+selE.value]; construirCaixas(); construirTubos(); construirConflitos(); construirConexoes(); lista(); });
+// ------------------------------------------------------------ câmeras e vistas
+function novoControle() {
+  const t = ctl ? ctl.target.clone() : new THREE.Vector3(...D.centro.slice(0, 3));
+  if (ctl) ctl.dispose();
+  ctl = new OrbitControls(cam, R.domElement); ctl.target.copy(t); ctl.enableDamping = true; ctl.dampingFactor = .12; ctl.screenSpacePanning = true;
+  // a roda aproxima em direção ao ponto sob o cursor (o centro anda junto) e não deixa a câmera atravessar o alvo
+  ctl.zoomToCursor = true; ctl.zoomSpeed = .55; ctl.minDistance = .4; ctl.maxDistance = 2500; ctl.minZoom = .05; ctl.maxZoom = 300;
+  ctl.touches = {ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN};
+  ctl.addEventListener('end', () => { if (rotulos) atualizarRotulos(); ajustarPlanos(); });
+  ctl.addEventListener('change', () => { const l = cam === camO ? (camO.userData.hh || 60) / camO.zoom > 25 : cam.position.distanceTo(ctl.target) > 45; if (l !== window.__longe) { window.__longe = l; aplicarVis(); } });
+}
+let comp = null, gtao = null;
+function montarComp() {
+  if (comp) { comp.dispose(); comp = null; }
+  if (qualidade !== 'alta') return;
+  const w = innerWidth, h = innerHeight;
+  comp = new EffectComposer(R); comp.addPass(new RenderPass(cena, cam));
+  gtao = new GTAOPass(cena, cam, w, h); gtao.blendIntensity = .85;
+  gtao.updateGtaoMaterial({radius: .6, distanceExponent: 1.4, thickness: 1.2, scale: 1, samples: 12});
+  const ov = gtao.overrideVisibility.bind(gtao);
+  gtao.overrideVisibility = () => { ov(); if (tm.transparent) terreno.visible = false; gCf.visible = false; gLab.visible = false; gMed.visible = false; };
+  comp.addPass(gtao); comp.addPass(new OutputPass()); comp.addPass(new SMAAPass(w * R.getPixelRatio(), h * R.getPixelRatio()));
+  comp.setSize(w, h);
+}
+let nearAtual = 0.1;
+function ajustarPlanos() {
+  if (cam !== camP) return;
+  const d = cam.position.distanceTo(ctl.target);
+  const n = Math.min(1, Math.max(0.01, d / 400));
+  if (n / nearAtual > 1.8 || nearAtual / n > 1.8) { nearAtual = n; camP.near = n; camP.far = Math.max(1500, d * 30); camP.updateProjectionMatrix(); montarComp(); }
+}
+function tam() {
+  const w = innerWidth, h = innerHeight; R.setSize(w, h, false); L2.setSize(w, h);
+  camP.aspect = w / h; camP.updateProjectionMatrix();
+  const hh = camO.userData.hh || 60; camO.left = -hh * w / h; camO.right = hh * w / h; camO.top = hh; camO.bottom = -hh; camO.updateProjectionMatrix();
+  montarComp();
+}
+function topo() { document.documentElement.style.setProperty('--topo', Math.ceil($('#barra').getBoundingClientRect().bottom + 8) + 'px'); }
+addEventListener('resize', () => { tam(); topo(); }); topo();
+if (innerWidth <= 1000) document.querySelectorAll('#esq details').forEach((d, i) => { if (i > 0) d.open = false; });
+function vista(v, alvo, dist) {
+  document.querySelectorAll('#barra [data-v]').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  const t = alvo ? alvo.clone() : ctl.target.clone();
+  const d = dist || Math.max(20, cam.position.distanceTo(ctl.target));
+  const dirs = {planta: [0, -0.0001, 1], N: [0, -1, .02], S: [0, 1, .02], L: [-1, 0, .02], O: [1, 0, .02], '3d': [.45, -.8, .55]};
+  const dv = new THREE.Vector3(...dirs[v]).normalize();
+  cam = v === '3d' ? camP : camO;
+  camO.userData.hh = d * Math.tan(THREE.MathUtils.degToRad(20)); camO.zoom = 1;
+  cam.position.copy(t.clone().add(dv.multiplyScalar(d))); cam.lookAt(t);
+  tam(); novoControle(); ctl.target.copy(t);
+  if (v === 'planta') { ctl.minPolarAngle = 0; ctl.maxPolarAngle = 0.0001; } else { ctl.minPolarAngle = 0; ctl.maxPolarAngle = Math.PI; }
+  ctl.update();
+}
+document.querySelectorAll('#barra [data-v]').forEach(b => b.addEventListener('click', () => vista(b.dataset.v)));
+const [cx0, cy0, cz0, raio] = D.centro;
+$('#bTudo').addEventListener('click', () => { tirarCorte(); vista(cam === camP ? '3d' : document.querySelector('#barra [data-v].on').dataset.v, new THREE.Vector3(cx0, cy0, cz0 * mundo.scale.z), raio * 1.25); });
+// ------------------------------------------------------------ caixa de corte (section box)
+function aplicarCorte() {
+  const ex = mundo.scale.z, c = corte;
+  R.clippingPlanes = [
+    new THREE.Plane(new THREE.Vector3(1, 0, 0), -(c.x - c.r)), new THREE.Plane(new THREE.Vector3(-1, 0, 0), c.x + c.r),
+    new THREE.Plane(new THREE.Vector3(0, 1, 0), -(c.y - c.r)), new THREE.Plane(new THREE.Vector3(0, -1, 0), c.y + c.r),
+    new THREE.Plane(new THREE.Vector3(0, 0, -1), (c.z + Math.max(1.5, c.r / 3)) * ex)];
+  $('#bCorte').classList.add('on');
+  if (rotulos) atualizarRotulos();
+}
+function tirarCorte() { corte = null; R.clippingPlanes = []; $('#bCorte').classList.remove('on'); if (rotulos) atualizarRotulos(); }
+$('#bCorte').addEventListener('click', () => {
+  if (corte) return tirarCorte();
+  const t = ctl.target; corte = {x: t.x, y: t.y, z: t.z / mundo.scale.z, r: +$('#tCorte').value}; aplicarCorte();
+});
+// ------------------------------------------------------------ rótulos
+function atualizarRotulos() {
+  gLab.children.forEach(o => o.element.remove()); gLab.clear();
+  if (!rotulos) return;
+  const t = ctl.target, ex = mundo.scale.z, lim = corte ? corte.r : Math.min(35, Math.max(8, cam.position.distanceTo(t) * .45));
+  const perto = (x, y) => Math.hypot(x - t.x, y - t.y) < lim;
+  const cand = [];
+  for (const m of gTub.children) {
+    if (!m.visible) continue; const e = m.userData.e, p = ptsDe(e);
+    let best = null; for (let i = 0; i < p.length - 1; i++) { const q = [(p[i][0] + p[i + 1][0]) / 2, (p[i][1] + p[i + 1][1]) / 2, (p[i][2] + p[i + 1][2]) / 2]; const d = Math.hypot(q[0] - t.x, q[1] - t.y); if (!best || d < best[0]) best = [d, q]; }
+    if (best && perto(best[1][0], best[1][1])) cand.push([best[0], `${e.trecho} Ø${Math.round(e.de * 1000)}`, best[1], '']);
+  }
+  for (const m of gCx.children) { if (!m.visible) continue; const c = m.userData.c; if (perto(c.x, c.y)) cand.push([Math.hypot(c.x - t.x, c.y - t.y), c.id.split(':')[1], [c.x, c.y, c.zt + .15], 'cx']); }
+  cand.sort((a, b) => a[0] - b[0]);
+  for (const [, txt, q, cl] of cand.slice(0, 70)) { const d = document.createElement('div'); d.className = 'rot ' + cl; d.textContent = txt; const o = new CSS2DObject(d); o.position.set(...q); gLab.add(o); }
+}
+$('#bRot').addEventListener('click', () => { rotulos = !rotulos; $('#bRot').classList.toggle('on', rotulos); atualizarRotulos(); });
+// validação (reunião Anderson/Daniel, 19/10/2026): 1) sem terreno e arquitetura, ver colisões e conexões; 2) terreno sólido de volta, ver as tampas
+let val = 0, valAntes = null;
+$('#bVal').addEventListener('click', () => {
+  const chk = ['#vTer', '#vSit', '#vCur', '#vCon', '#vCf'];
+  if (val === 0) valAntes = {chk: chk.map(s => $(s).checked), op: $('#tOp').value, arq: visD.ARQ};
+  val = (val + 1) % 3;
+  if (val === 1) { ['#vTer', '#vSit', '#vCur'].forEach(s => $(s).checked = false); $('#vCon').checked = $('#vCf').checked = true; if ('ARQ' in visD) visD.ARQ = false;
+    dica('Validação 1/2: sem terreno e arquitetura. Confira colisões e conexões.'); }
+  else if (val === 2) { $('#vTer').checked = true; $('#tOp').value = 0; $('#tOp').dispatchEvent(new Event('input'));
+    dica('Validação 2/2: terreno sólido. Confira a tampa das caixas no nível do terreno.'); }
+  else { chk.forEach((s, i) => $(s).checked = valAntes.chk[i]); $('#tOp').value = valAntes.op; $('#tOp').dispatchEvent(new Event('input')); if ('ARQ' in visD) visD.ARQ = valAntes.arq; dica(''); }
+  $('#bVal').classList.toggle('on', val > 0); $('#bVal').textContent = val ? `Validação ${val}/2` : 'Validação';
+  document.querySelectorAll('#discs input').forEach(i => { i.checked = visD[i.dataset.d]; });
+  aplicarVis();
+});
+// ------------------------------------------------------------ medir
+let medPts = [];
+function dica(t) { const d = $('#dica'); d.textContent = t || ''; d.style.display = t ? 'block' : 'none'; }
+$('#bMedir').addEventListener('click', () => {
+  modo = modo === 'medir' ? null : 'medir'; $('#bMedir').classList.toggle('on', modo === 'medir'); medPts = [];
+  dica(modo ? 'Toque no primeiro ponto (tubo, caixa ou terreno)' : '');
+});
+function medir(pW) {
+  const p = mundo.worldToLocal(pW.clone()); medPts.push(p);
+  const s = new THREE.Mesh(new THREE.SphereGeometry(.08, 10, 8), new THREE.MeshBasicMaterial({color: 0x1d5bbf, depthTest: false})); s.position.copy(p); s.renderOrder = 11; gMed.add(s);
+  if (medPts.length === 1) return dica('Toque no segundo ponto');
+  const [a, b] = medPts.slice(-2);
+  const g = new THREE.BufferGeometry().setFromPoints([a, b]); const l = new THREE.Line(g, new THREE.LineBasicMaterial({color: 0x1d5bbf, depthTest: false})); l.renderOrder = 11; gMed.add(l);
+  const dH = Math.hypot(b.x - a.x, b.y - a.y), dz = b.z - a.z, d3 = Math.hypot(dH, dz);
+  const el = document.createElement('div'); el.className = 'rot med'; el.textContent = `${fmt(d3)} m · horiz. ${fmt(dH)} · Δz ${fmt(dz)}`;
+  const o = new CSS2DObject(el); o.position.copy(a.clone().add(b).multiplyScalar(.5)); gMed.add(o);
+  medPts = []; dica('Medida feita. Toque em outro ponto para medir de novo, ou em "Medir" para sair.');
+}
+// ------------------------------------------------------------ listas e ficha
+let aba = 'conf';
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b)); aba = b.dataset.t; lista(); }));
+$('#filtro').addEventListener('input', lista);
+function lista() {
+  const q = $('#filtro').value.toLowerCase(); const el = $('#lista'); el.innerHTML = '';
+  let L = [];
+  if (aba === 'conf') L = (D.conflitos[est.k] || []).map(c => ({h: `<span class="g ${c.g === 'CRÍTICA' ? 'c' : 'a'}">${c.g}</span>${c.txt}`, p: c, s: c.txt}));
+  if (aba === 'sol') L = (D.solucoes[est.cen] || []).map(s => ({h: `<span class="g s">${s.modo}</span>${s.txt}`, p: s, s: s.txt}));
+  if (aba === 'pend') L = (D.pendentes[est.cen] || []).map(s => ({h: `<span class="g p">${s.cat}</span>${s.txt}`, p: s, s: s.txt + s.cat}));
+  if (aba === 'desv') L = ((D.desvios || {})[est.cen] || []).map(s => ({h: `<span class="g ${s.ok ? 's' : 'a'}">${s.modo}</span>${s.txt}`, p: s, s: s.txt}));
+  if (aba === 'desv' && !L.length) { el.innerHTML = '<p class="mut">Os desvios em planta aparecem na situação "… + desvios em planta".</p>'; return; }
+  if (aba !== 'conf' && est.fase !== 'sol') { el.innerHTML = '<p class="mut">Escolha uma situação "Solução" para ver esta lista.</p>'; return; }
+  for (const it of L.filter(x => !q || x.s.toLowerCase().includes(q)).slice(0, 600)) {
+    const d = document.createElement('div'); d.className = 'it'; d.tabIndex = 0; d.innerHTML = it.h; d.onclick = () => focar(it.p); d.onkeydown = ev => { if (ev.key === 'Enter') focar(it.p); }; el.append(d);
+  }
+  if (!el.children.length) el.innerHTML = '<p class="mut">Nada aqui.</p>';
+}
+function focar(p) {
+  const alvo = new THREE.Vector3(p.x, p.y, p.z * mundo.scale.z);
+  const v = document.querySelector('#barra [data-v].on').dataset.v;
+  vista(v, alvo, 10);
+  if (corte) { corte = {x: p.x, y: p.y, z: p.z, r: corte.r}; aplicarCorte(); }
+  const ids = [p.a, p.b, p.el].filter(Boolean); const e = D.elementos.find(x => ids.includes(x.id)); if (e) selecionar(e, false);
+  mostrar(p, ids);
+}
+function linha(k, v) { return v === undefined || v === null || v === '' ? '' : `<tr><td>${k}</td><td>${v}</td></tr>`; }
+function mostrar(o, ids) {
+  const b = $('#info'); b.hidden = false;
+  const corpo = o.tabela ? `<b>${o.titulo}</b><table>${o.tabela.map(([k, v]) => linha(k, v)).join('')}</table>`
+                         : `<b>${o.txt || ''}</b><table>${Object.entries(o.det || {}).map(([k, v]) => linha(k, v)).join('')}</table>`;
+  b.innerHTML = corpo + `<div class="acoes">
+    <button class="bt" id="aIso" ${sel ? '' : 'disabled'}>Isolar</button><button class="bt" id="aEsc" ${sel ? '' : 'disabled'}>Esconder</button>
+    <button class="bt" id="aTudo">Mostrar tudo</button><button class="bt" id="aCorte">Cortar aqui</button><button class="bt" id="aFechar">Fechar</button></div>`;
+  const alvoIds = new Set(ids && ids.length ? ids : (sel ? [sel.id] : []));
+  $('#aIso').onclick = () => { isolados = new Set(alvoIds.size ? alvoIds : [sel.id]); aplicarVis(); };
+  $('#aEsc').onclick = () => { if (sel) ocultos.add(sel.id); aplicarVis(); };
+  $('#aTudo').onclick = () => { ocultos.clear(); isolados = null; aplicarVis(); };
+  $('#aCorte').onclick = () => { const t = ctl.target; corte = {x: t.x, y: t.y, z: t.z / mundo.scale.z, r: +$('#tCorte').value}; aplicarCorte(); };
+  $('#aFechar').onclick = () => { b.hidden = true; };
+}
+function selecionar(e, mostrarInfo = true) {
+  sel = e; gTub.children.forEach(m => m.material = m.userData.e === sel ? matSel : mat[m.userData.e.disc]);
+  if (!mostrarInfo) return;
+  const zs = ptsDe(e).map(p => p[2] + D.zref);
+  const t = [['disciplina', D.disc[e.disc].nome], ['rede', e.rede], ['trecho', e.trecho], ['Ø externo', fmt(e.de * 1000, 0) + ' mm'],
+    ['eixo (mín.–máx.)', fmt(Math.min(...zs)) + ' – ' + fmt(Math.max(...zs)) + ' m'],
+    ['nesta situação', (est.fase === 'sol' && e.dv && e.dv.includes(est.cen)) ? 'desvio em planta' : ((e.sol && e.sol[est.cen] && est.fase === 'sol') ? 'com mergulho' : 'como no projeto')],
+    ...Object.entries(e.info || {})];
+  mostrar({titulo: e.id + (e.pend ? ' (pendente)' : ''), tabela: t}, [e.id]);
+}
+const ray = new THREE.Raycaster(); const mouse = new THREE.Vector2(); let down = null;
+R.domElement.addEventListener('pointerdown', ev => down = [ev.clientX, ev.clientY]);
+R.domElement.addEventListener('pointerup', ev => {
+  if (!down || Math.hypot(ev.clientX - down[0], ev.clientY - down[1]) > 6) return;
+  const r = R.domElement.getBoundingClientRect(); mouse.set((ev.clientX - r.left) / r.width * 2 - 1, -(ev.clientY - r.top) / r.height * 2 + 1);
+  ray.setFromCamera(mouse, cam); ray.params.Line.threshold = .2;
+  const alvos = [...(gCf.visible && modo !== 'medir' ? gCf.children : []), ...(gCon.visible ? gCon.children.filter(m => m.visible) : []), ...gTub.children.filter(m => m.visible), ...gCx.children.filter(m => m.visible), ...gMal.children.filter(m => m.visible), ...(gTer.visible ? [terreno] : [])];
+  let hs = ray.intersectObjects(alvos, false);
+  if (R.clippingPlanes.length) hs = hs.filter(h => R.clippingPlanes.every(pl => pl.distanceToPoint(h.point) >= -1e-3));
+  const h = hs[0]; if (!h) return;
+  if (modo === 'medir') return medir(h.point);
+  const u = h.object.userData;
+  if (u.con) { const c = u.con[h.instanceId]; if (c) mostrar({titulo: c[5] === 'J' ? 'Junção (tê)' : `Curva ${c[5].replace('.', ',')}°` + (c[6] ? ' (fora do comercial)' : ''),
+    tabela: [['disciplina', (D.disc[c[3]] || {}).nome || c[3]], ['diâmetro', fmt(c[4] * 1000, 0) + ' mm'], ['plano', {h: 'horizontal', v: 'vertical', m: 'horizontal e vertical'}[c[7]]], ['cota do eixo', fmt(c[2] + D.zref) + ' m']]}, []); return; }
+  if (u.cf) mostrar(u.cf, [u.cf.a, u.cf.b]); else if (u.e) selecionar(u.e);
+  else if (u.m) mostrar({titulo: u.m.nome || u.m.id, tabela: [['disciplina', (D.disc[u.m.disc] || {}).nome || u.m.disc], ['classe IFC', u.m.cls], ...Object.entries(u.m.info || {})]}, [u.m.id]);
+  else if (u.c) mostrar({titulo: u.c.id, tabela: [['disciplina', D.disc[u.c.disc].nome], ['tipo', u.c.tipo], ['tampa', fmt(u.c.zt + D.zref) + ' m'], ['fundo', fmt(u.c.zb + D.zref) + ' m'],
+    ['posição', u.c.mv && u.c.mv[est.cen] && est.fase === 'sol' ? 'deslocada (desvio)' : 'do projeto'], ['origem da cota', u.c.cota]]}, [u.c.id]);
+});
+addEventListener('keydown', ev => { if (ev.key === 'Escape') { modo = null; $('#bMedir').classList.remove('on'); dica(''); } });
+// ------------------------------------------------------------ início
+tam(); novoControle(); vista('3d', new THREE.Vector3(cx0, cy0, cz0), raio * 1.25);
+construirMalhas(); construirCaixas(); construirTubos(); construirConflitos(); construirConexoes(); lista();
+const rosa = $('#rosaG');
+window.__pre = { R, cena, get corte() { return corte; }, get cam() { return cam; } };   // para depuração
+(function loop() {
+  requestAnimationFrame(loop); ctl.update();
+  luz.target.position.copy(ctl.target); luz.position.copy(ctl.target).add(new THREE.Vector3(-90, -140, 260));
+  const az = Math.atan2(cam.position.x - ctl.target.x, cam.position.y - ctl.target.y);
+  rosa.setAttribute('transform', `rotate(${THREE.MathUtils.radToDeg(az) + 180})`);
+  if (comp) comp.render(); else R.render(cena, cam);
+  L2.render(cena, cam);
+})();
+</script>
+<script>addEventListener('error', e => { const b = document.getElementById('erro'); b.style.display = 'block'; b.textContent = 'Erro ao carregar o 3D (o three.js vem da internet, unpkg.com): ' + e.message; });</script>
+</body>
+</html>

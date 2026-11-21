@@ -1,0 +1,5 @@
+SECURELOAD 0
+(load "D:/Projeto Modelagem/FERRAMENTAS/ete_volumetria/dump.lsp")
+DUMP
+QUIT Y
+

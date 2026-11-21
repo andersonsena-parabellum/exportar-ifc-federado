@@ -1,3 +1,11 @@
 __pycache__/
 *.pyc
 *.geom.pkl
+
+# ferramentas: licenças de terceiros e saídas
+ferramentas/*.deb
+ferramentas/pranchas_pdf/fontes/
+__pycache__/
+*.pyc
+relatorios/
+work/

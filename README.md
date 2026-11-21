@@ -1,4 +1,25 @@
-# exportar-ifc-federado
+# Metodologia ETIB: modelagem e compatibilização em IFC
+
+Método de trabalho da equipe para modelar, compatibilizar e entregar em IFC as redes externas das escolas ETIB (contrato 24-049), com o código e as skills que executam cada etapa.
+
+- **Agente:** comece pelo [`AGENTS.md`](AGENTS.md).
+- **Pessoa:** comece pela [metodologia](metodologia/README.md).
+- **Executar uma escola:** [roteiro passo a passo](metodologia/13-execucao-passo-a-passo.md).
+- **Ferramentas:** [`ferramentas/`](ferramentas/) (Python 3.11, versões fixas em `ferramentas/ambiente/requirements.txt`).
+
+## Skills do Claude Code
+
+| Skill | Para quê |
+|---|---|
+| [`federado-unico-etib`](federado-unico-etib/SKILL.md) | IFC federado único da escola (detalhes abaixo) |
+| [`revisao-qualidade-etib`](revisao-qualidade-etib/SKILL.md) | revisão de qualidade antes de todo envio |
+| [`modelagem-bim-disciplinas`](modelagem-bim-disciplinas/SKILL.md) | método antigo, no Revit via MCP |
+
+Para instalar uma skill, copie a pasta dela para `~/.claude/skills/` (Windows: `%USERPROFILE%\.claude\skills\`).
+
+---
+
+## Federado único
 
 Este é o método do **IFC federado único** das escolas ETIB , empacotado como skill do Claude Code. É o padrão aprovado na Jandaíra R04 em 29/10/2026.
 

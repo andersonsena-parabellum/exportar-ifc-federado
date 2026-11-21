@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>__TITULO__</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Archivo:wght@600;700&display=swap">
+<style>
+/* Layout: prancha técnica — faixa de título como carimbo; dois blocos ("Precisa de decisão" e "Aplicado, pode reverter"),
+   fichas em coluna única com imagem à esquerda e texto + decisão à direita. Gerado por FERRAMENTAS\pendencias\pagina.py. */
+:root {
+  --bg: #f3f4f1; --paper: #ffffff; --ink: #18211d; --muted: #5d6862; --line: #d9ddd7;
+  --accent: #1f6f5c; --accent-soft: #e2efe9;
+  --crit: #b3261e; --crit-soft: #fbe9e7; --ok: #2e7d32; --ok-soft: #e6f2e6; --warn: #a45f00; --warn-soft: #fbf0dc;
+  --f-display: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121614; --paper: #1b201d; --ink: #e6ebe7; --muted: #9aa5a0; --line: #2f3632;
+  --accent: #6cc3a8; --accent-soft: #1d2f29;
+  --crit: #f08a80; --crit-soft: #3a1f1d; --ok: #8fd18f; --ok-soft: #1d2e1d; --warn: #f0b860; --warn-soft: #362a17; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121614; --paper: #1b201d; --ink: #e6ebe7; --muted: #9aa5a0; --line: #2f3632;
+  --accent: #6cc3a8; --accent-soft: #1d2f29;
+  --crit: #f08a80; --crit-soft: #3a1f1d; --ok: #8fd18f; --ok-soft: #1d2e1d; --warn: #f0b860; --warn-soft: #362a17; color-scheme: dark }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 24px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 20px; }
+header.carimbo { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; border: 1.5px solid var(--ink); background: var(--paper); padding: 18px 20px; }
+header h1 { font-family: var(--f-display); font-size: clamp(22px, 3.2vw, 30px); line-height: 1.15; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+header p { margin: 6px 0 0; color: var(--muted); max-width: 72ch; }
+.selo { font-family: var(--f-mono); font-size: 12px; text-align: right; color: var(--muted); line-height: 1.6; }
+.selo b { color: var(--ink); font-weight: 500; }
+.resumo { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.resumo div { background: var(--paper); border: 1px solid var(--line); padding: 12px 14px; }
+.resumo strong { display: block; font-family: var(--f-display); font-size: 26px; font-variant-numeric: tabular-nums; }
+.resumo span { color: var(--muted); font-size: 13px; }
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.filtros button { font: 500 13px var(--f-body); border: 1px solid var(--line); background: var(--paper); color: var(--ink); padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+.filtros button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.filtros .estado { margin-left: auto; font-size: 13px; color: var(--muted); }
+.legenda { font-size: 13px; color: var(--muted); margin: 0; }
+.bloco { display: grid; gap: 16px; }
+.bloco > h2 { font-family: var(--f-display); font-size: 22px; margin: 8px 0 0; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.bloco > h2 small { font: 400 14px var(--f-body); color: var(--muted); }
+.bloco > p.vazio { margin: 0; color: var(--muted); }
+.ficha { background: var(--paper); border: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+.ficha.alvo { outline: 2px solid var(--accent); }
+.ficha .cab { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.ficha .num { font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+.ficha h3.tit { font-family: var(--f-display); font-size: 19px; margin: 0; flex: 1 1 320px; min-width: 0; }
+.pill { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.pill.decisao { background: var(--crit-soft); color: var(--crit); }
+.pill.aplicado { background: var(--ok-soft); color: var(--ok); }
+.imgs { padding: 14px 18px; display: grid; gap: 10px; border-right: 1px solid var(--line); min-width: 0; align-content: start; }
+.vistas { display: flex; flex-wrap: wrap; gap: 6px; }
+.vistas button { font: 500 12px var(--f-body); background: none; border: 1px solid var(--line); color: var(--muted); padding: 3px 10px; cursor: pointer; }
+.vistas button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.imgs img.vista { width: 100%; height: auto; aspect-ratio: 800 / 514; object-fit: cover; border: 1px solid var(--line); cursor: zoom-in; display: block; background: #fff; }
+.nota-img { margin: -4px 0 0; font-size: 12px; color: var(--muted); }
+.dados { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: 13px; margin: 0; }
+.dados dt { color: var(--muted); }
+.dados dd { margin: 0; font-family: var(--f-mono); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.texto { padding: 14px 18px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.texto h4 { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 2px; font-weight: 600; }
+.texto p { margin: 0; }
+.decisao { border-top: 1px dashed var(--line); padding-top: 12px; display: grid; gap: 8px; }
+.opcoes { display: flex; flex-wrap: wrap; gap: 6px; }
+.opcoes label { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; border: 1px solid var(--line); padding: 5px 10px; cursor: pointer; border-radius: 4px; }
+.opcoes input { accent-color: var(--accent); margin: 0; }
+.opcoes label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+textarea { width: 100%; box-sizing: border-box; min-height: 74px; resize: vertical; font: 14px/1.45 var(--f-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); padding: 8px 10px; }
+textarea:focus, button:focus-visible, .opcoes input:focus-visible, .anexo label:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+.anexo { display: grid; gap: 6px; }
+.anexo .linha { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.anexo label.bt, .anexo button { font: 500 13px var(--f-body); border: 1px solid var(--line); background: var(--paper); color: var(--ink); padding: 5px 10px; cursor: pointer; border-radius: 4px; }
+.anexo input[type=file] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.anexo img { max-width: 100%; border: 1px solid var(--line); cursor: zoom-in; }
+.anexo .dica { font-size: 12px; color: var(--muted); }
+.salvo { font-size: 12px; color: var(--muted); min-height: 1.2em; }
+.salvo.erro { color: var(--crit); }
+.zoom { position: fixed; inset: 0; background: rgba(10, 14, 12, 0.88); display: grid; place-items: center; z-index: 20;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); cursor: zoom-out; }
+.zoom img { max-width: 100%; max-height: 100%; }
+@media (max-width: 760px) {
+  header.carimbo { grid-template-columns: 1fr; } .selo { text-align: left; }
+  .resumo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ficha { grid-template-columns: minmax(0, 1fr); } .imgs { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style></head><body>
+<div class="wrap">
+  <header class="carimbo">
+    <div>
+      <h1>__H1__</h1>
+      <p>__SUBTITULO__</p>
+    </div>
+    <div class="selo">__SELO__</div>
+  </header>
+
+  <section class="resumo" aria-label="Resumo">
+    <div><strong id="r-dec-total">0</strong><span>precisam de decisão</span></div>
+    <div><strong id="r-apl-total">0</strong><span>aplicadas (podem ser revertidas)</span></div>
+    <div><strong id="r-resp">0</strong><span>com resposta anotada</span></div>
+    <div><strong id="r-abertas">0</strong><span>sem resposta</span></div>
+  </section>
+
+  <div class="filtros" role="toolbar" aria-label="Filtro">
+    <button type="button" data-f="todas" aria-pressed="true">Todas</button>
+    <button type="button" data-f="decisao" aria-pressed="false">Precisa de decisão</button>
+    <button type="button" data-f="aplicado" aria-pressed="false">Aplicado</button>
+    <button type="button" data-f="abertas" aria-pressed="false">Sem resposta</button>
+    <span class="estado" id="estado">Carregando as anotações…</span>
+  </div>
+  <p class="legenda">Cada ficha abre no recorte da prancha do projetista, com o ponto no círculo vermelho e os elementos citados no texto escritos em azul. Nas vistas do modelo (IFC de entrega): __LEGENDA__; o elemento da ficha fica mais grosso. Toque na imagem para ampliar. Em cada ficha dá para escolher o encaminhamento, escrever e anexar um print com a solução sugerida: fica salvo na hora e o Claude lê daqui para aplicar.</p>
+
+  <section class="bloco" id="b-decisao" aria-labelledby="h-decisao">
+    <h2 id="h-decisao">Precisa de decisão <small>o que passa dos limites do "aplicar e avisar" ou depende de alguém</small></h2>
+  </section>
+  <section class="bloco" id="b-aplicado" aria-labelledby="h-aplicado">
+    <h2 id="h-aplicado">Aplicado (pode reverter) <small>resolvido por nós dentro dos limites combinados; já está no modelo e nas pranchas</small></h2>
+  </section>
+</div>
+<div class="zoom" id="zoom" hidden><img alt="" id="zoom-img"></div>
+
+<script id="dados" type="application/json">__DADOS__</script>
+<script id="imagens" type="application/json">__IMAGENS__</script>
+<script>
+const C = JSON.parse(document.getElementById('dados').textContent);
+// imagens embutidas na própria página (JPG em base64): no celular arquivo separado não carrega (checklist F1)
+const IMG = JSON.parse(document.getElementById('imagens').textContent);
+const src = nome => IMG[nome] ? 'data:image/jpeg;base64,' + IMG[nome] : '';
+const OPC = {
+  decisao: [['proposta', 'Aceito a proposta'], ['projetista', 'Levar ao projetista'], ['aceitar', 'Aceitar como está'], ['outra', 'Outra solução']],
+  aplicado: [['manter', 'Manter como aplicado'], ['reverter', 'Reverter'], ['outra', 'Outra solução']],
+};
+const br = v => v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const id2 = n => 'd' + String(n).padStart(2, '0');
+const estado = {};
+let filtro = 'todas', db = null, user = null, assets = null, podeEscrever = true;
+const temResp = d => d && (d.decisao || (d.nota || '').trim() || d.imagem);
+
+function montar() {
+  const blocos = { decisao: document.getElementById('b-decisao'), aplicado: document.getElementById('b-aplicado') };
+  const conta = { decisao: 0, aplicado: 0 };
+  C.forEach(c => {
+    const id = id2(c.n), vs = c.vistas, bl = c.bloco;
+    conta[bl]++;
+    const el = document.createElement('article');
+    el.className = 'ficha'; el.id = id; el.dataset.f = bl;
+    const dados = [['E / N', br(c.E) + ' / ' + br(c.N)]].concat(c.codigos.length ? [['Elementos', c.codigos.join(', ')]] : [])
+      .concat(vs.filter(v => v.prancha).map(v => ['Prancha ' + v.folha, v.prancha]));
+    const txt = bl === 'aplicado'
+      ? [['O que era', c.o], ['O que foi aplicado', c.t], ['Como reverter', c.reverter || c.p]]
+      : [['O que é', c.o], ['O que já foi feito ou testado', c.t], ['Proposta', c.p]];
+    el.innerHTML = `
+      <div class="cab"><span class="num">${String(c.n).padStart(2, '0')}</span><h3 class="tit"></h3>
+        <span class="pill ${bl}"></span></div>
+      <div class="imgs">
+        <div class="vistas" role="group" aria-label="Vista">
+          ${vs.map((v, j) => `<button type="button" data-i="${j}" aria-pressed="${j === 0}">${v.rotulo}</button>`).join('')}
+        </div>
+        <img class="vista" width="800" height="514" src="${src(vs[0].arquivo)}" alt="">
+        <p class="nota-img"></p>
+        <dl class="dados">${dados.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>
+      </div>
+      <div class="texto">
+        ${txt.map(([h]) => `<div><h4>${h}</h4><p></p></div>`).join('')}
+        <div class="decisao">
+          <h4>${bl === 'aplicado' ? 'Confirmação' : 'Decisão'}</h4>
+          <div class="opcoes" role="radiogroup" aria-label="Encaminhamento">${OPC[bl].map(([v, l]) =>
+            `<label><input type="radio" name="op-${id}" value="${v}">${l}</label>`).join('')}</div>
+          <textarea placeholder="Escreva a decisão ou a observação"></textarea>
+          <div class="anexo">
+            <div class="linha">
+              <label class="bt" hidden><input type="file" accept="image/png,image/jpeg,image/webp">Anexar imagem da solução</label>
+              <button type="button" class="tirar" hidden>Remover imagem</button>
+              <span class="dica"></span>
+            </div>
+            <img class="anexada" alt="Imagem anexada com a solução sugerida" hidden>
+          </div>
+          <div class="salvo" aria-live="polite"></div>
+        </div>
+      </div>`;
+    el.querySelector('h3.tit').textContent = c.titulo;
+    el.querySelector('.pill').textContent = bl === 'aplicado' ? 'aplicado, pode reverter' : (c.quem ? 'decisão: ' + c.quem : 'precisa de decisão');
+    el.querySelectorAll('.texto > div:not(.decisao) p').forEach((p, j) => { p.textContent = txt[j][1] || ''; });
+    const img = el.querySelector('img.vista');
+    const legenda = v => v.prancha ? 'Recorte da prancha do projetista: ponto no círculo vermelho, elementos citados em azul.' : 'Modelo IFC de entrega; o ponto da ficha no círculo vermelho.';
+    img.alt = vs[0].rotulo + ': ' + c.titulo; el.querySelector('.nota-img').textContent = legenda(vs[0]);
+    el.querySelectorAll('.vistas button').forEach(b => b.addEventListener('click', () => {
+      el.querySelectorAll('.vistas button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      const v = vs[+b.dataset.i];
+      img.src = src(v.arquivo); img.alt = `${v.rotulo}: ${c.titulo}`; el.querySelector('.nota-img').textContent = legenda(v);
+    }));
+    img.addEventListener('click', e => abrirZoom(e.target.src, e.target.alt));
+    el.querySelector('img.anexada').addEventListener('click', e => abrirZoom(e.target.src, e.target.alt));
+    el.querySelectorAll('.opcoes input').forEach(r => r.addEventListener('change', () => salvar(id)));
+    const ta = el.querySelector('textarea'); let tm = null;
+    ta.addEventListener('input', () => { marca(id, 'Salvando…'); clearTimeout(tm); tm = setTimeout(() => salvar(id), 900); });
+    ta.addEventListener('blur', () => { if (tm) { clearTimeout(tm); tm = null; salvar(id); } });
+    el.querySelector('.anexo input[type=file]').addEventListener('change', e => anexar(id, e.target));
+    el.querySelector('.anexo .tirar').addEventListener('click', () => tirarImagem(id));
+    blocos[bl].appendChild(el);
+  });
+  for (const bl of ['decisao', 'aplicado']) {
+    if (!conta[bl]) { const p = document.createElement('p'); p.className = 'vazio'; p.textContent = bl === 'decisao' ? 'Nada depende de decisão.' : 'Nada foi aplicado sem perguntar.'; blocos[bl].appendChild(p); }
+  }
+  document.getElementById('r-dec-total').textContent = conta.decisao;
+  document.getElementById('r-apl-total').textContent = conta.aplicado;
+}
+function abrirZoom(s, alt) { const z = document.getElementById('zoom'), i = document.getElementById('zoom-img'); i.src = s; i.alt = alt; z.hidden = false; }
+document.getElementById('zoom').addEventListener('click', () => { document.getElementById('zoom').hidden = true; });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('zoom').hidden = true; });
+function marca(id, txt, erro) { const s = document.querySelector(`#${id} .salvo`); s.textContent = txt; s.classList.toggle('erro', !!erro); }
+function aplicarFiltro() {
+  document.querySelectorAll('.filtros button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.f === filtro)));
+  for (const el of document.querySelectorAll('.ficha'))
+    el.hidden = !(filtro === 'todas' || (filtro === 'abertas' ? !temResp(estado[el.id]) : el.dataset.f === filtro));
+  for (const bl of ['decisao', 'aplicado']) document.getElementById('b-' + bl).hidden = !(filtro === 'todas' || filtro === 'abertas' || filtro === bl);
+  const n = C.filter(c => temResp(estado[id2(c.n)])).length;
+  document.getElementById('r-resp').textContent = n; document.getElementById('r-abertas').textContent = C.length - n;
+}
+document.querySelectorAll('.filtros button').forEach(b => b.addEventListener('click', () => { filtro = b.dataset.f; aplicarFiltro(); }));
+function mostraImagem(id, asset) {
+  const el = document.getElementById(id), im = el.querySelector('img.anexada');
+  if (asset) { im.src = '/_blob/' + asset; im.hidden = false; im.onerror = () => { im.hidden = true; el.querySelector('.dica').textContent = 'A imagem anexada não abriu nesta visualização.'; }; }
+  else { im.hidden = true; im.removeAttribute('src'); }
+  el.querySelector('.anexo .tirar').hidden = !(asset && assets && podeEscrever);
+}
+const salvando = {};
+async function salvar(id, extra) {
+  if (!db) { marca(id, 'Sem conexão com o banco: a anotação não foi salva.', true); return; }
+  const el = document.getElementById(id), op = el.querySelector('.opcoes input:checked'), ant = estado[id] || {};
+  const corpo = { decisao: op ? op.value : '', nota: el.querySelector('textarea').value, imagem: ant.imagem || '',
+                  em: new Date().toISOString(), por: (user && await user.id()) || null, ...(extra || {}) };
+  if (!extra && ant.decisao === corpo.decisao && (ant.nota || '') === corpo.nota) { marca(id, quando(ant)); return; }
+  while (salvando[id]) await salvando[id];
+  salvando[id] = db.doc('decisoes/' + id).set(corpo).then(() => { estado[id] = corpo; marca(id, 'Salvo'); mostraImagem(id, corpo.imagem); aplicarFiltro(); })
+    .catch(e => marca(id, e && e.code === 'invalid_argument' ? 'Você está como leitor: peça acesso de edição ao Anderson para anotar.' : 'Não salvou (' + ((e && e.code) || 'erro') + '). Tente de novo.', true))
+    .finally(() => { delete salvando[id]; });
+  await salvando[id];
+}
+async function anexar(id, input) {
+  const f = input.files && input.files[0]; input.value = '';
+  if (!f || !assets) return;
+  marca(id, 'Enviando a imagem…');
+  try {
+    const tipo = /png$/i.test(f.name) ? 'image/png' : /webp$/i.test(f.name) ? 'image/webp' : 'image/jpeg';
+    const r = await assets.upload(f, f.type ? undefined : { type: tipo });
+    await salvar(id, { imagem: r.id });
+  } catch (e) {
+    const c = e && e.code;
+    marca(id, c === 'too_large' ? 'Imagem grande demais (até 20 MB).' : c === 'unsupported_type' ? 'Use PNG, JPG ou WEBP.' : 'A imagem não foi enviada (' + (c || 'erro') + ').', true);
+  }
+}
+async function tirarImagem(id) {
+  const ant = estado[id]; if (!ant || !ant.imagem) return;
+  const velha = ant.imagem;
+  await salvar(id, { imagem: '' });
+  if (assets && estado[id] && !estado[id].imagem) { try { await assets.delete(velha); } catch (e) { /* o apontamento já saiu; a imagem órfã não aparece */ } }
+}
+function quando(d) { if (!d || !d.em) return ''; const t = new Date(d.em); return 'Salvo em ' + t.toLocaleDateString('pt-BR') + ' às ' + t.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }); }
+async function quem(d) { if (!user || !d || !d.por) return ''; const ps = await user.profiles([d.por]); return ps[d.por] && ps[d.por].name ? ' por ' + ps[d.por].name : ''; }
+async function receber(snap) {
+  for (const doc of snap.docs) {
+    const d = doc.data(), id = doc.id, el = document.getElementById(id);
+    if (!el) continue;
+    estado[id] = d;
+    const ta = el.querySelector('textarea');
+    if (document.activeElement !== ta && ta.value !== (d.nota || '')) ta.value = d.nota || '';
+    el.querySelectorAll('.opcoes input').forEach(r => { r.checked = r.value === d.decisao; });
+    mostraImagem(id, d.imagem);
+    if (!salvando[id]) marca(id, quando(d) + await quem(d));
+  }
+  aplicarFiltro();
+}
+montar(); aplicarFiltro();
+if (/^d\d\d$/.test(location.hash.slice(1))) { const a = document.getElementById(location.hash.slice(1)); if (a) { a.classList.add('alvo'); a.scrollIntoView({ block: 'start' }); } }
+(async () => {
+  const est = document.getElementById('estado');
+  if (!window.claude) { est.textContent = 'Abra pelo link do Claude para salvar as anotações.'; return; }
+  try { [db, user, assets] = await Promise.all([claude.use('db'), claude.use('user'), claude.use('assets')]); } catch (e) { est.textContent = 'Anotações indisponíveis nesta visualização.'; return; }
+  if (!db) { est.textContent = 'Anotações indisponíveis nesta visualização (entre na sua conta).'; return; }
+  if (user) { const w = await user.can('data.write'); if (w === false) podeEscrever = false; }
+  if (!podeEscrever) { document.querySelectorAll('textarea, .opcoes input').forEach(x => { x.disabled = true; }); est.textContent = 'Você está como leitor: vê as decisões, mas não anota.'; }
+  else est.textContent = 'Anotações salvas automaticamente';
+  document.querySelectorAll('.anexo label.bt').forEach(l => { l.hidden = !(assets && podeEscrever); });
+  document.querySelectorAll('.anexo .dica').forEach(s => { s.textContent = assets && podeEscrever ? 'Print em planta com a solução sugerida (PNG ou JPG).' : (podeEscrever ? 'Anexar imagem: só quem edita a página.' : ''); });
+  db.collection('decisoes').onSnapshot(receber, e => { est.textContent = 'As anotações pararam de atualizar (' + e.code + '). Recarregue a página.'; });
+})();
+</script>
+</body></html>

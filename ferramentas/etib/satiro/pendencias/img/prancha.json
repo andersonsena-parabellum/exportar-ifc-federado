@@ -1,0 +1,82 @@
+{
+ "1": [
+  {
+   "folha": "DRE-001",
+   "arquivo": "00_prancha_DRE-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-DRE-001-DRG-R02"
+  }
+ ],
+ "2": [
+  {
+   "folha": "ESG-001",
+   "arquivo": "01_prancha_ESG-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-ESG-001-HIG-R01"
+  }
+ ],
+ "3": [
+  {
+   "folha": "AF-001",
+   "arquivo": "02_prancha_AF-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-AF-001-HIG-R01"
+  },
+  {
+   "folha": "ESG-001",
+   "arquivo": "02_prancha_ESG-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-ESG-001-HIG-R01"
+  }
+ ],
+ "4": [
+  {
+   "folha": "EL-001",
+   "arquivo": "03_prancha_EL-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-EL-001-ELG-R02"
+  },
+  {
+   "folha": "ESG-001",
+   "arquivo": "03_prancha_ESG-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-ESG-001-HIG-R01"
+  }
+ ],
+ "5": [
+  {
+   "folha": "ESG-001",
+   "arquivo": "04_prancha_ESG-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-ESG-001-HIG-R01"
+  }
+ ],
+ "6": [
+  {
+   "folha": "ESG-001",
+   "arquivo": "05_prancha_ESG-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-ESG-001-HIG-R01"
+  }
+ ],
+ "7": [
+  {
+   "folha": "ESG-001",
+   "arquivo": "06_prancha_ESG-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-ESG-001-HIG-R01"
+  }
+ ],
+ "8": [
+  {
+   "folha": "ESG-001",
+   "arquivo": "07_prancha_ESG-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-ESG-001-HIG-R01"
+  }
+ ],
+ "9": [
+  {
+   "folha": "ESG-001",
+   "arquivo": "08_prancha_ESG-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-ESG-001-HIG-R01"
+  }
+ ],
+ "10": [
+  {
+   "folha": "ESG-001",
+   "arquivo": "09_prancha_ESG-001.jpg",
+   "prancha": "24-049-STK-XXX-ETIB-IMP-PE-ESG-001-HIG-R01"
+  }
+ ]
+}

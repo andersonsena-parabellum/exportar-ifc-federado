@@ -1,0 +1,6 @@
+SECURELOAD 0
+FILEDIA 0
+(load "D:/Projeto Modelagem/FERRAMENTAS/georef/diag.lsp")
+DIAG
+_.QUIT
+_Y

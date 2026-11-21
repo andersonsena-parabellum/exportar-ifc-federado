@@ -1,0 +1,5 @@
+SECURELOAD 0
+(load "D:/Projeto Modelagem/FERRAMENTAS/eletrica/dump_sit.lsp")
+DUMP
+QUIT Y
+

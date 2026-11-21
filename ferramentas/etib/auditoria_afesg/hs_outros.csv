@@ -1,0 +1,83 @@
+﻿cat;id;nome;x;y;zmin;zmax;comentario;param_comp
+PipeAccessory;455608;UnMEP - Quadrada 60 x 60 cm;54,507;0,707;134,460;135,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-11|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=135500|COMP_Cota Fundo (CF)=134560|COMP_Profundidade=940|COMP_Observação=|
+PipeAccessory;455611;UnMEP;43,239;-1,172;134,560;135,500;Caixa de gordura 135x135;COMP_Disciplina=ESG|COMP_Trecho=CG-01|COMP_Descrição=Caixa de gordura 135x135|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=135500|COMP_Cota Fundo (CF)=134660|COMP_Profundidade=840|COMP_Observação=|
+PipeAccessory;455630;UnMEP - Quadrada 60 x 60 cm;38,072;-1,554;134,610;135,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-12|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=135500|COMP_Cota Fundo (CF)=134710|COMP_Profundidade=790|COMP_Observação=|
+PipeAccessory;455632;UnMEP - Quadrada 60 x 60 cm;23,595;-3,590;134,750;135,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-13|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=135500|COMP_Cota Fundo (CF)=134850|COMP_Profundidade=650|COMP_Observação=|
+PipeAccessory;455634;UnMEP - Quadrada 60 x 60 cm;42,197;-50,479;135,500;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-19|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135600|COMP_Profundidade=500|COMP_Observação=|
+PipeAccessory;455636;UnMEP - Quadrada 60 x 60 cm;86,906;-28,228;135,500;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-14|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135600|COMP_Profundidade=500|COMP_Observação=CT adotado 136,10 (sem rótulo no DWG) / CF adotado CT-0,50 (sem rótulo)|
+PipeAccessory;455637;UnMEP - Quadrada 60 x 60 cm;69,138;-30,749;135,500;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-15|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135600|COMP_Profundidade=500|COMP_Observação=CT adotado 136,10 (sem rótulo no DWG) / CF adotado CT-0,50 (sem rótulo)|
+PipeAccessory;455638;UnMEP - Quadrada 60 x 60 cm;82,679;-28,821;135,535;136,100;Caixa sifonada de inspeção 60x60 (representada pela família de CI 60x60);COMP_Disciplina=ESG|COMP_Trecho=CES-02|COMP_Descrição=Caixa sifonada de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135635|COMP_Profundidade=465|COMP_Observação=CT adotado 136,10 (sem rótulo no DWG) / CF calculado pela declividade do tubo|
+PipeAccessory;455640;UnMEP - Quadrada 60 x 60 cm;71,591;-30,399;135,517;136,100;Caixa sifonada de inspeção 60x60 (representada pela família de CI 60x60);COMP_Disciplina=ESG|COMP_Trecho=CES-03|COMP_Descrição=Caixa sifonada de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135617|COMP_Profundidade=483|COMP_Observação=CT adotado 136,10 (sem rótulo no DWG) / CF calculado pela declividade do tubo|
+PipeAccessory;455642;UnMEP - Quadrada 60 x 60 cm;63,414;-31,377;135,500;136,100;Caixa sifonada de inspeção 60x60 (representada pela família de CI 60x60);COMP_Disciplina=ESG|COMP_Trecho=CES-04|COMP_Descrição=Caixa sifonada de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135610|COMP_Profundidade=490|COMP_Observação=CT adotado 136,10 (sem rótulo no DWG) / CF calculado pela declividade do tubo|
+PipeAccessory;455644;UnMEP - Quadrada 60 x 60 cm;61,704;-31,807;135,500;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-16|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135600|COMP_Profundidade=500|COMP_Observação=|
+PipeAccessory;455645;UnMEP - Quadrada 60 x 60 cm;52,152;-33,167;135,500;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-17|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135600|COMP_Profundidade=500|COMP_Observação=|
+PipeAccessory;455646;UnMEP - Quadrada 60 x 60 cm;13,588;-39,938;135,130;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-18|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135230|COMP_Profundidade=870|COMP_Observação=|
+PipeAccessory;455648;UnMEP - Quadrada 60 x 60 cm;15,399;-52,423;135,250;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-20|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135350|COMP_Profundidade=750|COMP_Observação=|
+PipeAccessory;455650;UnMEP - Quadrada 60 x 60 cm;-12,410;-75,079;137,800;138,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-21|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=138500|COMP_Cota Fundo (CF)=137900|COMP_Profundidade=600|COMP_Observação=|
+PipeAccessory;455651;UnMEP - Quadrada 60 x 60 cm;20,080;33,588;135,090;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-08|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135190|COMP_Profundidade=910|COMP_Observação=|
+PipeAccessory;455653;UnMEP - Quadrada 60 x 60 cm;30,875;35,195;135,400;136,100;Caixa sifonada de inspeção 60x60 (representada pela família de CI 60x60);COMP_Disciplina=ESG|COMP_Trecho=CES-01|COMP_Descrição=Caixa sifonada de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135500|COMP_Profundidade=600|COMP_Observação=|
+PipeAccessory;455654;UnMEP - Quadrada 60 x 60 cm;-15,741;-84,245;137,800;138,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-24|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=138500|COMP_Cota Fundo (CF)=137900|COMP_Profundidade=600|COMP_Observação=|
+PipeAccessory;455655;UnMEP - Quadrada 60 x 60 cm;-17,113;-100,455;137,650;138,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-26|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=138500|COMP_Cota Fundo (CF)=137750|COMP_Profundidade=750|COMP_Observação=|
+PipeAccessory;455656;UnMEP - Quadrada 60 x 60 cm;-16,214;-89,873;137,750;138,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-25|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=138500|COMP_Cota Fundo (CF)=137850|COMP_Profundidade=650|COMP_Observação=|
+PipeAccessory;455657;UnMEP - Quadrada 60 x 60 cm;9,557;-76,769;137,600;138,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-23|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=138500|COMP_Cota Fundo (CF)=137700|COMP_Profundidade=800|COMP_Observação=|
+PipeAccessory;455659;UnMEP - Quadrada 60 x 60 cm;1,964;-76,156;137,670;138,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-22|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=138500|COMP_Cota Fundo (CF)=137770|COMP_Profundidade=730|COMP_Observação=|
+PipeAccessory;455661;UnMEP;-11,046;-100,369;137,714;138,500;Caixa de gordura 135x135;COMP_Disciplina=ESG|COMP_Trecho=CG-02|COMP_Descrição=Caixa de gordura 135x135|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=138500|COMP_Cota Fundo (CF)=138100|COMP_Profundidade=400|COMP_Observação=Projeto indica CT 138,50 / CF 138,10 (prof. 0,40 m), insuficiente para caixa de gordura 135x135 com septo, modelada com topo na CT e fundo pela geometria mínima da família (~137,71). Verificar com projetista.|
+PipeAccessory;455676;UnMEP - Quadrada 60 x 60 cm;-1,309;38,404;135,350;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-07|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135450|COMP_Profundidade=650|COMP_Observação=|
+PipeAccessory;455677;UnMEP - Quadrada 60 x 60 cm;-0,383;31,830;135,400;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-09|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135500|COMP_Profundidade=600|COMP_Observação=|
+PipeAccessory;455678;UnMEP - Quadrada 60 x 60 cm;88,243;42,184;134,700;135,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-04|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=135500|COMP_Cota Fundo (CF)=134800|COMP_Profundidade=700|COMP_Observação=|
+PipeAccessory;455680;UnMEP - Quadrada 60 x 60 cm;92,062;17,036;134,460;135,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-10|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=135500|COMP_Cota Fundo (CF)=134560|COMP_Profundidade=940|COMP_Observação=|
+PipeAccessory;455681;UnMEP - Quadrada 60 x 60 cm;87,582;46,539;134,730;135,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-01|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=135500|COMP_Cota Fundo (CF)=134830|COMP_Profundidade=670|COMP_Observação=|
+PipeAccessory;455683;UnMEP - Quadrada 60 x 60 cm;79,930;45,389;134,800;135,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-03|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=135500|COMP_Cota Fundo (CF)=134900|COMP_Profundidade=600|COMP_Observação=|
+PipeAccessory;455684;UnMEP - Quadrada 60 x 60 cm;83,639;45,940;134,770;135,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-02|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=135500|COMP_Cota Fundo (CF)=134870|COMP_Profundidade=630|COMP_Observação=|
+PipeAccessory;455686;UnMEP - Quadrada 60 x 60 cm;18,836;41,804;135,160;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-05|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135260|COMP_Profundidade=840|COMP_Observação=|
+PipeAccessory;455688;UnMEP - Quadrada 60 x 60 cm;11,619;40,708;135,230;136,100;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-06|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=136100|COMP_Cota Fundo (CF)=135330|COMP_Profundidade=770|COMP_Observação=|
+PipeAccessory;455690;UnMEP - Quadrada 60 x 60 cm;6,591;-102,485;137,430;138,500;Caixa de inspeção 60x60;COMP_Disciplina=ESG|COMP_Trecho=CI-27|COMP_Descrição=Caixa de inspeção 60x60|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-ESG-001-HIG-R06|COMP_Cota Tampa (CT)=138500|COMP_Cota Fundo (CF)=137530|COMP_Profundidade=970|COMP_Observação=|
+MechanicalEquipment;443877;AF - Bomba pressurizadora (volume);93,918;6,356;134,537;134,887;Bomba B1 - Schneider BC-21 R 1/14, 3 CV, 12,1 m3/h, 28 mca (volume simplificado);COMP_Disciplina=AF|COMP_Trecho=B1|COMP_Descrição=Bomba B1 - Schneider BC-21 R 1/14, 3 CV, 12,1 m3/h, 28 mca (volume simplificado)|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06|
+MechanicalEquipment;443878;AF - Bomba pressurizadora (volume);93,499;10,074;134,526;134,876;Bomba B2 - Schneider BC-21 R 1/14, 3 CV, 12,1 m3/h, 28 mca (volume simplificado);COMP_Disciplina=AF|COMP_Trecho=B2|COMP_Descrição=Bomba B2 - Schneider BC-21 R 1/14, 3 CV, 12,1 m3/h, 28 mca (volume simplificado)|COMP_Origem=24-049-ALH-SLJ-ETIB-IMP-PE-AGF-001-R06|
+PipeFitting;443707;Standard;4,901;23,280;135,017;135,062;;
+PipeFitting;443712;Standard;97,882;13,519;134,660;134,711;;
+PipeFitting;443717;Standard;98,810;7,158;135,285;135,347;;
+PipeFitting;443722;Standard;92,638;2,993;134,636;134,724;;
+PipeFitting;443727;Standard;93,142;3,756;134,667;134,730;;
+PipeFitting;443732;Standard;50,062;1,056;134,995;135,070;;
+PipeFitting;443735;Standard;32,016;-1,542;135,004;135,068;;
+PipeFitting;443740;Standard;35,734;-28,387;135,546;135,610;;
+PipeFitting;443745;Standard;13,856;-31,563;135,882;135,946;;
+PipeFitting;443750;Standard;17,214;-55,867;136,129;136,195;;
+PipeFitting;443755;Standard;-11,143;-59,953;138,437;138,523;;
+PipeFitting;443760;Standard;-10,337;-65,883;137,833;137,915;;
+PipeFitting;443765;Standard;-9,995;-68,357;138,577;138,667;;
+PipeFitting;443770;Standard;-13,592;-73,871;138,672;138,709;;
+PipeFitting;443775;Standard;86,337;46,783;134,011;134,077;;
+PipeFitting;443789;Standard;-13,271;21,949;135,285;135,328;;
+PipeFitting;443798;Standard;6,659;0,360;135,331;135,374;;
+PipeFitting;443810;Standard;91,940;6,967;134,630;134,722;;
+PipeFitting;443822;Standard;34,332;-1,183;134,992;135,054;;
+PipeFitting;443834;Standard;-9,320;-73,301;138,650;138,711;;
+PipeFitting;443846;Standard;88,212;33,378;134,404;134,496;;
+PipeFitting;443851;Standard;88,216;33,478;134,412;134,487;;
+PipeFitting;443857;Standard;92,415;10,016;134,645;134,707;;
+PipeFitting;443864;Standard;92,774;6,183;134,656;134,718;;
+PipeFitting;444897;Standard 2;10,848;39,827;135,326;135,447;;
+PipeFitting;444901;Standard;10,837;39,780;135,327;135,446;;COMP_Descrição(SINAPI)=|COMP_Código(SINAPI)=89821|COMP_Unidade(SINAPI)=|COMP_Custo(SINAPI)=0|
+PipeFitting;444903;AN_ESG_Anel de vedação para Conexão Série N;10,857;39,898;135,335;135,438;;
+PipeFitting;444906;AN_ESG_Anel de vedação para Conexão Série N;10,834;39,809;135,336;135,438;;
+PipeFitting;444910;Standard 2;84,650;41,682;134,823;134,942;;
+PipeFitting;444914;Standard;84,714;41,648;134,823;134,940;;COMP_Descrição(SINAPI)=|COMP_Código(SINAPI)=89821|COMP_Unidade(SINAPI)=|COMP_Custo(SINAPI)=0|
+PipeFitting;444916;AN_ESG_Anel de vedação para Conexão Série N;84,600;41,730;134,833;134,934;;
+PipeFitting;444918;AN_ESG_Anel de vedação para Conexão Série N;84,685;41,644;134,831;134,933;;
+PipeFitting;455612;UnMEP;43,441;-1,142;135,076;135,346;;
+PipeFitting;455614;UnMEP;43,404;-1,148;135,281;135,345;;
+PipeFitting;455618;UnMEP;43,404;-1,147;135,209;135,213;;
+PipeFitting;455620;UnMEP;43,404;-1,147;135,207;135,211;;
+PipeFitting;455622;UnMEP;43,404;-1,148;135,076;135,160;;
+PipeFitting;455625;UnMEP;43,404;-1,147;135,127;135,131;;
+PipeFitting;455662;UnMEP;-10,842;-100,386;138,231;138,500;;
+PipeFitting;455664;UnMEP;-10,879;-100,383;138,435;138,500;;
+PipeFitting;455666;UnMEP;-10,879;-100,382;138,363;138,367;;
+PipeFitting;455668;UnMEP;-10,879;-100,382;138,361;138,365;;
+PipeFitting;455670;UnMEP;-10,879;-100,383;138,231;138,314;;
+PipeFitting;455672;UnMEP;-10,879;-100,382;138,281;138,285;;
+PipeFitting;455692;Standard;15,347;-52,131;135,315;135,486;;
+PipeFitting;455698;Standard;15,347;-52,079;135,315;135,486;;COMP_Descrição(SINAPI)=|COMP_Código(SINAPI)=89821|COMP_Unidade(SINAPI)=|COMP_Custo(SINAPI)=0|
+PipeFitting;455702;AN_ESG_Anel de vedação para Conexão Série N;15,354;-52,123;135,325;135,475;;
